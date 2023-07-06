@@ -49,7 +49,11 @@
       font-weight: bolder;
       padding-top: 10px;
       text-align: start;
+      text-align: center;
     }
+    .productName:hover{
+      text-decoration: underline;
+  }
     .stars{
         display: flex;
         align-items: flex-end;

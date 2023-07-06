@@ -22,3 +22,40 @@ export const actionGetProductAsync = () => {
         }
     }
 }
+//-----------------------FILTRO-----------------------------------
+
+export const actionFilterProductAsync = (searchParam, searchValue) => {
+  return async (dispatch) => {
+    const url = "http://localhost:3000/products"; 
+    const products = [];
+
+    try {
+      const response = await axios.get(url, {
+        params: {
+          [searchParam]: searchValue
+        }
+      });
+
+      const data = response.data;
+      data.forEach((product) => {
+        products.push({
+          id: product.id,
+          ...product
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      dispatch(actionFilterProductSync(products));
+    }
+  };
+};
+
+// const actionFilterProductSync = (product) => {
+//   return{
+//       type: restaurantsTypes.RESTAURANT_FILTERED,
+//       payload: {
+//           restaurant: restaurant,
+//       },
+//   };
+// };

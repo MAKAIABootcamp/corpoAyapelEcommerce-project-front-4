@@ -27,11 +27,20 @@ const DetailsCards = () => {
       {productInfo ? (
         <div className="containerDetails">
           <div className="detailsImages">
-            <img  className="img1" src={productInfo.img["1"]} />
+            {/* <img  className="img1" src={productInfo.img["1"]} />
             <img className="otherimg" src={productInfo.img["2"]} />
             <img className="otherimg"src={productInfo.img["3"]} />
             <img className="otherimg" src={productInfo.img["4"]} />
-          </div>
+            <div className="detailsImages"> */}
+            {Object.values(productInfo.img).map((imageUrl, index) => (
+                <img
+                  key={index}
+                  className={`otherimg ${index === 0 ? 'mainImage' : ''}`}
+                  src={imageUrl}
+                  alt={`Image ${index}`}
+                />
+            ))}
+              </div>
           <div className="detailsInfo">
             <h1>{productInfo.product_name} </h1>
             <h3> {productInfo.price} </h3>
