@@ -3,7 +3,6 @@ import ProductCards from "../../components/Cards/ProductCards/ProductCards";
 
 const Home = () => {
   return <div>
-    Home
     <NavBar/>
     <ProductCards/>
   </div>;

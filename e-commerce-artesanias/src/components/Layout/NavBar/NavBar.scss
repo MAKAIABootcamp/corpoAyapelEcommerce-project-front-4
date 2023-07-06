@@ -1,6 +1,7 @@
 .nav-bar{
     height: 78px;
-    background-color: #d9ff98;
+    // background-color: #d9ff98;
+    background-color:#C7BBAF;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,7 +9,19 @@
 }   
 
 .nav-bar h2 {
-    font-size: 40px;
+    font-size: 30px;
+    color: #394C45
+
+}
+ul{
+display: flex;
+list-style: none;
+gap: 2%;
+width: 80%;
+
+li{
+    color: #394C45
+}
 }
 
 .nav-bag{

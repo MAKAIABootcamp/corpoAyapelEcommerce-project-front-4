@@ -21,7 +21,7 @@ const ProductCards = () => {
   return (
     <div className='container'>
       {products.map((product) => (
-        <div key={product.id} onClick={() => {navigate(`/productDetails/${product.product_name}`)}}>
+        <div key={product.id} onClick={() => {navigate(`/Details/${product.product_name}`)}}>
           <Card className="card" style={{ width: '18rem' }}>
             <Card.Img className="cardImage" variant="top" src={product.img["1"]} />
             <Button className="button"variant="primary">{product.price}</Button>

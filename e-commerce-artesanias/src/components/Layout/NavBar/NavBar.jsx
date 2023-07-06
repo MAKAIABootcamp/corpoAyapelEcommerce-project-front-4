@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import "./NavBar.scss";
+// import {logo} from "../../../assets/Icons/"
 
 const NavBar = () => {
   return <div> 
     <nav className="nav-bar">
       {/*  */}
         <h2>Ayapel Artesanias</h2>
+        {/* <img src={logo}/>  */}
+        <ul>
+          <li> Artesanías </li>
+          <li>  ¿ Quienes somos ? </li>
+          <li>  Contacto </li>
+
+        </ul>
         {/* cada div extra crea una seleccion adicional en el carrito */}
         <div className="nav-bag">
           <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-basket-fill" viewBox="0 0 16 16">

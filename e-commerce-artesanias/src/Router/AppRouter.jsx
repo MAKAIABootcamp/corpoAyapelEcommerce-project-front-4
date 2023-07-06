@@ -61,7 +61,7 @@ const AppRouter = () => {
           {/* RUTAS PÚBLICAS */}
           <Route element={<PublicRouter isAutentication={isLoggedIn} />}>
             <Route index element={<Home />} />
-            <Route path='Details/:id' element={<Details />} />
+            <Route path='Details/:name' element={<Details />} />
             <Route path='AboutUs' element={<AboutUs />} />
             <Route path='Contact' element={<Contact />} />
             <Route path='Login' element={<Validation />} />
@@ -81,7 +81,7 @@ const AppRouter = () => {
             <Route path='Details/:id' element={<Details />} />
             <Route path='AboutUs' element={<AboutUs />} />
             <Route path='Contact' element={<Contact />} />
-            <Route path='Login' element={<Validation />} />
+            {/* <Route path='Login' element={<Validation />} /> */}
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
             <Route path='Testimonies' element={<Testimonies />} />
