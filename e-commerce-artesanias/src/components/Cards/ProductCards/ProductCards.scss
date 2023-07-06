@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 10px;
+    
+    .card {
+    //   border: 2px #394C45 solid; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15% 5%;
+      position: relative; 
+      height: 400px;
+    }
+  
+    .cardImage {
+      width: 80%; 
+      height: 50%;
+      border-radius: 20px;
+    }
+  
+    .button {
+      background-color: #E6DCD8;
+      border: 1px #394C45 solid; 
+      border-radius: 20px;
+      color: #394C45;
+      z-index: 2;
+      width: 45%;
+      height: 10%;
+      position: absolute;
+      bottom: 10px;
+      left: 65%;
+      transform: translateX(-50%);
+      top: 40%;
+      font-size: smaller;
+    }
+    .productName{
+      color: #394C45;
+      font-weight: bolder;
+      padding-top: 10px;
+    }
+    .stars{
+        display: flex;
+        align-items: flex-end;
+        margin-left: -40%;
+        h4{
+            color: #F1A548;
+            margin-right: 5px;
+            align-items: flex-end;
+        }
+    }
+    
+}
+  
