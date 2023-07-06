@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../ProductCards/ProductCards.scss";
+import { useNavigate } from 'react-router-dom';
 const ProductCards = () => {
   const products = useSelector(state => state.productStore.products);
   console.log(products);
@@ -15,10 +16,12 @@ const ProductCards = () => {
     dispatch(actionGetProductAsync());
   }, [dispatch]);
 
+  const navigate = useNavigate();
+
   return (
     <div className='container'>
       {products.map((product) => (
-        <div key={product.id}>
+        <div key={product.id} onClick={() => {navigate(`/productDetails/${product.product_name}`)}}>
           <Card className="card" style={{ width: '18rem' }}>
             <Card.Img className="cardImage" variant="top" src={product.img["1"]} />
             <Button className="button"variant="primary">{product.price}</Button>

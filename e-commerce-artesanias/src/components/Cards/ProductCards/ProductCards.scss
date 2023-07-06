@@ -3,9 +3,12 @@
     flex-wrap: wrap;
     gap: 10px;
     border-radius: 10px;
+    background-color: #f2efed;
+    width: 100%;
     
     .card {
     //   border: 2px #394C45 solid; 
+    //     background-color: #f2efed;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -36,10 +39,16 @@
       top: 40%;
       font-size: smaller;
     }
+
+    .button:hover{
+        background-color: #394C45;
+        color: #E6DCD8;
+      }
     .productName{
       color: #394C45;
       font-weight: bolder;
       padding-top: 10px;
+      text-align: start;
     }
     .stars{
         display: flex;
