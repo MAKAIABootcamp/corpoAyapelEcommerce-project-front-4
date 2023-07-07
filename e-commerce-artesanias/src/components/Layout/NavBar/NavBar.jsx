@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import "./NavBar.scss";
-// import {logo} from "../../../assets/Icons/"
+// import {logo} from "../../../assets/Images/logo.png";
 
 const NavBar = () => {
   return <div> 
     <nav className="nav-bar">
       {/*  */}
-        <h2>Ayapel Artesanias</h2>
-        {/* <img src={logo}/>  */}
+        <h2>Ayapel Artesanías</h2>
+        {/* <img src={logo} alt="logo"/>  */}
         <ul>
           <li> Artesanías </li>
-          <li>  ¿ Quienes somos ? </li>
+          <li>  ¿ Quiénes somos ? </li>
           <li>  Contacto </li>
 
         </ul>
