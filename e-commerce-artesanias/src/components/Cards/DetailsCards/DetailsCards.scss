@@ -5,11 +5,12 @@
     padding: 2% 7%;
     background-color: #f2efed;
     height: 100%;
+    gap: 5%;
     .detailsImages {
         display: flex;
         flex-wrap: wrap;
         gap: 5%;
-        width: 40%;
+        width: 30%;
         justify-content: space-evenly;
         .otherimg {
           width: 20%;
@@ -19,18 +20,19 @@
         }
       
         .mainImage {
-          height: auto;
-          border-radius: 30px;
-          width: 100%; 
-         height: 40%;
-         flex-basis: 100%; 
+            height: auto;
+            border-radius: 30px;
+            width: 50%; 
+            max-height: 300px; 
+            flex-basis: 100%; 
+            object-fit: contain;
         }
       }      
     .detailsInfo{
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 40%;
+        width: 55%;
         justify-content: center;
         h1 {
             color: #394C45;
@@ -42,7 +44,9 @@
 
         }
         h5{
-            width: 60%;
+            width: 50%;
+            white-space: pre-line;
+            line-height: 18px;
         }
         .button {
             background-color: #E6DCD8;

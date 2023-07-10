@@ -12,6 +12,11 @@ export const productReducers = (state = productState, action) => {
                 ...state,
                 products: action.payload.product
             };
+            case productTypes.PRODUCTS_FILTERED:
+                return{
+                    ...state,
+                    products: action.payload.product
+                };  
         default:
             return state;
     };

@@ -1,0 +1,19 @@
+.ulContainer{
+    display: flex;
+    justify-content: center;
+    background-color: #f2efed;
+    ul{
+        display: flex;
+        padding: 0.5%;
+        background-color: #E6DCD8;
+        border-radius: 12px;
+        justify-content: space-evenly;
+        li{
+            color:  #394C45;
+            font-weight: bold;
+        }
+        li:hover{
+            text-decoration: underline;
+        }
+    }
+}

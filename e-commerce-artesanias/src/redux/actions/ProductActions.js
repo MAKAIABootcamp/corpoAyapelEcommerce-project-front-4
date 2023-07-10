@@ -51,11 +51,11 @@ export const actionFilterProductAsync = (searchParam, searchValue) => {
   };
 };
 
-// const actionFilterProductSync = (product) => {
-//   return{
-//       type: restaurantsTypes.RESTAURANT_FILTERED,
-//       payload: {
-//           restaurant: restaurant,
-//       },
-//   };
-// };
+const actionFilterProductSync = (product) => {
+  return{
+      type: productTypes.PRODUCTS_FILTERED,
+      payload: {
+          product: product,
+      },
+  };
+};
