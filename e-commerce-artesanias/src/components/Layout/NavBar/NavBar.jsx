@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 import "./NavBar.scss";
-// import {logo} from "../../../assets/Images/logo.png";
+import logo from "../../../assets/Images/logo.png";
 
 const NavBar = () => {
   return <div> 
     <nav className="nav-bar">
       {/*  */}
-        <h2>Ayapel Artesanías</h2>
-        {/* <img src={logo} alt="logo"/>  */}
+        {/* <h2>Ayapel Artesanías</h2> */}
+        <img src={logo} alt="logo"/> 
         <ul>
           <li> Artesanías </li>
           <li>  ¿ Quiénes somos ? </li>
           <li>  Contacto </li>
+          <li>  Iniciar sesión </li>
+          <li>  Carrito </li>
+
 
         </ul>
         {/* cada div extra crea una seleccion adicional en el carrito */}
