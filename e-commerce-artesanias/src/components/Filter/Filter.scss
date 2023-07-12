@@ -1,12 +1,13 @@
+@import "../../main.scss";
 .ulContainer{
     display: flex;
     justify-content: space-around;
-    background-color: #f2efed;
+    background-color:$bg_color;
     width: 100%;
     ul{
         display: flex;
         padding: 0.5%;
-        background-color: #E6DCD8;
+        background-color:#E6DCD8;
         border-radius: 12px;
         justify-content: space-evenly;
         width: 80%;

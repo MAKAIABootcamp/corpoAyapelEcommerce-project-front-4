@@ -1,9 +1,10 @@
+@import "../../../main.scss";
 .container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     border-radius: 10px;
-    background-color: #f2efed;
+    background-color: $bg_color;
     width: 100%;
     justify-content: center;
     
@@ -31,27 +32,27 @@
     }
   
     .button {
-      background-color: #E6DCD8;
-      border: 1px #394C45 solid; 
-      border-radius: 20px;
-      color: #394C45;
+      // background-color: #E6DCD8;
+      // border: 1px #394C45 solid; 
+      // border-radius: 20px;
       z-index: 2;
-      width: 45%;
-      height: 10%;
+      height: 8%;
       position: absolute;
       bottom: 10px;
       left: 65%;
       transform: translateX(-50%);
-      top: 40%;
+      top: 42%;
       font-size: smaller;
+      // @include button ($backgroundc: black, $colorletra: white, $pixel: 100px)
+      @include button ($pixel: 45%);
     }
 
-    .button:hover{
-        background-color: #394C45;
-        color: #E6DCD8;
-      }
+    // .button:hover{
+    //     background-color: #394C45;
+    //     color: #E6DCD8;
+    //   }
     .productName{
-      color: #394C45;
+      color: $color_primary;
       font-weight: bolder;
       padding-top: 10px;
       text-align: center;
@@ -71,7 +72,7 @@
     }
 
     .errorMessage{
-      color: #394C45;
+      color: $color_primary;
       font-weight: bolder;
       text-align: center;
     }

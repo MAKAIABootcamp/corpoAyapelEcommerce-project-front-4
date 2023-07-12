@@ -1,10 +1,11 @@
+@import "../../main.scss";
 .sections_container{
     display:flex;
     flex-wrap: wrap;
     flex-direction: row;
     gap: 2%;
     padding: 2% 5%;
-    background-color: #f2efed;
+    background-color:$bg_color;
     justify-content: center;
     // align-items: center;
 }
@@ -32,7 +33,7 @@
     &__name{
         background-color: #C7BBAF;
         position: relative; 
-        color:  #394C45;
+        color:  $color_primary;
         padding: 1%;
         width: 40%;
         // top: 28%;
@@ -72,7 +73,7 @@
         }
     }
     &__name{
-        color:  #394C45;
+        color:  $color_primary;
         position: relative; 
         padding: 1%;
         width: 40%;

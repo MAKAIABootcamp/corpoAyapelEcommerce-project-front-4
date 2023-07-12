@@ -24,4 +24,32 @@
 
 body {
   width: 100%;
+  font-family: "EXTRABOLD";
+}
+
+$color_primary:#394C45;  
+$font-sizeTitle:30px; 
+$font-sizeText:15px;
+$color_secondary: #E6DCD8;  
+$bg_color: #f2efed;
+
+@mixin button($pixel: 94px, $backgroundc: $color_secondary, $colorletra: $color_primary) {
+    
+  right: 0px;
+  background: $backgroundc;
+  box-shadow: 0 0 1px rgba(black, .25);
+  border: 2px solid #7f7f7f;
+  width: $pixel;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 12px;
+  color:$colorletra;
+  font-weight: bold;
+  &:hover {
+      background-color: $color_primary; 
+      color: $color_secondary;
+      cursor: pointer;
+
+  }
 }

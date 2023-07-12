@@ -1,3 +1,4 @@
+@import "../../../main.scss";
 .containerDetails{
     display: flex;
     flex-wrap: wrap;
@@ -35,7 +36,7 @@
         width: 55%;
         justify-content: center;
         h1 {
-            color: #394C45;
+            color: $color_primary;
            text-align: center;
            justify-content: center;
         }
@@ -49,19 +50,9 @@
             line-height: 18px;
         }
         .button {
-            background-color: #E6DCD8;
-            border: 1px #394C45 solid; 
-            border-radius: 20px;
-            color: #394C45;
-            bottom: 10px;
-            font-size: smaller;
-            width: 30%;
-            padding: 1%;
+            @include button($pixel: 20%);
           }
-        .button:hover{
-            background-color: #394C45;
-            color: #E6DCD8;
-          }
+
       
     }
 }

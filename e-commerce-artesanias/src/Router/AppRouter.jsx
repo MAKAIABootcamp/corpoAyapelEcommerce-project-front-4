@@ -69,7 +69,7 @@ const AppRouter = () => {
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
             <Route path='Testimonies' element={<Testimonies />} />
             <Route path='CreateAccount' element={<CreateAccount />} />
-
+            <Route path='Cart' element={<Cart />} />
             {/* Analizar si son necesarios */}
             <Route path='TopSell' element={<TopSell />} />
             <Route path='News' element={<News />} />
@@ -95,7 +95,7 @@ const AppRouter = () => {
             {/* Estas serían las rutas privadas */}
             <Route index element={<Home />} />
             <Route path='Admin' element={<Admin />}>
-              <Route path='Cart' element={<Cart />} />
+              {/* <Route path='Cart' element={<Cart />} /> */}
               <Route path='Payment' element={<Payment />} />
             </Route>
           </Route>
