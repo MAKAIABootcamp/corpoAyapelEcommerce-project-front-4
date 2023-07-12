@@ -1,0 +1,112 @@
+.body{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #C7BBAF;
+    .buttons{
+        gap: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: #FFF9EE;
+        width: 100%;
+        font-family: "Josefin Sans";
+        font-size: 12px;
+        padding: 20px;
+        a{
+            flex-basis: 200px;
+        }
+        span{
+            color: black;
+        }
+        .icons{
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            margin-right: 7px;
+        }
+    }
+    .footer-bg{
+        padding: 0 60px;
+        .follow{
+            >p{
+                padding: 40px 40px  25px;
+                font-family: 'Dosis' !important;
+                font-size: 15px;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: center;
+                letter-spacing: 0.5em;
+                line-height: 1.4;
+            }
+        }
+
+      .icon{
+          width: 30px;
+          height: 30px;
+          margin-right: 20px;
+          margin-bottom: 25px;
+      }
+      .socials{
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+      }
+      .information{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .contact{
+            margin-top: -30px;
+            h4{
+                text-transform: uppercase;
+            }
+            display: inline;
+            align-items: flex-end;
+            margin-left: 20px;
+            font-family: 'Dosis' !important;
+            p{
+              margin: 0;
+            }
+        }
+        .logo{
+            width: 150px;
+            height: 100%;
+            margin-left: 60px;
+            margin-bottom: 40px;
+        }
+        .text{
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 60px;
+            display: block;
+            max-width: 200px;
+            margin-top: -30px;
+          }
+        
+      }
+      .copyright{
+        display: block;
+        text-align: center;
+        padding: 5px;
+      }
+    }
+    .list{
+        h4{
+            font-family: 'Dosis' !important;
+            text-transform: uppercase;
+            display: flex;
+            text-align: center;
+            margin-top: -40px;
+        }
+        p{
+            text-align: center;
+            color: black;
+            font-family: 'Dosis' !important;
+            text-decoration: underline #33AC4F;
+            margin-right: 100px;
+        }
+    }
+}

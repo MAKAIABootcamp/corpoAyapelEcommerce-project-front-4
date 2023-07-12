@@ -10,6 +10,7 @@ import Contact from '../pages/Contact/Contact';
 import Validation from '../pages/Validation/Validation';
 import TermsAndConditions from '../pages/TermsAndConditions/TermsAndContitions';
 import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
+import RefundPolicy from '../pages/RefundPolicy/RefundPolicy';
 import Testimonies from '../pages/Testimonies/Testimonies';
 import CreateAccount from '../pages/CreateAccount/CreateAccount';
 import TopSell from '../pages/TopSell/TopSell';
@@ -67,6 +68,7 @@ const AppRouter = () => {
             <Route path='Login' element={<Validation />} />
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
+            <Route path='RefundPolicy' element={<RefundPolicy/>}/>
             <Route path='Testimonies' element={<Testimonies />} />
             <Route path='CreateAccount' element={<CreateAccount />} />
 
@@ -84,6 +86,7 @@ const AppRouter = () => {
             {/* <Route path='Login' element={<Validation />} /> */}
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
+            <Route path='RefundPolicy' element={<RefundPolicy/>}/>
             <Route path='Testimonies' element={<Testimonies />} />
             <Route path='CreateAccount' element={<CreateAccount />} />
 
