@@ -1,5 +1,5 @@
 .body{
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     background-color: #C7BBAF;
@@ -57,15 +57,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
         .contact{
-            margin-top: -30px;
+            font-family: 'Dosis' !important;
             h4{
                 text-transform: uppercase;
             }
-            display: inline;
-            align-items: flex-end;
-            margin-left: 20px;
-            font-family: 'Dosis' !important;
             p{
               margin: 0;
             }
@@ -73,17 +70,10 @@
         .logo{
             width: 150px;
             height: 100%;
-            margin-left: 60px;
-            margin-bottom: 40px;
+            margin: 30px;
         }
         .text{
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: 60px;
-            display: block;
             max-width: 200px;
-            margin-top: -30px;
           }
         
       }
@@ -97,16 +87,13 @@
         h4{
             font-family: 'Dosis' !important;
             text-transform: uppercase;
-            display: flex;
-            text-align: center;
-            margin-top: -40px;
         }
         p{
-            text-align: center;
+            
             color: black;
             font-family: 'Dosis' !important;
             text-decoration: underline #33AC4F;
-            margin-right: 100px;
         }
     }
 }
+

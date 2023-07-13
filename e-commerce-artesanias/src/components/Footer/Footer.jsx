@@ -101,7 +101,7 @@ const Footer = () => {
                 <h4>
                   <b>Nosotros</b>
                 </h4>
-                <NavLink to='/Validation' activeClassname='active'>
+                <NavLink to='/Login' activeClassname='active'>
                   <p>Iniciar Sesión</p>
                 </NavLink>
                 <NavLink to='/AboutUs' activeClassname='active'>

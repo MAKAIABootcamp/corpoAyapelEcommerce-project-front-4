@@ -10,6 +10,8 @@
     margin-left: 20px;
     margin-bottom: 20px;
     flex-shrink: 0;
+    width: 100%;
+    max-width: 550px;
   }
   h1 {
     margin-top: 0;
@@ -40,16 +42,22 @@
     font-size: 16px !important;
   }
   .section {
+    /*
     width: 100%;
     display: block;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; */
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     box-sizing: border-box;
+    padding-top: 30px;
+  }
+  ul{
+    width: unset;
   }
   .paragraph{
     margin: 0 0 2em 0;
   }
 }
+

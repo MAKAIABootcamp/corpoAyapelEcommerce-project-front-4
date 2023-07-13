@@ -35,7 +35,7 @@ const RefundPolicy = () => {
             </li>
             <li>
                El artículo debe estar en el embalaje original o similar.
-            </li>
+            </li> 
             <li>
                 Solo se pueden reembolsar los artículos de precio regular; los
                 artículos de promoción no se pueden reembolsar.
