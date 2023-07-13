@@ -1,5 +1,5 @@
 .nav-bar{
-    height: 78px;
+    height: 80px;
     // background-color: #d9ff98;
     background-color:#C7BBAF;
     display: flex;
@@ -8,20 +8,38 @@
     padding: 0 4rem;
 }   
 
+.nav-bar img{
+height:60px;
+}
+
 .nav-bar h2 {
     font-size: 30px;
     color: #394C45
 
 }
+
 ul{
 display: flex;
 list-style: none;
 gap: 2%;
 width: 80%;
+justify-content: space-between;
+padding-right: 10%;
+padding-left:10%;
 
-li{
-    color: #394C45
+    li{
+        color: #394C45
+    }
 }
+
+.validation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul{
+        display: grid;
+    }
 }
 
 .nav-bag{
@@ -33,8 +51,8 @@ li{
     display:flex;
     align-items: center;
     justify-content: center;
-    height: 25px;
-    width: 25px;
+    height: 30%;
+    width: 30%;
     border: 50%;
     padding-left: 30px;
     
