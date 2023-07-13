@@ -32,6 +32,7 @@ $font-sizeTitle:30px;
 $font-sizeText:15px;
 $color_secondary: #E6DCD8;  
 $bg_color: #f2efed;
+$bg_color_layout:  #C7BBAF;
 
 @mixin button($pixel: 94px, $backgroundc: $color_secondary, $colorletra: $color_primary) {
     
