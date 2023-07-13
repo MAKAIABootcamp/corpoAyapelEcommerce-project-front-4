@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PublicRouter from './PublicRouter';
-import PrivateRouter from './PrivateRouter';
 import Home from '../pages/Home/Home';
 import Details from '../pages/Details/Details';
 import AboutUs from '../pages/AboutUs/AboutUs';
 import Contact from '../pages/Contact/Contact';
+import Search from '../pages/Search/Search';
 import Validation from '../pages/Validation/Validation';
 import Register from '../pages/Register/Register';
 import TermsAndConditions from '../pages/TermsAndConditions/TermsAndContitions';
@@ -66,6 +66,7 @@ const AppRouter = () => {
             <Route path='Details/:name' element={<Details />} />
             <Route path='AboutUs' element={<AboutUs />} />
             <Route path='Contact' element={<Contact />} />
+            <Route path='Search' element={<Search />} />
             <Route path='Login' element={<Validation />} />
             <Route path='Register' element={<Register/>}/>
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
@@ -104,6 +105,14 @@ const AppRouter = () => {
               <Route path='Payment' element={<Payment />} />
             </Route>
           </Route>
+          {isLoggedIn && (
+            <React.Fragment>
+              <Route path='Admin' element={React.cloneElement(<Admin />, {isLoggedIn})}>
+                <Route path='Cart' element={<Cart />} />
+                <Route path='Payment' element={<Payment />} />
+              </Route>
+            </React.Fragment>
+          )}
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>

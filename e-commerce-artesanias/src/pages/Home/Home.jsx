@@ -4,6 +4,7 @@ import Footer from "../../components/Footer/Footer"
 import MainSections from "../../components/MainSections/MainSections";
 import Filter from "../../components/Filter/Filter";
 import { useState } from "react";
+import Banner from "../../components/Banner/Banner"
 
 const Home = () => {
   const [isFiltered , setisFiltered ]= useState(false)
@@ -13,6 +14,8 @@ const Home = () => {
     <Filter setisFiltered={setisFiltered}/>
     <ProductCards isFiltered={isFiltered}/>
     <Footer/>
+    <Banner/>
+    <ProductCards/>
   </div>;
 };
 

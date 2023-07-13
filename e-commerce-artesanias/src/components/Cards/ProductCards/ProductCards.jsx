@@ -4,7 +4,7 @@ import { actionGetProductAsync, actionFilterProductSync } from '../../../redux/a
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../ProductCards/ProductCards.scss";
+import '../ProductCards/ProductCards.scss';
 import { useNavigate } from 'react-router-dom';
 // import { filterProductsAsync, getProductsAsync } from '../../../redux/productSlice';
 const ProductCards = ({ isFiltered }) => {
