@@ -39,7 +39,7 @@ const [selectedImage, setSelectedImage] = useState('');
     dispatch(actionPostCartAsync(selectedProduct))
   }
 
-  const [showToast, setShowToast] = useState(true);
+  const [showToast, setShowToast] = useState(false);
 
   const toggleToast = () => {
     console.log(showToast)
@@ -77,6 +77,8 @@ const [selectedImage, setSelectedImage] = useState('');
             <Toast className="toast"
               show={showToast}
               onClose={toggleToast}
+              autohide 
+              delay={5000} 
             >
               <Toast.Header>
                 <strong className="me-auto">Producto agregado</strong>

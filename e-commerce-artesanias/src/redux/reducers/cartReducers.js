@@ -6,6 +6,12 @@ const cartState = {
 
 export const cartReducers = (state = cartState, action) => {
     switch (action.type) {
+      
+        case cartTypes.CART_GET:
+            return {
+                ...state,
+                cart: action.payload.cart
+            };
         case cartTypes.CART_ADD:
             return {
                 ...state,

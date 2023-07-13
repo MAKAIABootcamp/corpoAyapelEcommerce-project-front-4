@@ -49,9 +49,11 @@
     }
 }
 .section2{
-    // display: flex;
+    display: flex;
     flex-direction: column;
     width: 550px;
+    // justify-content: center;
+    // align-items: center;
     &__figure{
         width: 60%;
         height: 60%;
@@ -85,8 +87,6 @@
         left:-12%;
         font-size: 95%;
         font-weight: bold;
-        align-self: flex-end;
-        justify-self: end;
         cursor: pointer;
     }
 }

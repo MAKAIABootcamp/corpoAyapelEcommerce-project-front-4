@@ -23,6 +23,8 @@
       .cardImage {
         height: 50%; 
         width: 50%; 
+           // height: 200px; 
+        // width: 200px; 
         border-radius: 20px;
         filter: opacity(85%);
         padding: 2%;
@@ -45,7 +47,7 @@
         top: -4%;
         font-size: smaller;
         // @include button ($backgroundc: black, $colorletra: white, $pixel: 100px)
-        @include button ($pixel: 20%);
+        @include button ($pixel: 30%);
       }
   
       // .button:hover{
