@@ -59,23 +59,23 @@ function Validation() {
 
   return (
     <section className="login-page">
-      <p className="title">Login</p>
+      <p className="title">Iniciar sesión</p>
       <form className="formLogin" onSubmit={handleSubmit(onSubmitForm)}>
         <input
           type="text"
-          placeholder="username"
+          placeholder="nombre de usuario"
           {...register("user", { required: "Ingresa un nombre" })}
         />
         {errors.email && <span className="error">{errors.user.message}</span>}
         <input
           type="text"
-          placeholder="email"
+          placeholder="correo"
           {...register("email", { required: "Ingresa un email" })}
         />
         {errors.email && <span className="error">{errors.email.message}</span>}
         <input
           type="password"
-          placeholder="password"
+          placeholder="contraseña"
           {...register("password", { required: "Ingresa una contraseña" })}
         />
         {errors.password && (
@@ -83,9 +83,10 @@ function Validation() {
         )}
         
         <button className="login-button" type="submit">
-          Sing In
+          Iniciar
         </button>
-         <div className="providers">
+         <div className="providers"> 
+         <span>Iniciar sesión con: </span>
           <figure
             onClick={() => {
               sesionProvider(google);
@@ -95,8 +96,8 @@ function Validation() {
           </figure>
         </div>
       </form>
-      <Link className="button-register" to="/RegisterForm">
-        Register new user
+      <Link className="button-register" to="/Register">
+        Registrarse
       </Link>
     </section>
   );

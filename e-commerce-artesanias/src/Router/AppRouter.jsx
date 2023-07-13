@@ -8,6 +8,7 @@ import Details from '../pages/Details/Details';
 import AboutUs from '../pages/AboutUs/AboutUs';
 import Contact from '../pages/Contact/Contact';
 import Validation from '../pages/Validation/Validation';
+import Register from '../pages/Register/Register';
 import TermsAndConditions from '../pages/TermsAndConditions/TermsAndContitions';
 import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
 import RefundPolicy from '../pages/RefundPolicy/RefundPolicy';
@@ -66,12 +67,13 @@ const AppRouter = () => {
             <Route path='AboutUs' element={<AboutUs />} />
             <Route path='Contact' element={<Contact />} />
             <Route path='Login' element={<Validation />} />
+            <Route path='Register' element={<Register/>}/>
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
             <Route path='RefundPolicy' element={<RefundPolicy/>}/>
             <Route path='Testimonies' element={<Testimonies />} />
             <Route path='CreateAccount' element={<CreateAccount />} />
-
+            <Route path='Cart' element={<Cart />} />
             {/* Analizar si son necesarios */}
             <Route path='TopSell' element={<TopSell />} />
             <Route path='News' element={<News />} />
@@ -98,7 +100,7 @@ const AppRouter = () => {
             {/* Estas serían las rutas privadas */}
             <Route index element={<Home />} />
             <Route path='Admin' element={<Admin />}>
-              <Route path='Cart' element={<Cart />} />
+              {/* <Route path='Cart' element={<Cart />} /> */}
               <Route path='Payment' element={<Payment />} />
             </Route>
           </Route>
