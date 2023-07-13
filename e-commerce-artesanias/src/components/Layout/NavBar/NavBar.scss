@@ -6,12 +6,35 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 4rem;
-    padding-top: 10px;
+    font-size: 1.7rem;
+    
+    .left-row{
+        max-width: 50%;
+    }
+
+    li {
+    &:hover {
+        opacity: calc(80%);
+    }
+}
 }   
+
+.right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    p{        color: #394C45
+    }
+}
 
 .nav-bar img{
 height:60px;
-padding-bottom: 10px;
 }
 
 .nav-bar h2 {
@@ -24,38 +47,84 @@ ul{
 display: flex;
 list-style: none;
 gap: 2%;
-width: 80%;
+width: 100%;
 justify-content: space-between;
-padding-right: 10%;
-padding-left:10%;
+padding-right: 5%;
+padding-left:5%;
 
     li{
         color: #394C45
     }
-}
 
-.validation{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    ul{
-        display: grid;
-    }
-}
-
-.nav-bag{
-    display: flex;
-    align-items: center;
-}
-
-.bag-quantity{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    height: 30%;
-    width: 30%;
-    border: 50%;
-    padding-left: 30px;
     
 }
+
+//ZONA DERECHA NAVBAR
+
+.Search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+    svg {
+      &:hover {
+        background-color: #dfd2c5;
+        border-radius: 10PX;
+        padding: 1%;
+      }
+    }
+  
+    &:hover {
+        opacity: calc(90%);
+      /* Agrega cualquier estilo adicional que desees para resaltar el botón al pasar el cursor sobre él */
+    }
+  }
+  
+  .validation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+      display: grid;
+    }
+
+    svg{      
+        &:hover {
+        background-color: #dfd2c5;
+        border-radius: 10PX;
+        padding: 1%;
+      }
+    }
+
+    &:hover {
+        opacity: calc(90%);
+        /* Agrega cualquier estilo adicional que desees para resaltar el botón al pasar el cursor sobre él */
+      }
+  }
+  
+  .nav-bag {
+    display: flex;
+    align-items: center;
+  
+    .cart-value {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+    }
+
+    svg{      
+        &:hover {
+        background-color: #dfd2c5;
+        padding: 1%;
+        border-radius: 10PX;
+      }
+    }
+  
+    &:hover {
+        opacity: calc(90%);
+      /* Agrega cualquier estilo adicional que desees para resaltar el botón al pasar el cursor sobre él */
+    }
+  }
+  
