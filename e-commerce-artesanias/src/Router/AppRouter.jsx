@@ -6,6 +6,7 @@ import Home from '../pages/Home/Home';
 import Details from '../pages/Details/Details';
 import AboutUs from '../pages/AboutUs/AboutUs';
 import Contact from '../pages/Contact/Contact';
+import Search from '../pages/Search/Search';
 import Validation from '../pages/Validation/Validation';
 import TermsAndConditions from '../pages/TermsAndConditions/TermsAndContitions';
 import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
@@ -63,6 +64,7 @@ const AppRouter = () => {
             <Route path='Details/:name' element={<Details />} />
             <Route path='AboutUs' element={<AboutUs />} />
             <Route path='Contact' element={<Contact />} />
+            <Route path='Search' element={<Search />} />
             <Route path='Login' element={<Validation />} />
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
