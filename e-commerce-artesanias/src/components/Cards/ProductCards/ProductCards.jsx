@@ -37,8 +37,7 @@ const ProductCards = ({isFiltered}) => {
     <div className="container">
       { combinedProducts.length > 0 ? (
          combinedProducts.map((product) => (
-          <div key={product.id} onClick={() => navigate(`/Details/${product.product_name}`)}>
-            <Card className="card" style={{ width: '18rem' }}>
+            <Card className="card" key={product.id} onClick={() => navigate(`/Details/${product.product_name}`)}>
               <Card.Img className="cardImage" variant="top" src={product.img["1"]} />
               <Button className="button" variant="primary">
                 {product.price}
@@ -49,11 +48,10 @@ const ProductCards = ({isFiltered}) => {
                 <h4>★</h4>
                 <h4>★</h4>
               </div>
-              <Card.Text>
+              <Card.Text className="productDescription">
                 Some quick example text to build on the card title and make up the bulk of the card's content.
               </Card.Text>
             </Card>
-          </div>
         ))
       ) : (
         <div> <h3 className='errorMessage'> Lo sentimos, no hay productos disponibles. </h3></div>

@@ -1,6 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 const CartCards = () => {
   return <div className="container">
-  { combinedProducts.length > 0 ? (
+  {/* { combinedProducts.length > 0 ? (
      combinedProducts.map((product) => (
       <div key={product.id}>
         <Card className="card">
@@ -23,7 +24,7 @@ const CartCards = () => {
     ))
   ) : (
     <div> <h3 className='errorMessage'> Lo sentimos, no hay productos disponibles. </h3></div>
-  )}
+  )} */}
 </div>;
 };
 

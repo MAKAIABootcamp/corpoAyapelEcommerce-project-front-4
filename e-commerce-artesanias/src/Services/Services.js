@@ -1,5 +1,8 @@
 export const categories = [
- 
+  {
+    id: 11,
+    name: "Todos",
+  },
   {
     id: 2,
     name: "Bandejas",

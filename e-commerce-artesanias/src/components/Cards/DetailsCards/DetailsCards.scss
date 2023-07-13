@@ -40,10 +40,6 @@
            text-align: center;
            justify-content: center;
         }
-        
-        h3{
-
-        }
         h5{
             width: 50%;
             white-space: pre-line;
@@ -52,7 +48,24 @@
         .button {
             @include button($pixel: 20%);
           }
+          .toast{
+            position: absolute;
+            top: 10%;
+            background-color:#E6DCD8;
+            opacity: 1;
+          }
 
       
     }
+}
+
+@media screen and (max-width: 700px) {
+  .containerDetails{
+      display: flex;
+      flex-direction: column;
+      .detailsInfo{
+        width: 90%;
+      }
+  }
+  
 }

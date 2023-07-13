@@ -1,0 +1,16 @@
+@import "../../main.scss";
+.cartContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $bg_color;
+    h2{
+        color: $color_primary;
+        text-align: center;
+    }
+    h4{
+        color: rgb(137, 209, 30);
+        text-align: center;
+        cursor: pointer;
+    }
+}

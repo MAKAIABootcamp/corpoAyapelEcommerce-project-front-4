@@ -42,14 +42,16 @@ $bg_color: #f2efed;
   width: $pixel;
   text-align: center;
   justify-content: center;
-  padding: 10px;
+  padding: 2%;
   border-radius: 12px;
   color:$colorletra;
   font-weight: bold;
+  white-space:pre-wrap;
   &:hover {
       background-color: $color_primary; 
       color: $color_secondary;
       cursor: pointer;
+      // transform:scale(1.1)
 
   }
 }

@@ -1,7 +1,7 @@
 @import "../../main.scss";
 .ulContainer{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     background-color:$bg_color;
     width: 100%;
     ul{
@@ -26,14 +26,14 @@
 @media screen and (max-width: 1000px) {
     .ulContainer{
         margin: 0;
-        width: 50%;
+        width: 100%;
         display: flex;
         justify-content: center;
-        padding: 5%;
+        padding: 10%;
         ul {
             display: flex;
             flex-direction: column;
-            width: 100%;
+            width: 80%;
             padding: 5%;
         }
     }
