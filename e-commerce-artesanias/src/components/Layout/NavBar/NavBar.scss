@@ -1,130 +1,206 @@
-.nav-bar{
-    height: 100px;
-    // background-color: #d9ff98;
-    background-color:#C7BBAF;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4rem;
-    font-size: 1.7rem;
-    
-    .left-row{
-        max-width: 50%;
-    }
+.nav-bar {
+  display: flex;
+  height: 100px;
+  background-color: #C7BBAF;
+  justify-content: space-evenly;
 
-    li {
+
+  .logo {
+    margin-left: 20px;
+    height: 60px;
+  }
+
+ul li {
+  list-style-type: none;
+}
+}
+
+.desktop {
+  display: flex;
+  align-items: center;
+  padding: 0 4rem;
+  font-size: 1.7rem;
+  gap: 30px;
+
+
+  ul{
+    display: flex;
+  }
+
+  .left-list{
+    gap: 50px;
+    padding-right: 10px;
+  }
+
+  li {
+    color: #394C45;
+  }
+
+  li {
     &:hover {
-        opacity: calc(80%);
+      opacity: calc(80%);
     }
-}
-}   
-
-.right{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    div{
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    p{        color: #394C45
-    }
+  }
 }
 
-.nav-bar img{
-height:60px;
-}
+
+
+
 
 .nav-bar h2 {
-    font-size: 30px;
-    color: #394C45
-
+  font-size: 30px;
+  color: #394C45;
 }
 
-ul{
-display: flex;
-list-style: none;
-gap: 2%;
-width: 100%;
-justify-content: space-between;
-padding-right: 5%;
-padding-left:5%;
 
-    li{
-        color: #394C45
-    }
-
-    
-}
 
 //ZONA DERECHA NAVBAR
 
 .Search {
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    &:hover {
+      background-color: #dfd2c5;
+      border-radius: 10px;
+      padding: 1%;
+    }
+  }
+
+  &:hover {
+    opacity: calc(90%);
+  }
+}
+
+.validation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ul {
+    display: grid;
+  }
+
+  svg {
+    &:hover {
+      background-color: #dfd2c5;
+      border-radius: 10px;
+      padding: 1%;
+    }
+  }
+
+  &:hover {
+    opacity: calc(90%);
+  }
+}
+
+.nav-bag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg{
+    padding-right: 10px;
+  }
+  .cart-value {
+    display: grid;
     align-items: center;
     justify-content: center;
+  }
 
-    
-    svg {
+  svg {
+    &:hover {
+      background-color: #dfd2c5;
+      border-radius: 10px;
+      padding: 1%;
+    }
+  }
+
+  &:hover {
+    opacity: calc(90%);
+  }
+}
+
+.mobile {
+  display: none;
+
+  .logo {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 20px;
+    height: 60px;
+  }
+
+  .menu-icon{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+}
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 100px;
+  right: 0;
+  z-index: 3;
+  border-radius: 5px;
+  background-color: #C7BBAF;
+  padding: 1rem;
+  /* Otros estilos para el menú desplegable */
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    padding: 0.5rem 0;
+    /* Estilos adicionales para los elementos del menú */
+  }
+}
+
+
+
+
+
+
+@media (max-width: 1100px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+
+    .menu-icon {
+      display: block;
+      background: none;
+      border: none;
+      padding: 0;
+
+      svg {
+        cursor: pointer;
+      }
+
       &:hover {
-        background-color: #dfd2c5;
-        border-radius: 10PX;
-        padding: 1%;
+        transform: scale(1.2);
       }
     }
-  
-    &:hover {
-        opacity: calc(90%);
-      /* Agrega cualquier estilo adicional que desees para resaltar el botón al pasar el cursor sobre él */
+
+    .menu-list {
+      // display: block;
+      display: none;
+
+
     }
   }
-  
-  .validation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
 
-    ul {
-      display: grid;
-    }
 
-    svg{      
-        &:hover {
-        background-color: #dfd2c5;
-        border-radius: 10PX;
-        padding: 1%;
-      }
-    }
-
-    &:hover {
-        opacity: calc(90%);
-        /* Agrega cualquier estilo adicional que desees para resaltar el botón al pasar el cursor sobre él */
-      }
-  }
-  
-  .nav-bag {
-    display: flex;
-    align-items: center;
-  
-    .cart-value {
-      display: grid;
-      align-items: center;
-      justify-content: center;
-    }
-
-    svg{      
-        &:hover {
-        background-color: #dfd2c5;
-        padding: 1%;
-        border-radius: 10PX;
-      }
-    }
-  
-    &:hover {
-        opacity: calc(90%);
-      /* Agrega cualquier estilo adicional que desees para resaltar el botón al pasar el cursor sobre él */
-    }
-  }
-  
