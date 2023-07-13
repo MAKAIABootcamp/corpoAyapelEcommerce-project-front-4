@@ -1,0 +1,41 @@
+@import "../../main.scss";
+.ulContainer{
+    display: flex;
+    justify-content: center;
+    background-color:$bg_color;
+    width: 100%;
+    ul{
+        display: flex;
+        padding: 0.5%;
+        background-color:#E6DCD8;
+        border-radius: 12px;
+        justify-content: space-evenly;
+        width: 80%;
+        list-style: none;
+        li{
+            color:  #986C4A;
+            font-weight: bold;
+        }
+        li:hover{
+            border-bottom: 2px solid #986C4A;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .ulContainer{
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 10%;
+        ul {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            padding: 5%;
+        }
+    }
+    
+  }

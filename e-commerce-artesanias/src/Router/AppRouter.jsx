@@ -8,8 +8,10 @@ import AboutUs from '../pages/AboutUs/AboutUs';
 import Contact from '../pages/Contact/Contact';
 import Search from '../pages/Search/Search';
 import Validation from '../pages/Validation/Validation';
+import Register from '../pages/Register/Register';
 import TermsAndConditions from '../pages/TermsAndConditions/TermsAndContitions';
 import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
+import RefundPolicy from '../pages/RefundPolicy/RefundPolicy';
 import Testimonies from '../pages/Testimonies/Testimonies';
 import CreateAccount from '../pages/CreateAccount/CreateAccount';
 import TopSell from '../pages/TopSell/TopSell';
@@ -66,16 +68,19 @@ const AppRouter = () => {
             <Route path='Contact' element={<Contact />} />
             <Route path='Search' element={<Search />} />
             <Route path='Login' element={<Validation />} />
+            <Route path='Register' element={<Register/>}/>
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
+            <Route path='RefundPolicy' element={<RefundPolicy/>}/>
             <Route path='Testimonies' element={<Testimonies />} />
             <Route path='CreateAccount' element={<CreateAccount />} />
-
+            <Route path='Cart' element={<Cart />} />
             {/* Analizar si son necesarios */}
             <Route path='TopSell' element={<TopSell />} />
             <Route path='News' element={<News />} />
             <Route path='HandiCrafts' element={<HandiCrafts />} />
           </Route>
+          {/* RUTAS PRIVADAS */}
           {isLoggedIn && (
             <React.Fragment>
               <Route path='Admin' element={React.cloneElement(<Admin />, {isLoggedIn})}>

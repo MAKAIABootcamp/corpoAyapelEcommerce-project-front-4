@@ -41,14 +41,10 @@ function Validation() {
       dispatch(loginUser({}, err));
     }
     if (isLogged && loading === false && error.status === false) {
-      if (user.name && user.photo) {
-        navigate("/home");
+      if (user.name) {
+        navigate("/");
       } else {
-        navigate("/register", {
-          state: {
-            email: auth.currentUser.email,
-          },
-        });
+        navigate("/register");
       }
     }
   }, [error, loading, isLogged]);
@@ -59,33 +55,34 @@ function Validation() {
 
   return (
     <section className="login-page">
-      <p className="title">Login</p>
+      <p className="title">Iniciar sesión</p>
       <form className="formLogin" onSubmit={handleSubmit(onSubmitForm)}>
         <input
           type="text"
-          placeholder="username"
+          placeholder="nombre de usuario"
           {...register("user", { required: "Ingresa un nombre" })}
         />
         {errors.email && <span className="error">{errors.user.message}</span>}
         <input
           type="text"
-          placeholder="email"
+          placeholder="correo"
           {...register("email", { required: "Ingresa un email" })}
         />
         {errors.email && <span className="error">{errors.email.message}</span>}
         <input
           type="password"
-          placeholder="password"
+          placeholder="contraseña"
           {...register("password", { required: "Ingresa una contraseña" })}
         />
         {errors.password && (
           <span className="error">{errors.password.message}</span>
         )}
         
-        <button className="login-button" type="submit">
-          Sing In
-        </button>
-         <div className="providers">
+        <Link className="login-button" to="/">
+          Iniciar
+        </Link>
+         <div className="providers"> 
+         <span>Iniciar sesión con: </span>
           <figure
             onClick={() => {
               sesionProvider(google);
@@ -95,8 +92,8 @@ function Validation() {
           </figure>
         </div>
       </form>
-      <Link className="button-register" to="/RegisterForm">
-        Register new user
+      <Link className="button-register" to="/Register">
+        Registrarse
       </Link>
     </section>
   );

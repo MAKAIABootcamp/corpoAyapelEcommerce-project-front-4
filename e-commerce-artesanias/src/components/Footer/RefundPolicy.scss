@@ -1,0 +1,60 @@
+.Text{
+    font-family: 'Dosis' !important;
+    background-color: #F4F4F4;
+    padding: 20px;
+    align-items: flex-start;
+    flex: 1;
+    h1 {
+        margin-top: 0;
+        position: relative;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.5em;
+        line-height: 1.8;
+        opacity: 0.9;
+        font-size: 40px !important;
+        margin-bottom: 20px;
+        padding: 40px 0;
+      }
+      .img{
+        object-fit:cover;
+        float: right;
+        margin-left: 20px;
+        margin-bottom: 20px;
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 550px;
+      }
+      a{
+        color: darkgreen;
+        text-decoration: underline;
+      }
+      .button{
+        margin-top: -5px;
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 0.4em;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: left !important;
+      }
+      ul{
+        display: block;
+        list-style: disc;
+        padding: 10px;
+      }
+      li{
+        font-size: 16px !important;
+        list-style: disc;
+        padding: 5px 16px;
+        display: list-item;
+        margin: 1rem;
+      }
+      .section {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        box-sizing: border-box;
+        padding-top: 30px;
+      }
+}
