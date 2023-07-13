@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut,  signInWithPopup, } from "firebase/auth"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,  signInWithPopup, } from "firebase/auth"
 import { auth } from "../../Firebase/FirebaseConfig"
 import { loginTypes } from "../types/loginType"
 import { getFilterItemsActionAsync, createItemActionAsync, updateItemActionAsync } from '../../Services/crudColection';
@@ -32,10 +32,14 @@ export const userLoginProviderAsync = (provider) => {
         dispatch(toggleLoading())
         try {
             const { user } = await signInWithPopup(auth, provider);
-            const userCollection = await getFilterItemsActionAsync("users",['uid', '==', user.uid]);
-            const currentUser= {...userCollection[0]}
+
+            const dataUser= {
+                name: user.displayName,
+                email: user.email,
+                uid: user.uid
+            }
             const error = { status: false, message: ''}
-            dispatch(loginUser(currentUser, error))
+            dispatch(loginUser(dataUser, error))
             dispatch(toggleLogin())
             dispatch(toggleLoading())
         } catch (err) {
@@ -61,35 +65,25 @@ export const loginUser = (user, error) =>{
     }
 }
 
-export const userCreateAsync = ( {email, password, name, birthday, photo, update, cellphone} ) =>{
+export const userCreateAsync = ( {email, password, name} ) =>{
     return async (dispatch) =>{
         dispatch(toggleLoading())
         try {
-            if (!update){
-                await createUserWithEmailAndPassword(auth, email, password)
-            }
-            await updateProfile(auth.currentUser, { displayName: name })
+            await createUserWithEmailAndPassword(auth, email, password)
             const user = {
-                birthday,
                 name,
                 email,
-                photo,
-                cellphone,
                 uid: auth.currentUser.uid,
-                location: [],
-                cards:[]
             };
-            await createItemActionAsync(user, 'users')
             const error = { status: false, message: ''}
             dispatch(userCreate(user, error))
-            if (!update){
-                dispatch(toggleLogin())
-            }
+            dispatch(toggleLogin())
             dispatch(toggleLoading())
         } catch (err) {
             const currentUser = {
                 name: '',
-                email: ''
+                email: '',
+                uid:''
             }
             const error = { status: true, message: 'Error al crear nuevo usuario'}
             dispatch(userCreate(currentUser, error))

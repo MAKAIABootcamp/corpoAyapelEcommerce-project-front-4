@@ -8,8 +8,10 @@ import Details from '../pages/Details/Details';
 import AboutUs from '../pages/AboutUs/AboutUs';
 import Contact from '../pages/Contact/Contact';
 import Validation from '../pages/Validation/Validation';
+import Register from '../pages/Register/Register';
 import TermsAndConditions from '../pages/TermsAndConditions/TermsAndContitions';
 import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
+import RefundPolicy from '../pages/RefundPolicy/RefundPolicy';
 import Testimonies from '../pages/Testimonies/Testimonies';
 import CreateAccount from '../pages/CreateAccount/CreateAccount';
 import TopSell from '../pages/TopSell/TopSell';
@@ -65,8 +67,10 @@ const AppRouter = () => {
             <Route path='AboutUs' element={<AboutUs />} />
             <Route path='Contact' element={<Contact />} />
             <Route path='Login' element={<Validation />} />
+            <Route path='Register' element={<Register/>}/>
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
+            <Route path='RefundPolicy' element={<RefundPolicy/>}/>
             <Route path='Testimonies' element={<Testimonies />} />
             <Route path='CreateAccount' element={<CreateAccount />} />
             <Route path='Cart' element={<Cart />} />
@@ -84,6 +88,7 @@ const AppRouter = () => {
             {/* <Route path='Login' element={<Validation />} /> */}
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
+            <Route path='RefundPolicy' element={<RefundPolicy/>}/>
             <Route path='Testimonies' element={<Testimonies />} />
             <Route path='CreateAccount' element={<CreateAccount />} />
 
