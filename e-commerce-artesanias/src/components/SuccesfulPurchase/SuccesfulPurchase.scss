@@ -1,0 +1,44 @@
+.succesfulPurchase {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 650px;
+  height: 350px;
+  background-color: var(--bg__color);
+  transform: translate(-50%, -50%);
+  border: 10px solid var(--color__primary);
+  &__title {
+    font-size: 40px;
+    color: var(--color__primary);
+    font-weight: bold;
+    padding: 30px 0px 10px 0px;
+    text-align: center;
+    margin: 0px;
+  }
+  &__stars {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0px;
+    gap: 10px;
+    &--star {
+      width: 40px !important;
+      height: 40px !important;
+      color: #816d00 !important;
+    }
+  }
+  &__message1 {
+    font-size: 20px;
+    color: var(--color__primary);
+    margin: 0px;
+    padding: 30px 20px 20px 20px;
+    text-align: center;
+  }
+  &__message2 {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--color__primary);
+    padding: 20px;
+    text-align: center;
+  }
+}
