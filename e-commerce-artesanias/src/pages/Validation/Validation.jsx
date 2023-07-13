@@ -85,7 +85,8 @@ function Validation() {
         <button className="login-button" type="submit">
           Iniciar
         </button>
-         <div className="providers">
+         <div className="providers"> 
+         <span>Iniciar sesión con: </span>
           <figure
             onClick={() => {
               sesionProvider(google);
@@ -95,8 +96,8 @@ function Validation() {
           </figure>
         </div>
       </form>
-      <Link className="button-register" to="/RegisterForm">
-        Registarse
+      <Link className="button-register" to="/Register">
+        Registrarse
       </Link>
     </section>
   );

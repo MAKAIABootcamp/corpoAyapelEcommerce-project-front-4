@@ -8,6 +8,7 @@ import Details from '../pages/Details/Details';
 import AboutUs from '../pages/AboutUs/AboutUs';
 import Contact from '../pages/Contact/Contact';
 import Validation from '../pages/Validation/Validation';
+import Register from '../pages/Register/Register';
 import TermsAndConditions from '../pages/TermsAndConditions/TermsAndContitions';
 import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
 import Testimonies from '../pages/Testimonies/Testimonies';
@@ -65,6 +66,7 @@ const AppRouter = () => {
             <Route path='AboutUs' element={<AboutUs />} />
             <Route path='Contact' element={<Contact />} />
             <Route path='Login' element={<Validation />} />
+            <Route path='Register' element={<Register/>}/>
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
             <Route path='Testimonies' element={<Testimonies />} />
