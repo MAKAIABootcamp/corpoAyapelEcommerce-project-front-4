@@ -41,14 +41,10 @@ function Validation() {
       dispatch(loginUser({}, err));
     }
     if (isLogged && loading === false && error.status === false) {
-      if (user.name && user.photo) {
-        navigate("/home");
+      if (user.name) {
+        navigate("/");
       } else {
-        navigate("/register", {
-          state: {
-            email: auth.currentUser.email,
-          },
-        });
+        navigate("/register");
       }
     }
   }, [error, loading, isLogged]);
@@ -82,9 +78,9 @@ function Validation() {
           <span className="error">{errors.password.message}</span>
         )}
         
-        <button className="login-button" type="submit">
+        <Link className="login-button" to="/">
           Iniciar
-        </button>
+        </Link>
          <div className="providers"> 
          <span>Iniciar sesión con: </span>
           <figure

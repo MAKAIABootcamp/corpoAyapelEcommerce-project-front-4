@@ -74,7 +74,7 @@ const Register = () => {
           />
         </label>
         {errors.password ? <span className='text-red'>{errors.password.message}</span> : <></>}
-        <NavLink className='signIn' to={'/login'}>Sign In</NavLink>
+        <NavLink className='signIn' to='/Login'>Sign In</NavLink>
         <button className='save-data-user' disabled={loading} type='submit'>Registrarme</button>
       </form>
       {error.status ? <span className='text-red'>{error.message}</span> : <></>}

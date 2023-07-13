@@ -32,10 +32,14 @@ export const userLoginProviderAsync = (provider) => {
         dispatch(toggleLoading())
         try {
             const { user } = await signInWithPopup(auth, provider);
-            const userCollection = await getFilterItemsActionAsync("users",['uid', '==', user.uid]);
-            const currentUser= {...userCollection[0]}
+
+            const dataUser= {
+                name: user.displayName,
+                email: user.email,
+                uid: user.uid
+            }
             const error = { status: false, message: ''}
-            dispatch(loginUser(currentUser, error))
+            dispatch(loginUser(dataUser, error))
             dispatch(toggleLogin())
             dispatch(toggleLoading())
         } catch (err) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
 import Facebook from '../../assets/Icons/facebook.png';
 import Twitter from '../../assets/Icons/twitter.png';
 import Pinterest from '../../assets/Icons/pinterest.png';
@@ -11,8 +12,16 @@ import Terminos from '../../assets/Icons/terminos.png';
 import Privacidad from '../../assets/Icons/privacidad.png';
 import Reembolso from '../../assets/Icons/reembolso.png';
 import '../../components/Footer/Footer.scss';
+import { userLogoutAsync } from "../../redux/actions/loginActions";
+
 
 const Footer = () => {
+  const dispatch = useDispatch();
+  const { user,  isLogged } = useSelector((store) => store.login);
+  const logOut =() =>{
+    dispatch(userLogoutAsync())
+  }
+
   return (
     <>
       <section className='body'>
@@ -101,9 +110,15 @@ const Footer = () => {
                 <h4>
                   <b>Nosotros</b>
                 </h4>
-                <NavLink to='/Login' activeClassname='active'>
+                {user.name && isLogged ?
+                  <NavLink to='/Login' activeClassname='active'>
                   <p>Iniciar Sesión</p>
-                </NavLink>
+                  </NavLink>
+                  :
+                  <a onClick={()=>logOut()}>
+                    <p>Cerrar Sesión</p>
+                  </a>
+                }
                 <NavLink to='/AboutUs' activeClassname='active'>
                   <p>¿Quiénes Somos?</p>
                 </NavLink>
