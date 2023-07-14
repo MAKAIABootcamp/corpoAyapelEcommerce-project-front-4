@@ -1,8 +1,8 @@
 import NavBar from '../../components/Layout/NavBar/NavBar';
 import imgAboutUs from '../../assets/Images/AboutUs.jpg';
 import './AboutUs.scss';
-import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+// import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
+// import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 
 const AboutUs = () => {
   const handleNavegateFacebook = () => {

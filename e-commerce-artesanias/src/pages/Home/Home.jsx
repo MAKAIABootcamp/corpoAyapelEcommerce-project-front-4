@@ -8,14 +8,17 @@ import Banner from "../../components/Banner/Banner"
 
 const Home = () => {
   const [isFiltered , setisFiltered ]= useState(false)
-  return <div>
+  return (
+  <div>
     <NavBar/>
     <Banner/>
     <MainSections/>
     <Filter setisFiltered={setisFiltered}/>
     <ProductCards isFiltered={isFiltered}/>
     <Footer/>
-  </div>;
+
+  </div>
+  )
 };
 
 export default Home;
