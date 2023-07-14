@@ -4,14 +4,17 @@
     justify-content: center;
     background-color:$bg_color;
     width: 100%;
-    ul{
+   
+    .ulFilter{
         display: flex;
-        padding: 0.5%;
         background-color:#E6DCD8;
-        border-radius: 12px;
+        padding: 0.4%;
         justify-content: space-evenly;
-        width: 80%;
+        width: 100%;
+        height: 50px;
+        align-items: center;
         list-style: none;
+        filter: drop-shadow(5px 7px 6px #C7BBAF);
         li{
             color:  #986C4A;
             font-weight: bold;
@@ -23,18 +26,24 @@
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
     .ulContainer{
         margin: 0;
         width: 100%;
         display: flex;
-        justify-content: center;
-        padding: 10%;
-        ul {
+        justify-content: start;
+        padding: 2%;
+        .ulFilter {
             display: flex;
             flex-direction: column;
-            width: 80%;
-            padding: 5%;
+            width: 20%;
+            align-items: start;
+            padding: 2%;
+            height: 50vh;
+            li{
+                text-align: start;
+            }
+
         }
     }
     

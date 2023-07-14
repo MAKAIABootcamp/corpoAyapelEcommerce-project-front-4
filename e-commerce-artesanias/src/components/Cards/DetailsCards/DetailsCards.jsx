@@ -16,10 +16,11 @@ const DetailsCards = () => {
     infoProduct();
   }, [name]);
 // src de mainImage
-const [selectedImage, setSelectedImage] = useState('');
+
 
  // encuentra el producto que se selección para mostrarlo 
   const [productInfo, setProductInfo] = useState();
+  const [selectedImage, setSelectedImage] = useState("");
   const product = useSelector((store) => store.productStore);
   const infoProduct = () => {
     const dataProduct = product.products.slice();
@@ -28,7 +29,7 @@ const [selectedImage, setSelectedImage] = useState('');
     setProductInfo(getProduct);
 
     if (getProduct && getProduct.img && getProduct.img.length > 0) {
-      setSelectedImage(getProduct.img[0]);
+      setSelectedImage(getProduct.img[0].url);
     }
   };
   
