@@ -4,17 +4,21 @@ import Footer from "../../components/Footer/Footer"
 import MainSections from "../../components/MainSections/MainSections";
 import Filter from "../../components/Filter/Filter";
 import { useState } from "react";
+import Banner from "../../components/Banner/Banner"
 
 const Home = () => {
   const [isFiltered , setisFiltered ]= useState(false)
-  return <div>
+  return (
+  <div>
     <NavBar/>
-    <ProductCards/>
-    <Footer/>
+    <Banner/>
     <MainSections/>
     <Filter setisFiltered={setisFiltered}/>
     <ProductCards isFiltered={isFiltered}/>
-  </div>;
+    <Footer/>
+
+  </div>
+  )
 };
 
 export default Home;

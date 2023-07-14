@@ -13,20 +13,25 @@
         gap: 5%;
         width: 30%;
         justify-content: space-evenly;
+        padding: 4%;
         .otherimg {
-          width: 20%;
-          height: auto;
+          width: 100px;
+          height:100px;
           padding-top: 10px;
-          border-radius: 30px;
+          border-radius: 20px;
+          opacity: 0.5;
+        }
+        .otherimg.active {
+          opacity: 1; /* Establece la opacidad de la imagen seleccionada */
         }
       
         .mainImage {
-            height: auto;
-            border-radius: 30px;
-            width: 50%; 
-            max-height: 300px; 
+            width:300px;
+            height:300px;
+            border-radius: 30px; 
             flex-basis: 100%; 
-            object-fit: contain;
+            object-fit: cover;
+            padding: 4%;
         }
       }      
     .detailsInfo{
@@ -40,19 +45,52 @@
            text-align: center;
            justify-content: center;
         }
-        
-        h3{
-
-        }
         h5{
             width: 50%;
             white-space: pre-line;
             line-height: 18px;
         }
         .button {
-            @include button($pixel: 20%);
+            @include button($pixel: 40%);
+            padding: 1%;
+          }
+          .toast{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 10%;
+            left: 80%;
+            background-color:#E6DCD8;
+            opacity: 1;
+            border-style: double;
+            padding: 1%;
+            color: $color_primary;
+            filter: drop-shadow(5px 7px 6px #C7BBAF);
           }
 
       
     }
 }
+
+// @media screen and (max-width: 800px) {
+//   .containerDetails{
+//       display: flex;
+//       flex-direction: column;
+//       .detailsInfo{
+//         width: 90%;
+//         h5{
+//           width: 90%;
+//         }
+//       }
+//       .detailsImages {
+//         display: flex;
+//         flex-wrap: wrap;
+//         .otherimg {
+//           width:100%;
+//         }
+//       }
+//   }
+  
+// }

@@ -23,6 +23,7 @@ const Filter = ({ setisFiltered }) => {
     // Si el valor de búsqueda es "Todos", pasa un valor vacío al filtro
     if (searchValue === "Todos") {
       dispatch(actionGetProductAsync());
+      setisFiltered(false);
       // dispatch(actionFilterProductSync(""));
     } else {
       dispatch(actionFilterProductSync(searchValue));
@@ -31,7 +32,6 @@ const Filter = ({ setisFiltered }) => {
   
   return <div className="ulContainer">
     <ul>
-    <li onClick={() => onFiltered("Todos")}>Todos</li>
       {categories.map((category) => (
         <li onClick={() => {
           onFiltered(category.name);
