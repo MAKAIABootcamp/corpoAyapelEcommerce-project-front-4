@@ -37,6 +37,7 @@ export const loginReducer = (state = initialState, action ) =>{
             return {
                 ...state,
                 ...action.payload,
+                
             };
         case loginTypes.LOGOUT_USER:
             return{
