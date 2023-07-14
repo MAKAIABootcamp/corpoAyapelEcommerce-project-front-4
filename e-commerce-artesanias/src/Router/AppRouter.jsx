@@ -81,7 +81,7 @@ const AppRouter = () => {
             <Route path='HandiCrafts' element={<HandiCrafts />} />
           </Route>
           {/* RUTAS PRIVADAS */}
-          <Route element={<PrivateRouter isAutentication={isLoggedIn} />}>
+          {/* <Route element={<PrivateRouter isAutentication={isLoggedIn} />}> */}
             {/* Las públicas también las puede ver el usuario que se loguee. */}
             <Route path='Details/:id' element={<Details />} />
             <Route path='AboutUs' element={<AboutUs />} />
@@ -104,15 +104,15 @@ const AppRouter = () => {
               {/* <Route path='Cart' element={<Cart />} /> */}
               <Route path='Payment' element={<Payment />} />
             </Route>
-          </Route>
-          {isLoggedIn && (
+          {/* </Route> */}
+          {/* {isLoggedIn && (
             <React.Fragment>
               <Route path='Admin' element={React.cloneElement(<Admin />, {isLoggedIn})}>
                 <Route path='Cart' element={<Cart />} />
                 <Route path='Payment' element={<Payment />} />
               </Route>
             </React.Fragment>
-          )}
+          )} */}
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>
