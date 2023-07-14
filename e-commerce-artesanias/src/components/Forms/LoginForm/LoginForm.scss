@@ -1,7 +1,7 @@
 .login-page {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 20px;
+    justify-content: center;
 
     &::before {
         content: "";
@@ -30,7 +30,6 @@
         z-index: 3;
         position:relative;
         margin-top: 10%;
-        left: 50%;
     }
 
     .formLogin {
@@ -38,7 +37,7 @@
         z-index: 3;
         justify-content: center;
         align-items: center;
-        padding: 2% 50%;
+   
         input {
             color: black;
             display: block;
@@ -58,25 +57,26 @@
         height: 30px;
         border: 0;
         border-radius: 15px;
+        left: -28%;
         display: flex;
         justify-content: center;
         align-items: center;
         color: antiquewhite;
-        padding: 1%;
+        padding: 2%;
         position: relative;
-        left: 40%;
         margin: auto;
         transform: translateX(70%);
     }
+
     .providers{
         position: absolute;
-        left: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         transform: translateX(35%);
         padding: 10px;
         margin-top: 20px;
+
         .icon {
             width: 30px;
             height: 30px;
@@ -85,11 +85,12 @@
             background-color: white;
             border-radius: 20px;
             margin: auto;
+            margin-left: 10px;
             cursor: pointer;
         }
+        
         span{
             color: black;
-            margin-right: 10px;
             background-color: white;
             width: 150px;
             height: 28px;
@@ -97,9 +98,10 @@
             align-items: center;
             justify-content: center;
             border-radius: 5px;
-            
+
         }
     }
+    
     .button-register {
         text-decoration: none;
         background-color: #9ECF93;
@@ -112,38 +114,9 @@
         border-radius: 15px;
         width: 160px;
         position: relative;
-        left: 52%;
+        left: 10%;
         transform: translateX(30%);
-        margin-top: 40px;
+        margin-top: 60px;
     }
 }
 
-@media (max-width: 392px) {
-    .login-page .title {
-      width: 100%; 
-      left: 0;
-      transform: none;
-      margin-top: 5%; 
-    }
-  
-    .login-page .formLogin {
-      padding: 2% 10%; 
-    }
-  
-    .login-page .login-button{
-      width: 80%; 
-      left: 50%;
-      transform: translateX(-70%);
-    }
-    .login-page .button-register {
-      width: 80%; 
-      left: 50%;
-      transform: translateX(-55%);
-      margin-top: 60px;
-    }
-    .login-page .providers{
-      width: 80%; 
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }

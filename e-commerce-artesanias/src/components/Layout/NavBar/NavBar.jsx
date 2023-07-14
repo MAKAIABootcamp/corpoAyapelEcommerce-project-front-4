@@ -45,9 +45,9 @@ const NavBar = () => {
             </svg>
               <ul>
                 {/* NO FUNCIONAN AUN */}
-                <li onClick={() => handleLinkClick("/Validation")}>Sign in</li>
+                <li onClick={() => handleLinkClick("/Login")}>Sign in</li>
                 {/* SI ESTA LOGUEADO APARECE EL MY ACCOUNT */}
-                <li onClick={() => handleLinkClick("/my-account")}>My account</li>
+                <li onClick={() => handleLinkClick("/MyAccount")}>My account</li>
               </ul>
             </div>
 
@@ -95,7 +95,7 @@ const NavBar = () => {
                 </svg>
                   <ul>
                     {/* NO FUNCIONAN AUN */}
-                    <li onClick={() => handleLinkClick("/Validation")}>Sign in</li>
+                    <li onClick={() => handleLinkClick("/Login")}>Sign in</li>
                     {/* SI ESTA LOGUEADO APARECE EL MY ACCOUNT */}
                     <li onClick={() => handleLinkClick("/my-account")}>My account</li>
                   </ul>
@@ -106,7 +106,7 @@ const NavBar = () => {
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                 </svg>
                   <ul className="cart-value">
-                    <li>My cart</li>
+                    <li onClick={() => handleLinkClick("/Cart")}>My cart</li>
                     <li>$177.000</li>
                   </ul>
                 </div>

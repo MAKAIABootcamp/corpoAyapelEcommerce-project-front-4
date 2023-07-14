@@ -21,6 +21,7 @@ import Cart from '../pages/Cart/Cart';
 import Payment from '../pages/Payment/Payment';
 import Admin from '../pages/Admin/Admin';
 import NotFound from '../pages/NotFound/NotFound';
+import MyAccount from '../pages/MyAccount/MyAccount';
 /* import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../Firebase/firebaseConfig';
 import { loginActionSync } from '../redux/actions/userAction'; */
@@ -68,6 +69,7 @@ const AppRouter = () => {
             <Route path='Contact' element={<Contact />} />
             <Route path='Search' element={<Search />} />
             <Route path='Login' element={<Validation />} />
+            <Route path='MyAccount' element={<MyAccount />} />
             <Route path='Register' element={<Register/>}/>
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
