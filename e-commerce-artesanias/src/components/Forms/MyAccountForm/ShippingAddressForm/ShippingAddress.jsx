@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import firebase from 'firebase/app';
 // import 'firebase/auth';
 // import 'firebase/firestore';
@@ -16,46 +16,28 @@ const ShippingAddress = () => {
   const [user, setUser] = useState(null);
   const [addresses, setAddresses] = useState([]);
   const [firebaseError, setFirebaseError] = useState(false);
-
-  useEffect(() => {
-    // Observa los cambios de autenticación
-    // const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    //   if (user) {
-    //     setUser(user);
-    //     fetchAddresses(user.uid);
-    //   } else {
-    //     setUser(null);
-    //     setAddresses([]);
-    //     setFirebaseError(false);
-    //   }
-    // });
-
-    // Limpia el observador cuando el componente se desmonte
-    // return () => unsubscribe();
-  }, []);
-
-  const fetchAddresses = async (userId) => {
-    try {
-      // const snapshot = await firebase.firestore().collection('addresses').where('userId', '==', userId).get();
-      // const addressesData = snapshot.docs.map((doc) => doc.data());
-      // setAddresses(addressesData);
-      // setFirebaseError(false);
-    } catch (error) {
-      console.error('Error fetching addresses:', error);
-      setAddresses([]);
-      setFirebaseError(true);
-    }
-  };
+  const [formData, setFormData] = useState({
+    street: '',
+    city: '',
+    country: ''
+  });
 
   const handleAddAddress = () => {
     if (user && !firebaseError) {
-      // Aquí puedes implementar la lógica para agregar una nueva dirección
+      // Aquí puedes implementar la lógica para agregar una nueva dirección a Firebase
     }
+  };
+
+  const handleInputChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    });
   };
 
   return (
     <div className="shipping-address">
-      {(!user || firebaseError) && (
+      {/* {(!user || firebaseError) && (
         <div>
           {firebaseError ? (
             <div className="error-message">Error al cargar las direcciones. Inténtalo de nuevo más tarde.</div>
@@ -66,20 +48,32 @@ const ShippingAddress = () => {
             Agregar Nueva Dirección
           </button>
         </div>
-      )}
-      {user && !firebaseError && (
-        <div>
-          <h2>Direcciones de Envío</h2>
-          <ul>
-            {addresses.map((address) => (
-              <li key={address.id}>
-                {address.street}, {address.city}, {address.country}
-              </li>
-            ))}
-          </ul>
-          <button className="add-address-button" onClick={handleAddAddress}>Agregar Nueva Dirección</button>
-        </div>
-      )}
+      )} */}
+      <h2>Direcciones de Envío</h2>
+      <ul>
+        {addresses.map((address) => (
+          <li key={address.id}>
+            {address.street}, {address.city}, {address.country}
+          </li>
+        ))}
+      </ul>
+      <div className="add-address-form">
+        <h3>Agregar Nueva Dirección</h3>
+        <form>
+          <label htmlFor="street">Calle:</label>
+          <input type="text" id="street" name="street" value={formData.street} onChange={handleInputChange} />
+
+          <label htmlFor="city">Ciudad:</label>
+          <input type="text" id="city" name="city" value={formData.city} onChange={handleInputChange} />
+
+          <label htmlFor="country">País:</label>
+          <input type="text" id="country" name="country" value={formData.country} onChange={handleInputChange} />
+
+          <button type="submit" onClick={handleAddAddress} className='add-address-button'>
+            Agregar Dirección
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
