@@ -14,7 +14,7 @@ export default {
         type: 'image',
         title: 'Image',
         options: {
-          hotspot: true // <-- Defaults to false
+          hotspot: true 
         }
       },
       {
