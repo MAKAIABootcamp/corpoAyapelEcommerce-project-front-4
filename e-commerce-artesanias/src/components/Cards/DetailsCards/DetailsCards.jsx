@@ -22,15 +22,12 @@ const DetailsCards = () => {
   const [productInfo, setProductInfo] = useState();
   const [selectedImage, setSelectedImage] = useState("");
   const product = useSelector((store) => store.productStore);
+
   const infoProduct = () => {
     const dataProduct = product.products.slice();
-    console.log(dataProduct);
     const getProduct = dataProduct.find((product) => product.product_name === name);
     setProductInfo(getProduct);
-
-    if (getProduct && getProduct.img && getProduct.img.length > 0) {
-      setSelectedImage(getProduct.img[0].url);
-    }
+    setSelectedImage(Object.values(getProduct.img)[0]);    
   };
   
   // encuentra el producto que se esta mostrando para enviarlo al carrito 
@@ -53,7 +50,7 @@ const DetailsCards = () => {
           <div className="detailsImages">
             <img 
             className="mainImage"
-            src={selectedImage || (productInfo.img && productInfo.img[0])}
+            src={selectedImage || productInfo.img.imageUrl}
             alt="Product main Image"/>
             {Object.values(productInfo.img).map((imageUrl, index) => (
               <img

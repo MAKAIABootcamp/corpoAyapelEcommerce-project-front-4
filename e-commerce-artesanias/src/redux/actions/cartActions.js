@@ -44,3 +44,25 @@ export const actionPostCartAsync = (product) => {
         }
     }
 }
+// Eliminar carrito
+export const actionDeletCartAsync = (product) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete('http://localhost:3000/cart', product);
+      const cart = response.data;
+      console.log(cart)
+      dispatch(actionDeletCartSync(cart));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+const actionDeletCartSync = (product) => {
+  return {
+      type: cartTypes.CART_DELET,
+      payload: {
+          cart: product
+      }
+  }
+}

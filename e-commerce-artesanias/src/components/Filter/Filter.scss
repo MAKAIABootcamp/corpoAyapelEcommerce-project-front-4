@@ -48,3 +48,23 @@
     }
     
   }
+  @media screen and (max-width: 500px) {
+    .ulContainer{
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        padding: 2%;
+        .ulFilter {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            align-items: start;
+            padding: 2%;
+            height: 523px;
+            position: inherit;
+
+        }
+    }
+    
+  }

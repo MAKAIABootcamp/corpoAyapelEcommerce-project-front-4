@@ -36,7 +36,7 @@ const ProductCards = ({ isFiltered }) => {
           <Card className="card" key={product.id} onClick={() => navigate(`/Details/${product.product_name}`)}>
             <Card.Img className="cardImage" variant="top" src={product.img["1"]} />
             <Card.Text className="price" variant="primary">
-              {product.price}
+              ${product.price}
             </Card.Text>
             <Card.Title className="productName">{product.product_name}</Card.Title>
             <div className="stars">
