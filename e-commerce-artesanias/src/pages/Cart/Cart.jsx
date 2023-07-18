@@ -3,7 +3,7 @@ import CartCards from "../../components/Cards/CartCards/CartCards";
 import "./Cart.scss"
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from "react-redux";
-import { actionDeletCartAsync, actionGetCartAsync } from "../../redux/actions/cartActions";
+import { actionDeletCartAsync, actionGetCartAsync, actionUpdateCart } from "../../redux/actions/cartActions";
 import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 const Cart = () => {
@@ -18,12 +18,14 @@ const Cart = () => {
     dispatch(actionGetCartAsync());
   }, [dispatch]);
 
-
-   // encuentra el producto que se esta mostrando para enviarlo al carrito 
-   const onRemovingToCart = (productId) => {
-     const selectedProduct = cart.find((product) => product.id === productId);
-     dispatch(actionDeletCartAsync(selectedProduct))
-   }
+  const onRemovingToCart = (productId) => {
+    const selectedProduct = cart.find((product) => product.id === productId);
+    if (selectedProduct) {
+      dispatch(actionDeletCartAsync(selectedProduct));
+      const updatedCart = cart.filter((product) => product.id !== productId);
+      dispatch(actionUpdateCart(updatedCart));
+    }
+  };
 
   const [quantities, setQuantities] = useState({});
 
@@ -60,6 +62,8 @@ const calculateTotal = () => {
   }
   return total;
 };
+
+
 // useEffect(() => {
 //   setTotal(calculateTotal());
 // }, [cart]);
@@ -69,9 +73,10 @@ useEffect(() => {
   setTotal(total);
 }, [cart, quantities]);
 
-  return <div className="cartContainer">
-    <h2>Carrito</h2>
-    <h4 onClick={() => navigate(`/`)}>Apóyanos con más productos</h4>
+  return (
+    <div className="cartContainer">
+    <h2 className="carritoTittle">Carrito</h2>
+    <h4 onClick={() => navigate(`/`)} className="carritoSubtittle">Apóyanos con más productos</h4>
     <Table striped className="table">
       <thead>
         <tr>
@@ -87,7 +92,7 @@ useEffect(() => {
           <tr key={index}>
             <td>{index + 1}</td>
             <td className="nameImageColumn">
-              <img src={Object.values(product.img)[0]} alt={product.product_name} />
+              <img className="productImage" src={Object.values(product.img)[0]} alt={product.product_name} />
               {product.product_name}
             </td>
             <td> ${product.price}</td>
@@ -106,7 +111,8 @@ useEffect(() => {
             <td>${calculateProductTotal(product) || product.price }</td>
             <td> 
             <button onClick={() => {
-              onRemovingToCart(product.id)}}> Eliminar producto </button>
+              onRemovingToCart(product.id)}}> Eliminar producto
+            </button>
              </td>
           </tr>
         ))}
@@ -115,8 +121,8 @@ useEffect(() => {
     <CartCards />
     <div className="buttonsContainer">
       <div className="subtotalInfo"> 
-      <span> Subtotal</span>
-      <span> ${total}</span>
+      <span className="subtotalTittle"> Subtotal</span>
+      <span className="subtotalValue"> ${total}</span>
       </div>
       <Button onClick={() => navigate("/Payment")}>
         Finalizar pedido
@@ -124,9 +130,11 @@ useEffect(() => {
       <Button onClick={() => navigate(`/`)}>
         Seguir comprando
       </Button>
-      <span>Los costes de envio y los inpuestos se añaden durante el pago  </span>
+      <span className="cartNote" >Los costes de envio y los inpuestos se añaden durante el pago  </span>
     </div>
-  </div>;
+  </div>
+  )
+  
 };
 
 export default Cart;

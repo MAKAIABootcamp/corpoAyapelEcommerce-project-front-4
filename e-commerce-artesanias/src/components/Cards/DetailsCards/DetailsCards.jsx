@@ -52,6 +52,7 @@ const DetailsCards = () => {
             className="mainImage"
             src={selectedImage || productInfo.img.imageUrl}
             alt="Product main Image"/>
+            <div className="containerOtherImages" > 
             {Object.values(productInfo.img).map((imageUrl, index) => (
               <img
                 key={index}
@@ -61,6 +62,8 @@ const DetailsCards = () => {
                 onClick={() => setSelectedImage(imageUrl)}
               />
             ))}
+            </div>
+            
           </div>
           <div className="detailsInfo">
             <h1>{productInfo.product_name} </h1>

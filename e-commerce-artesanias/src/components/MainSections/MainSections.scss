@@ -2,7 +2,7 @@
 .sections-container {
     display: flex;
     padding-top: 2%;
-    background-color: $bg_color;
+    background-color:  var(--bg__color);
     justify-content: center;
     height: 370px; 
     margin: 0;

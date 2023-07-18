@@ -25,6 +25,12 @@ export const cartReducers = (state = cartState, action) => {
 
             };
 
+        case cartTypes.CART_UPDATE:
+                return {
+                  ...state,
+                  cart: action.payload,
+                };
+
         default:
             return state;
     };

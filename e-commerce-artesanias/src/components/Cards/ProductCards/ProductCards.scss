@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   // flex-direction: row;
   border-radius: 10px;
-  background-color: $bg_color;
+  background-color:  var(--bg__color);
   width: 100%;
   justify-content: center;
   padding: 2% 0;
@@ -44,11 +44,11 @@
       z-index: 2;
       font-size: 2vh;
       font-weight: bolder;
-      color: $color_primary;
+      color: var(--color__primary);
     }
 
     .productName {
-      color: $color_primary;
+      color: var(--color__primary);
       font-weight: bolder;
       padding-top: 10px;
       text-align: center;
@@ -85,7 +85,7 @@
   }
 
   .errorMessage {
-    color: $color_primary;
+    color: var(--color__primary);
     font-weight: bolder;
     text-align: center;
   }
@@ -115,11 +115,11 @@
     display: flex;
 
     .card {
-      width: 40vw;
+      width: 62vw;
 
       .cardImage {
-        height: 32vw;
-        width: 32vw;
+        height: 40vw;
+        width: 40vw;
       }
 
     }

@@ -48,21 +48,31 @@ export const actionPostCartAsync = (product) => {
 export const actionDeletCartAsync = (product) => {
   return async (dispatch) => {
     try {
-      const response = await axios.delete('http://localhost:3000/cart', product);
-      const cart = response.data;
-      console.log(cart)
-      dispatch(actionDeletCartSync(cart));
+      await axios.delete(`http://localhost:3000/cart/${product.id}`);
+
+      dispatch(actionDeletCartSync(product));
+
+      const updatedCart = await axios.get('http://localhost:3000/cart');
+      dispatch(actionUpdateCart(updatedCart.data)); 
+
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-const actionDeletCartSync = (product) => {
+const actionDeletCartSync = (cart) => {
   return {
-      type: cartTypes.CART_DELET,
-      payload: {
-          cart: product
-      }
+    type: cartTypes.CART_DELET,
+    payload: {
+      cart
+    }
   }
 }
+
+export const actionUpdateCart = (cart) => {
+  return {
+    type: cartTypes.CART_UPDATE,
+    payload: cart,
+  };
+};
