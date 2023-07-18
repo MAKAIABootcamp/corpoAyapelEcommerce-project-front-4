@@ -15,7 +15,7 @@ export const cartReducers = (state = cartState, action) => {
         case cartTypes.CART_ADD:
             return {
                 ...state,
-                cart: action.payload.product
+                cart: [...state.cart, action.payload.product]
             };
         case cartTypes.CART_DELET:
            
@@ -24,6 +24,12 @@ export const cartReducers = (state = cartState, action) => {
                 cart: action.payload.product
 
             };
+
+        case cartTypes.CART_UPDATE:
+                return {
+                  ...state,
+                  cart: state.cart.map(product => product.id === action.payload.id ? {...action.payload}: product)
+                };
 
         default:
             return state;

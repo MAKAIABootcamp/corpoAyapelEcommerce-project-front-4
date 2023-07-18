@@ -2,7 +2,7 @@
 .ulContainer{
     display: flex;
     justify-content: center;
-    background-color:$bg_color;
+    background-color: var(--bg__color);
     width: 100%;
    
     .ulFilter{
@@ -36,14 +36,33 @@
         .ulFilter {
             display: flex;
             flex-direction: column;
-            width: 20%;
+            width: 36%;
             align-items: start;
             padding: 2%;
             height: 50vh;
+            margin-top: 88%;
             li{
                 text-align: start;
             }
 
+        }
+    }
+    
+  }
+  @media screen and (max-width: 500px) {
+    .ulContainer{
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 2%;
+        .ulFilter {
+            width: 68%;
+            align-items: center;
+             padding: 2%;
+            height: 523px;
+            position: inherit;
+            margin-top: 720px;
         }
     }
     

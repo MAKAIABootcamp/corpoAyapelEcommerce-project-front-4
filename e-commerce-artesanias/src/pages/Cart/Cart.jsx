@@ -3,78 +3,130 @@ import CartCards from "../../components/Cards/CartCards/CartCards";
 import "./Cart.scss"
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from "react-redux";
-import { actionGetCartAsync } from "../../redux/actions/cartActions";
+import { actionDeletCartAsync, actionGetCartAsync, actionPutCartAsync, actionUpdateCart } from "../../redux/actions/cartActions";
 import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 const Cart = () => {
   const navigate = useNavigate();
   const cart = useSelector((store) => store.cartStore.cart);
-  // const cart = useSelector((store) => store.cartStore.cart);
-  console.log(cart)
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1);
+  const [total, setTotal] = useState(0);
+
   useEffect(() => {
     dispatch(actionGetCartAsync());
   }, [dispatch]);
 
-  const incrementQuantity = () => {
-    setQuantity(quantity + 1);
-  };
 
-  const decrementQuantity = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
+
+  useEffect(() => {
+    setTotal(calculateTotal());
+  }, [cart]);
+
+  const onRemovingToCart = (productId) => {
+    const selectedProduct = cart.find((product) => product.id === productId);
+    if (selectedProduct) {
+      dispatch(actionDeletCartAsync(selectedProduct));
     }
   };
 
-  return <div className="cartContainer">
-    <h2>Carrito</h2>
-    <h4 onClick={() => navigate(`/`)}>Apóyanos con más productos</h4>
-    <Table striped className="table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Producto</th>
-          <th>Precio</th>
-          <th>Cantidad</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        {Array.isArray(cart) && cart.map((product, index) => (
-          <tr key={index}>
-            <td>{index + 1}</td>
-            <td className="nameImageColumn">
-              <img src={Object.values(product.img)[0]} alt={product.product_name} />
-              {product.product_name}
-            </td>
-            <td>{product.price}</td>
-            <td>
-              <div className="d-flex justify-content-between align-items-center">
-                <Button variant="light" onClick={decrementQuantity} className="counterButton">
-                  -
-                </Button>
-                <span>{quantity}</span>
-                <Button variant="light" onClick={incrementQuantity} className="counterButton">
-                  +
-                </Button>
-              </div>
-            </td>
-            <td>@mdo</td>
+  const incrementQuantity = (productId) => {
+    const selectedProduct = cart.find((product) => product.id === productId);
+    const updatedProduct = { ...selectedProduct }
+    updatedProduct.quantity += 1
+    dispatch(actionPutCartAsync(updatedProduct))
+    dispatch(actionGetCartAsync());
+  };
+
+  const decrementQuantity = (productId) => {
+    const selectedProduct = cart.find((product) => product.id === productId);
+    const updatedProduct = { ...selectedProduct }
+    updatedProduct.quantity -= 1
+    dispatch(actionPutCartAsync(updatedProduct))
+    dispatch(actionGetCartAsync());
+  };
+  // Función para calcular el total de cada producto
+  const calculateProductTotal = (product) => {
+    return Number(product.price) * product.quantity;
+  };
+
+  // Función para calcular el total general de los productos
+  const calculateTotal = () => {
+    let total = 0;
+    console.log("cart", cart)
+    cart.forEach((product) => {
+      const productTotal = calculateProductTotal(product);
+      console.log("productTotal", productTotal)
+      total += productTotal;
+    });
+
+    return total;
+  };
+
+
+
+  return (
+    <div className="cartContainer">
+      <h2 className="carritoTittle">Carrito</h2>
+      <h4 onClick={() => navigate(`/`)} className="carritoSubtittle">Apóyanos con más productos</h4>
+      <Table striped className="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
-    <CartCards />
-    <div className="buttonsContainer">
-      <Button onClick={() => navigate("/Payment")}>
-        Finalizar pedido
-      </Button>
-      <Button onClick={() => navigate(`/`)}>
-        Seguir comprando
-      </Button>
+        </thead>
+        <tbody>
+          {Array.isArray(cart) && cart.map((product, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td className="nameImageColumn">
+                <img className="productImage" src={Object.values(product.img)[0]} alt={product.product_name} />
+                {product.product_name}
+              </td>
+              <td> ${product.price}</td>
+              <td>
+                <div className="d-flex justify-content-between align-items-center">
+                  <Button variant="light" onClick={() => decrementQuantity(product.id)} className="counterButton">
+                    -
+                  </Button>
+                  <span>{product.quantity} </span>
+                  <Button variant="light" onClick={() => incrementQuantity(product.id)} className="counterButton">
+                    +
+                  </Button>
+                </div>
+              </td>
+              {/* <td> ${product.price * quantities[product.id] || product.price }</td> */}
+              <td>${calculateProductTotal(product) || product.price}</td>
+              <td>
+                <button onClick={() => {
+                  onRemovingToCart(product.id)
+                }}> Eliminar producto
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+      <CartCards />
+      <div className="buttonsContainer">
+        <div className="subtotalInfo">
+          <span className="subtotalTittle"> Subtotal</span>
+          <span className="subtotalValue"> ${total}</span>
+        </div>
+        <Button onClick={() => navigate("/Payment")}>
+          Finalizar pedido
+        </Button>
+        <Button onClick={() => navigate(`/`)}>
+          Seguir comprando
+        </Button>
+        <span className="cartNote" >Los costes de envio y los inpuestos se añaden durante el pago  </span>
+      </div>
     </div>
-  </div>;
+  )
+
 };
 
 export default Cart;

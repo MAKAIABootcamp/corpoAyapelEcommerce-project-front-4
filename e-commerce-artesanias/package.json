@@ -14,6 +14,7 @@
     "@chakra-ui/react": "^2.7.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.0",
     "@mui/material": "^5.13.6",
     "@reduxjs/toolkit": "^1.9.5",
     "alert": "^5.1.4",

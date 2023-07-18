@@ -1,51 +1,57 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../DetailsCards/DetailsCards.scss";
-import { actionPostCartAsync } from "../../../redux/actions/cartActions";
+import { actionPostCartAsync, actionPutCartAsync, actionGetCartAsync } from "../../../redux/actions/cartActions";
 import Button from 'react-bootstrap/Button';
 import Toast from 'react-bootstrap/Toast';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 const DetailsCards = () => {
-  const navigate = useNavigate();
+  const cart = useSelector((store) => store.cartStore.cart);
+  const [productInfo, setProductInfo] = useState();
+  const [selectedImage, setSelectedImage] = useState("");  
+  const [showToast, setShowToast] = useState(false);
+  const product = useSelector((store) => store.productStore);
   const dispatch = useDispatch();
-  const { name } = useParams();
-  console.log(name);
+  const { id } = useParams();
 
   useEffect(() => {
     infoProduct();
-  }, [name]);
-// src de mainImage
+  }, [id]);
 
+  
 
- // encuentra el producto que se selección para mostrarlo 
-  const [productInfo, setProductInfo] = useState();
-  const [selectedImage, setSelectedImage] = useState("");
-  const product = useSelector((store) => store.productStore);
   const infoProduct = () => {
-    const dataProduct = product.products.slice();
-    console.log(dataProduct);
-    const getProduct = dataProduct.find((product) => product.product_name === name);
+    const dataProduct = product.products;
+    const getProduct = dataProduct.find((product) => product.id == id);
     setProductInfo(getProduct);
-
-    if (getProduct && getProduct.img && getProduct.img.length > 0) {
-      setSelectedImage(getProduct.img[0].url);
-    }
+    setSelectedImage(Object.values(getProduct.img)[0]);    
   };
   
   // encuentra el producto que se esta mostrando para enviarlo al carrito 
-  const cart = useSelector((store) => store.cartStore);
+ 
   const onAddingToCart = (productId) => {
-    const selectedProduct = product.products.find((product) => product.id === productId);
-    dispatch(actionPostCartAsync(selectedProduct))
+    console.log("productId", productId)
+    const productInCart = cart.find(item => item.id == productId);
+    console.log("productInCart", productInCart)
+    if(productInCart){
+      const newProduct = {...productInCart}
+      newProduct.quantity =  newProduct.quantity + 1;
+      dispatch(actionPutCartAsync(newProduct))
+    } else {
+      const selectedProduct = product.products.find((product) => product.id === productId);
+      const productToAddToCart = {...selectedProduct}
+      productToAddToCart['quantity'] = 1
+      dispatch(actionPostCartAsync(productToAddToCart))
+    }
+    dispatch(actionGetCartAsync())
   }
 
-  const [showToast, setShowToast] = useState(false);
-
   const toggleToast = () => {
-    console.log(showToast)
     setShowToast(!showToast);
   };
+
   return (
     <div>
       {productInfo ? (
@@ -53,8 +59,9 @@ const DetailsCards = () => {
           <div className="detailsImages">
             <img 
             className="mainImage"
-            src={selectedImage || (productInfo.img && productInfo.img[0])}
+            src={selectedImage || productInfo.img.imageUrl}
             alt="Product main Image"/>
+            <div className="containerOtherImages" > 
             {Object.values(productInfo.img).map((imageUrl, index) => (
               <img
                 key={index}
@@ -64,6 +71,8 @@ const DetailsCards = () => {
                 onClick={() => setSelectedImage(imageUrl)}
               />
             ))}
+            </div>
+            
           </div>
           <div className="detailsInfo">
             <h1>{productInfo.product_name} </h1>

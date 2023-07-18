@@ -1,9 +1,11 @@
 import DetailsCards from "../../components/Cards/DetailsCards/DetailsCards";
 
 const Details = () => {
-  return <div>
+  return (
+    <div>
     <DetailsCards/>
-  </div>;
+  </div>
+  )
 };
 
 export default Details;
