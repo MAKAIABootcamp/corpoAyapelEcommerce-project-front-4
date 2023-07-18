@@ -5,27 +5,36 @@ export default {
     title: 'banner',
     fields: [
       {
-        name: 'name',
-        type: 'string',
-        title: 'Name'
-      },
-      {
-        name: 'image',
+        name: 'image1',
         type: 'image',
-        title: 'Image',
+        title: 'Imagen desktop',
         options: {
           hotspot: true 
         }
       },
       {
-        name: 'caption',
-        type: 'string',
-        title: 'Caption'
+        name: 'image2',
+        type: 'image',
+        title: 'Imagen mobile',
+        options: {
+          hotspot: true 
+        }
       },
       {
-        name: 'attribution',
+        name: 'title',
         type: 'string',
-        title: 'Attribution'
+        title: 'Titulo'
+      },
+      {
+        name: 'description',
+        type: 'string',
+        title: 'Descripcion'
+      }
+      ,
+      {
+        title: 'ImageURL',
+        name: 'imageUrl',
+        type: 'url'
       }
     ]
   }
