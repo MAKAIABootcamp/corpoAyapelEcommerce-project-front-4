@@ -85,8 +85,23 @@
       font-weight: bolder;
       text-align: center;
     }
-    
+    .toast{
+      display: fixed;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 10%;
+      left: 80%;
+      background-color:#E6DCD8;
+      opacity: 1;
+      border-style: double;
+      padding: 1%;
+      color: $color_primary;
+      filter: drop-shadow(5px 7px 6px #C7BBAF);
+    }
 }
+
 @media screen and (max-width: 800px) {
   .container{
     display: flex;

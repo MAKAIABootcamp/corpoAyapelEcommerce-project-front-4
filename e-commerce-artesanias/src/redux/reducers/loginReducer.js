@@ -4,6 +4,7 @@ const initialState = {
         name: '',
         email: '',
         password: '',
+        uid:'',
     },
     error: {
         status: undefined,
@@ -22,6 +23,7 @@ export const loginReducer = (state = initialState, action ) =>{
                     name: action.payload.user.name,
                     email: action.payload.user.email,
                     password: action.payload.user.password,
+                    uid:  action.payload.user.uid,
                 },
                 error: {
                     status: action.payload.error.status,

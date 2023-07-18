@@ -1,16 +1,33 @@
-import { useState } from 'react';
+import React,  { useState, useEffect }  from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { actionGetCartAsync } from "../../../../redux/actions/cartActions";
 import './Orders.scss';
 
 const OrderMenu = () => {
+  const dispatch = useDispatch();
   const [orders, setOrders] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const { cart } = useSelector((store) => store.cartStore);
+  const { user } = useSelector((store) => store.login);
   // Aquí puedes implementar la lógica para obtener las órdenes del usuario desde Firebase
   // y establecerlas en el estado "orders"
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(()=>{
+    if(user.uid){
+      dispatch(actionGetCartAsync(user.uid))
+    }
+  }, [user])
+
+  useEffect(()=>{
+    if(cart?.length>0){
+      console.log(cart)
+    }
+  }, [cart])
 
   return (
     <div className="order-menu-container">

@@ -10,17 +10,31 @@ const DetailsCards = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { name } = useParams();
-  console.log(name);
+  // src de mainImage
+  const [selectedImage, setSelectedImage] = useState('');
+  const [showToast, setShowToast] = useState(false);
+ // encuentra el producto que se selección para mostrarlo 
+  const [productInfo, setProductInfo] = useState();
+  const [showToastLogin, setShowToastLogin] = useState(false);
+  const product = useSelector((store) => store.productStore);
+  const { user } = useSelector((store) => store.login);
+  // encuentra el producto que se esta mostrando para enviarlo al carrito 
+  const cart = useSelector((store) => store.cartStore);
+
+  const onAddingToCart = (productId) => {
+    dispatch(actionPostCartAsync(productId, user))
+  }
 
   useEffect(() => {
     infoProduct();
   }, [name]);
-// src de mainImage
-const [selectedImage, setSelectedImage] = useState('');
 
- // encuentra el producto que se selección para mostrarlo 
-  const [productInfo, setProductInfo] = useState();
-  const product = useSelector((store) => store.productStore);
+
+  const toggleToast = () => {
+    console.log(showToast)
+    setShowToast(!showToast);
+  };
+
   const infoProduct = () => {
     const dataProduct = product.products.slice();
     console.log(dataProduct);
@@ -31,20 +45,9 @@ const [selectedImage, setSelectedImage] = useState('');
       setSelectedImage(getProduct.img[0]);
     }
   };
-  
-  // encuentra el producto que se esta mostrando para enviarlo al carrito 
-  const cart = useSelector((store) => store.cartStore);
-  const onAddingToCart = (productId) => {
-    const selectedProduct = product.products.find((product) => product.id === productId);
-    dispatch(actionPostCartAsync(selectedProduct))
-  }
 
-  const [showToast, setShowToast] = useState(false);
+  const toggleToastLogin = () => setShowToastLogin(!showToastLogin);
 
-  const toggleToast = () => {
-    console.log(showToast)
-    setShowToast(!showToast);
-  };
   return (
     <div>
       {productInfo ? (
@@ -69,8 +72,13 @@ const [selectedImage, setSelectedImage] = useState('');
             <h3> {productInfo.price} </h3>
             <h5>{productInfo.decription} </h5>
             <Button className="button" onClick={() => {
-              onAddingToCart(productInfo.id);
-              toggleToast();
+              if(user?.email){
+                onAddingToCart(productInfo.id);
+                toggleToast();
+              } else {
+                toggleToastLogin();
+              }
+
             }}>
               Agregar al carrito
             </Button>
@@ -84,6 +92,17 @@ const [selectedImage, setSelectedImage] = useState('');
                 <strong className="me-auto">Producto agregado</strong>
               </Toast.Header>
               <Toast.Body>¡El producto se ha agregado con éxito!</Toast.Body>
+            </Toast>
+            <Toast className="toast"
+              show={showToastLogin}
+              onClose={toggleToastLogin}
+              autohide 
+              delay={1000} 
+            >
+              <Toast.Header>
+                <strong className="me-auto">Inicia sesión</strong>
+              </Toast.Header>
+              <Toast.Body>¡Inicia sesión para agregar al carrito!</Toast.Body>
             </Toast>
           </div>
         </div>
