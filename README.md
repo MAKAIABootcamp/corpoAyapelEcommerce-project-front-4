@@ -1,20 +1,28 @@
-# corpoAyapelEcommerce-project-front-4
+# MarketPlace corpoAyapel
+## Autores:
+- Natalia Maldonado
+- Paola Torres
+- Andres Parra 
+- Diego Samudio
+  
 ## Descripción: 
-Este es el aplicativo web del e-commerce de corpoAyapel, desarrollado utlilizando vitw + react js y redux, adicionalmente se empleó:
- - Para la validación de los formularios: Formik y Yup.
- - Para los estilos: React Bootstrap, MaterialUI y Sass
-   
+Este es el aplicativo web del e-commerce de corpoAyapel el cual presenta los productos , permite filtrar por categorias, ver detalles del producto, agrega y eliminar del carrito 
+
+### Las herramientas empleadas fueron: 
+- Vite + React js y redux
+- Para la autenticasión y alamacenamiento de información Firebase
+- Para la validación de los formularios: Formik y Yup.
+- Para los estilos: React Bootstrap,  Sass y MaterialUI para los iconos  
 ### Las funcionalidades que incluye sons las siguientes:
-- Autenticación de usuarios con correo y cuenta de Google empleando Firebase 
+- Autenticación de usuarios con correo y cuenta de Google 
 - Visualización de productos traidos de la data.
 - Edición de contenido para el administrador mediante sanity.
 - Proccesos de compra con integración de epayco.
 
-
 ## Instalación: 
 ### Requisitos previos: 
 - Node js v16.14.2 o cualquier versión posterior a esta
--  Firebase instalado (npm install -g firebase-tools)
+- Firebase instalado (npm install -g firebase-tools)
 
 Para hacer uso de este codigo los pasos a seguir son: 
 ### ▶ clonar el repositorio:
