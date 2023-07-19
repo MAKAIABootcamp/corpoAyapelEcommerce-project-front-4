@@ -22,6 +22,7 @@ import Payment from '../pages/Payment/Payment';
 import Admin from '../pages/Admin/Admin';
 import NotFound from '../pages/NotFound/NotFound';
 import MyAccount from '../pages/MyAccount/MyAccount';
+// import { HashRouter } from "react-router-dom"
 /* import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../Firebase/firebaseConfig';
 import { loginActionSync } from '../redux/actions/userAction'; */

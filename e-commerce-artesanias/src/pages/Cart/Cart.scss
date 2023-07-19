@@ -16,12 +16,14 @@
 
             align-items: center;
             justify-content: center;
+            background-color:#E6DCD8;
 
             th {
                 align-items: center;
                 justify-content: center;
                 width: 10vw;
                 text-align: center;
+                color: var(--color_primary);
             }
         }
 
