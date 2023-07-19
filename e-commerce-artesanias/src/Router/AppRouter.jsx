@@ -22,6 +22,7 @@ import Payment from '../pages/Payment/Payment';
 import Admin from '../pages/Admin/Admin';
 import NotFound from '../pages/NotFound/NotFound';
 import MyAccount from '../pages/MyAccount/MyAccount';
+import PaymentSuccesful from '../pages/PaymentSuccesful/PaymentSuccesful';
 /* import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../Firebase/firebaseConfig';
 import { loginActionSync } from '../redux/actions/userAction'; */
@@ -70,10 +71,10 @@ const AppRouter = () => {
             <Route path='Search' element={<Search />} />
             <Route path='Login' element={<Validation />} />
             <Route path='MyAccount' element={<MyAccount />} />
-            <Route path='Register' element={<Register/>}/>
+            <Route path='Register' element={<Register />} />
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
-            <Route path='RefundPolicy' element={<RefundPolicy/>}/>
+            <Route path='RefundPolicy' element={<RefundPolicy />} />
             <Route path='Testimonies' element={<Testimonies />} />
             <Route path='CreateAccount' element={<CreateAccount />} />
             <Route path='Cart' element={<Cart />} />
@@ -81,11 +82,16 @@ const AppRouter = () => {
             <Route path='TopSell' element={<TopSell />} />
             <Route path='News' element={<News />} />
             <Route path='HandiCrafts' element={<HandiCrafts />} />
+            <Route path='Payment' element={<Payment />} />
+            <Route path='PaymentSuccesful' element={<PaymentSuccesful />} />
           </Route>
           {/* RUTAS PRIVADAS */}
           {isLoggedIn && (
             <React.Fragment>
-              <Route path='Admin' element={React.cloneElement(<Admin />, {isLoggedIn})}>
+              <Route
+                path='Admin'
+                element={React.cloneElement(<Admin />, { isLoggedIn })}
+              >
                 <Route path='Cart' element={<Cart />} />
                 <Route path='Payment' element={<Payment />} />
               </Route>

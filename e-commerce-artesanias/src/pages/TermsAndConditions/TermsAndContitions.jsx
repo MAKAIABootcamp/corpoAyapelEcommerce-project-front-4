@@ -12,6 +12,12 @@ const TermsAndContitions = () => {
           <h1 className='mainTermsAndConditions__info--title'>
             Terminos y condiciones
           </h1>
+          <div className='inicio'>
+            <a href='/'>Inicio</a> &nbsp;/&nbsp;
+            <span>Política de reembolso</span>
+            <br />
+            <br />
+          </div>
           <p className='mainTermsAndConditions__info--text'>
             Bienvenido a CorpoAyapel Artesanias. Estos términos y condiciones
             describen las reglas y regulaciones para el uso del sitio web

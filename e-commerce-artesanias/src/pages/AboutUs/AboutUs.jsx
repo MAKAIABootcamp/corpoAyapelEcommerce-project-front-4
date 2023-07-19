@@ -1,8 +1,8 @@
 import NavBar from '../../components/Layout/NavBar/NavBar';
-import imgAboutUs from '../../assets/Images/AboutUs.jpg';
 import './AboutUs.scss';
-import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import Footer from '../../components/Footer/Footer';
+import Banner from '../../components/Banner/Banner';
 
 const AboutUs = () => {
   const handleNavegateFacebook = () => {
@@ -15,12 +15,13 @@ const AboutUs = () => {
     <div className='aboutUs'>
       <NavBar />
       <main className='mainAboutUs'>
-        <div className='mainAboutUs__carrusel'>
+        {/*         <div className='mainAboutUs__carrusel'>
           <figure className='mainAboutUs__carrusel--figure'>
             <img src={imgAboutUs} alt='Foto de quiénes somos' />
           </figure>
           <ArrowBackRoundedIcon className='mainAboutUs__carrusel--arrowBack' />
-        </div>
+        </div> */}
+        <Banner />
         <section className='mainAboutUs__informacion'>
           <p className='mainAboutUs__informacion--text'>
             Nosotros somos CorpoAyapel, una entidad sin ánimo de lucro que
@@ -53,6 +54,7 @@ const AboutUs = () => {
           />
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
