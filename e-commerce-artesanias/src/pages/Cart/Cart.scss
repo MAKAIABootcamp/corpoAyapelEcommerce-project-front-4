@@ -12,7 +12,7 @@
         padding: 2% 10%;
         align-items: center;
 
-        thead {
+        .table__head {
 
             align-items: center;
             justify-content: center;
@@ -23,11 +23,13 @@
                 justify-content: center;
                 width: 10vw;
                 text-align: center;
-                color: var(--color_primary);
+                color: var(--color__primary);
             }
         }
 
         tbody {
+            align-items: center;
+                justify-content: center;
             tr {
                 align-items: center;
                 justify-content: center;
@@ -35,7 +37,7 @@
             }
 
             td {
-                color: var(--color_primary);
+                color: var(--color__primary);
                 text-align: center;
                 align-items: center;
                 width: 10vw;
@@ -58,7 +60,7 @@
     }
 
     .carritoTittle {
-        color: var(--color_primary);
+        color: var(--color__primary);
         text-align: center;
     }
 
@@ -81,21 +83,45 @@
         gap: 10%;
         padding: 2%;
         align-items: end;
+        .button {
+            // @include button($pixel: 40%);
+            padding: 0.5%;
+            background-color: var(--color__secundary);
+            color: var(--color__primary);
+            margin-bottom: 2px;
+            width: 20%;
+          }
+        .button:hover{
+          border: 1px solid var(--color__primary);
+          font-weight: bolder;
+        }
     }
 
-    Button {
-        // @include button ($pixel: 10%);
-        padding: 0.1%;
-        margin-bottom: 0.2%;
-        align-items: center;
+    .button {
+        // @include button($pixel: 40%);
+        padding: 1%;
+        background-color: var(--color__secundary);
+        color: var(--color__primary);
+      }
+    .button:hover{
+      border: 1px solid var(--color__primary);
     }
-
-    .counterButton {
-        width: 7%;
-        border-radius: 3px;
+    .counter{
+        display: flex;
+        gap: 2%;
+        justify-content: space-evenly;
         align-items: center;
-        // background-color: transparent;
+        .counterButton {
+            width: 10%;
+            border-radius: 3px;
+           
+            // background-color: transparent;
+            padding: 2%;
+            background-color: var(--color__secundary);
+           
+        }
     }
+    
 
     .cartNote {
         font-size: smaller;

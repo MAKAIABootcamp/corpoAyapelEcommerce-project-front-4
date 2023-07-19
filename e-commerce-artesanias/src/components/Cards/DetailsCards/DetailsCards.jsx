@@ -75,9 +75,9 @@ const DetailsCards = () => {
             
           </div>
           <div className="detailsInfo">
-            <h1>{productInfo.product_name} </h1>
-            <h3> {productInfo.price} </h3>
-            <h5>{productInfo.decription} </h5>
+            <h1 className="tittleProductName">{productInfo.product_name} </h1>
+            <h3 className="subtittleProductPrice"> ${productInfo.price} </h3>
+            <p className="productDescription">{productInfo.decription} </p>
             <Button className="button" onClick={() => {
               onAddingToCart(productInfo.id);
               toggleToast();

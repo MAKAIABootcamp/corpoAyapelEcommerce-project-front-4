@@ -69,7 +69,7 @@ const Cart = () => {
       <h2 className="carritoTittle">Carrito</h2>
       <h4 onClick={() => navigate(`/`)} className="carritoSubtittle">Apóyanos con más productos</h4>
       <Table striped className="table">
-        <thead>
+        <thead className="table__head">
           <tr>
             <th>#</th>
             <th>Producto</th>
@@ -89,7 +89,7 @@ const Cart = () => {
               </td>
               <td> ${product.price}</td>
               <td>
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="counter">
                   <Button variant="light" onClick={() => decrementQuantity(product.id)} className="counterButton">
                     -
                   </Button>
@@ -102,10 +102,10 @@ const Cart = () => {
               {/* <td> ${product.price * quantities[product.id] || product.price }</td> */}
               <td>${calculateProductTotal(product) || product.price}</td>
               <td>
-                <button onClick={() => {
+                <Button onClick={() => {
                   onRemovingToCart(product.id)
-                }}> Eliminar producto
-                </button>
+                }} className="button"> Eliminar producto
+                </Button>
               </td>
             </tr>
           ))}
@@ -117,10 +117,10 @@ const Cart = () => {
           <span className="subtotalTittle"> Subtotal</span>
           <span className="subtotalValue"> ${total}</span>
         </div>
-        <Button onClick={() => navigate("/Payment")}>
+        <Button onClick={() => navigate("/Payment")} className="button"> 
           Finalizar pedido
         </Button>
-        <Button onClick={() => navigate(`/`)}>
+        <Button onClick={() => navigate(`/`)} className="button">
           Seguir comprando
         </Button>
         <span className="cartNote" >Los costes de envio y los inpuestos se añaden durante el pago  </span>
