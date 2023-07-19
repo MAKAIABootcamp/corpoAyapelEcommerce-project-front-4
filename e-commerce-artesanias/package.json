@@ -17,6 +17,7 @@
     "@mui/icons-material": "^5.14.0",
     "@mui/material": "^5.13.6",
     "@reduxjs/toolkit": "^1.9.5",
+    "@sanity/client": "^6.1.7",
     "alert": "^5.1.4",
     "axios": "^1.4.0",
     "bootstrap": "^3.4.1",
