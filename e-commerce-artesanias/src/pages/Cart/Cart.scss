@@ -4,45 +4,71 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: $bg_color;
+    background-color: var(--bg__color);
     padding: 5%;
-    .table{
+    align-items: center;
+
+    .table {
         padding: 2% 10%;
-        td {
-            width: 15%;
-            color: $color_primary;
-            text-align: center;
+        align-items: center;
+
+        thead {
+
+            align-items: center;
+            justify-content: center;
+            background-color:#E6DCD8;
+
+            th {
+                align-items: center;
+                justify-content: center;
+                width: 10vw;
+                text-align: center;
+                color: var(--color_primary);
+            }
         }
-    
+
+        tbody {
+            tr {
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            td {
+                color: var(--color_primary);
+                text-align: center;
+                align-items: center;
+                width: 10vw;
+            }
+        }
+
+
         .nameImageColumn {
             display: flex;
             flex-direction: column;
-    
-    
+            align-items: center;
+            background-color: red;
+            justify-content: center;
+
             img {
                 width: 100%;
                 border-radius: 10px;
             }
         }
-        tr{
-            align-items: center;
-        }
-    
-        
     }
 
-    h2 {
-        color: $color_primary;
+    .carritoTittle {
+        color: var(--color_primary);
         text-align: center;
     }
 
-    h4 {
+    .carritoSubtittle {
         color: rgb(137, 209, 30);
         text-align: center;
         cursor: pointer;
     }
 
-    h4:hover {
+    .carritoSubtittle:hover {
         transform: scale(1.1)
     }
 
@@ -58,25 +84,24 @@
     }
 
     Button {
-        @include button ($pixel: 10%);
+        // @include button ($pixel: 10%);
         padding: 0.1%;
         margin-bottom: 0.2%;
-    }
-
-    span {
-        font-size: 18px;
-        margin: 0 10px;
+        align-items: center;
     }
 
     .counterButton {
         width: 7%;
         border-radius: 3px;
+        align-items: center;
         // background-color: transparent;
+    }
+
+    .cartNote {
+        font-size: smaller;
+        font-weight: bolder;
     }
 }
 
-// @media screen and (max-width: 900px) {
-//     Button {
-//         @include button ($pixel: 50%);
-//     }
-// }
+@media only screen and (max-width: 450px) {
+  }

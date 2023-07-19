@@ -23,6 +23,7 @@ import Admin from '../pages/Admin/Admin';
 import NotFound from '../pages/NotFound/NotFound';
 import MyAccount from '../pages/MyAccount/MyAccount';
 import PaymentSuccesful from '../pages/PaymentSuccesful/PaymentSuccesful';
+// import { HashRouter } from "react-router-dom"
 /* import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../Firebase/firebaseConfig';
 import { loginActionSync } from '../redux/actions/userAction'; */
@@ -65,7 +66,7 @@ const AppRouter = () => {
           {/* RUTAS PÚBLICAS */}
           <Route element={<PublicRouter isAutentication={isLoggedIn} />}>
             <Route index element={<Home />} />
-            <Route path='Details/:name' element={<Details />} />
+            <Route path='Details/:id' element={<Details />} />
             <Route path='AboutUs' element={<AboutUs />} />
             <Route path='Contact' element={<Contact />} />
             <Route path='Search' element={<Search />} />

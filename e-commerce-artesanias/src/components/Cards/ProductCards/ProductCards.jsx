@@ -33,11 +33,11 @@ const ProductCards = ({ isFiltered }) => {
     <div className="container">
       {combinedProducts.length > 0 ? (
         combinedProducts.map((product) => (
-          <Card className="card" key={product.id} onClick={() => navigate(`/Details/${product.product_name}`)}>
+          <Card className="card" key={product.id} onClick={() => navigate(`/Details/${product.id}`)}>
             <Card.Img className="cardImage" variant="top" src={product.img["1"]} />
-            <Button className="button" variant="primary">
-              {product.price}
-            </Button>
+            <Card.Text className="price" variant="primary">
+              ${product.price}
+            </Card.Text>
             <Card.Title className="productName">{product.product_name}</Card.Title>
             <div className="stars">
               <h4>★</h4>
