@@ -6,6 +6,7 @@ import { actionPostCartAsync, actionPutCartAsync, actionGetCartAsync } from "../
 import Button from 'react-bootstrap/Button';
 import Toast from 'react-bootstrap/Toast';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { numberToMoney } from "../../../Services/utilities";
 
 const DetailsCards = () => {
   const cart = useSelector((store) => store.cartStore.cart);
@@ -76,7 +77,7 @@ const DetailsCards = () => {
           </div>
           <div className="detailsInfo">
             <h1 className="tittleProductName">{productInfo.product_name} </h1>
-            <h3 className="subtittleProductPrice"> ${productInfo.price} </h3>
+            <h3 className="subtittleProductPrice">  {numberToMoney(product.price)}  </h3>
             <p className="productDescription">{productInfo.decription} </p>
             <Button className="button" onClick={() => {
               onAddingToCart(productInfo.id);

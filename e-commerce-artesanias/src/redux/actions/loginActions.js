@@ -15,6 +15,8 @@ export const loginUserAsync = ( {email, password} ) =>{
             dispatch(loginUser(currentUser, error));
             dispatch(toggleLogin())
             dispatch(toggleLoading())
+            //modifiquee
+            dispatch(setLogin(true))
         } catch (err) {
             const currentUser = {
                 name: '',
@@ -23,6 +25,7 @@ export const loginUserAsync = ( {email, password} ) =>{
             const error = { status: true, message: 'Usuario o contraseña incorrectos'}
             dispatch(loginUser(currentUser, error))
             dispatch(toggleLoading())
+  
         }
     }
 }
@@ -42,6 +45,8 @@ export const userLoginProviderAsync = (provider) => {
             dispatch(loginUser(dataUser, error))
             dispatch(toggleLogin())
             dispatch(toggleLoading())
+            //modifiquee
+            dispatch(setLogin(true))
         } catch (err) {
             console.log(err)
             const currentUser = {
@@ -114,6 +119,13 @@ const toggleLogin = () => {
         type: loginTypes.TOGGLE_LOGIN
     }
 }
+//modifiquee
+const setLogin = () => {
+    return {
+        type: loginTypes.SET_LOGIN
+    }
+}
+
 
 export const userLogoutAsync = () => {
     return async (dispatch) => {

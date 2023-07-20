@@ -82,6 +82,7 @@ const AppRouter = () => {
             <Route path='TopSell' element={<TopSell />} />
             <Route path='News' element={<News />} />
             <Route path='HandiCrafts' element={<HandiCrafts />} />
+            <Route path='Search' element={<Search />} />
           </Route>
           {/* RUTAS PRIVADAS */}
           {isLoggedIn && (

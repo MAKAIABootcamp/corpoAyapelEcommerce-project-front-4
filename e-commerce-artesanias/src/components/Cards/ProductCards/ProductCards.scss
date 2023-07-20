@@ -110,6 +110,22 @@
 
   }
 }
+@media screen and (max-width: 800px) {
+  .container {
+    display: flex;
+
+    .card {
+      width: 42vw;
+
+      .cardImage {
+        height: 30vw;
+        width: 30vw;
+      }
+
+    }
+
+  }
+}
 @media screen and (max-width: 500px) {
   .container {
     display: flex;

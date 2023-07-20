@@ -6,9 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionDeletCartAsync, actionGetCartAsync, actionPutCartAsync, actionUpdateCart } from "../../redux/actions/cartActions";
 import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
+import { numberToMoney } from "../../Services/utilities";
+import Swal from "sweetalert2";
 const Cart = () => {
   const navigate = useNavigate();
   const cart = useSelector((store) => store.cartStore.cart);
+  const user = useSelector((store) => store.login.isLogged);  
+  console.log(user)
   const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
 
@@ -62,7 +66,20 @@ const Cart = () => {
     return total;
   };
 
-
+// Validar logIn
+const finishPurchase =(userId) => {
+  if (user){
+    navigate("/Payment")
+      const userLogged= user.find((user) => user.id === userId);
+      const updateCart = {...cart}
+      updateCart['user'] = userLogged
+      dispatch(actionPutCartAsync(updateCart))
+    //itegración con firebase
+  } else {
+    Swal.fire("Debe iniciar sesión para continuar")
+        navigate("/LogIn")
+  }
+}
 
   return (
     <div className="cartContainer">
@@ -87,7 +104,7 @@ const Cart = () => {
                 <img className="productImage" src={Object.values(product.img)[0]} alt={product.product_name} />
                 {product.product_name}
               </td>
-              <td> ${product.price}</td>
+              <td>  {numberToMoney(product.price)} </td>
               <td>
                 <div className="counter">
                   <Button variant="light" onClick={() => decrementQuantity(product.id)} className="counterButton">
@@ -101,6 +118,7 @@ const Cart = () => {
               </td>
               {/* <td> ${product.price * quantities[product.id] || product.price }</td> */}
               <td>${calculateProductTotal(product) || product.price}</td>
+              {/* <td>{{numberToMoney(calculateProductTotal(product))}  || {numberToMoney(product.price)}}</td> */}
               <td>
                 <Button onClick={() => {
                   onRemovingToCart(product.id)
@@ -114,16 +132,16 @@ const Cart = () => {
       <CartCards />
       <div className="buttonsContainer">
         <div className="subtotalInfo">
-          <span className="subtotalTittle"> Subtotal</span>
-          <span className="subtotalValue"> ${total}</span>
+          <span className="subtotalTittle"> Subtotal: </span>
+          <span className="subtotalValue">  {numberToMoney(total)} </span>
         </div>
-        <Button onClick={() => navigate("/Payment")} className="button"> 
+        <Button onClick={() => finishPurchase()} className="button"> 
           Finalizar pedido
         </Button>
         <Button onClick={() => navigate(`/`)} className="button">
           Seguir comprando
         </Button>
-        <span className="cartNote" >Los costes de envio y los inpuestos se añaden durante el pago  </span>
+        <span className="cartNote" >Los costes de envío y los inpuestos se añaden durante el pago  </span>
       </div>
     </div>
   )

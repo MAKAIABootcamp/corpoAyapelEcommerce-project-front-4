@@ -49,6 +49,19 @@
     }
     
   }
+  @media screen and (max-width: 800px) {
+    .ulContainer{
+        .ulFilter {
+            margin-top: 700px;
+            li{
+                text-align: start;
+                padding-left: 1%;
+            }
+
+        }
+    }
+    
+  }
   @media screen and (max-width: 500px) {
     .ulContainer{
         margin: 0;
