@@ -31,7 +31,7 @@ const Filter = ({ setisFiltered }) => {
   };
   
   return <div className="ulContainer">
-    <ul>
+    <ul className="ulFilter">
       {categories.map((category) => (
         <li onClick={() => {
           onFiltered(category.name);

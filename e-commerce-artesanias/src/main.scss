@@ -1,18 +1,44 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+$color_primary: #394C45;
+$font_size_title: 30px;
+$font_size_text: 15px;
+$color_secondary: #E6DCD8;
+$bg_color: #f2efed;
+$bg_color_layout: #C7BBAF;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-} */
+
+
+// @mixin button($pixel: 94px, $backgroundc: $color_secondary, $colorletra: $color_primary) {
+//   right: 0px;
+//   background: $backgroundc;
+//   box-shadow: 0 0 1px rgba(black, .25);
+//   border: 2px solid #7f7f7f;
+//   width: $pixel;
+//   text-align: center;
+//   justify-content: center;
+//   padding: 2%;
+//   border-radius: 10px;
+//   color: $colorletra;
+//   font-weight: bold;
+//   white-space: pre-wrap;
+//   &:hover {
+//       background-color: $color_primary; 
+//       color: $color_secondary;
+//       cursor: pointer;
+//       // transform:scale(1.1);
+//   }
+// }
+
+//   color-scheme: light dark;
+//   color: rgba(255, 255, 255, 0.87);
+//   background-color: #242424;
+
+//   font-synthesis: none;
+//   text-rendering: optimizeLegibility;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   -webkit-text-size-adjust: 100%;
+// } */
 
 // Estilos Globales
 * {
@@ -27,32 +53,40 @@ body {
   font-family: "EXTRABOLD";
 }
 
-$color_primary:#394C45;  
-$font-sizeTitle:30px; 
-$font-sizeText:15px;
-$color_secondary: #E6DCD8;  
-$bg_color: #f2efed;
-$bg_color_layout:  #C7BBAF;
+// $color_primary:#394C45;  
+// $font-sizeTitle:30px; 
+// $font-sizeText:15px;
+// $color_secondary: #E6DCD8;  
+// $bg_color: #f2efed;
+// $bg_color_layout:  #C7BBAF;
 
-@mixin button($pixel: 94px, $backgroundc: $color_secondary, $colorletra: $color_primary) {
+// @mixin button($pixel: 94px, $backgroundc: $color_secondary, $colorletra: $color_primary) {
     
-  right: 0px;
-  background: $backgroundc;
-  box-shadow: 0 0 1px rgba(black, .25);
-  border: 2px solid #7f7f7f;
-  width: $pixel;
-  text-align: center;
-  justify-content: center;
-  padding: 2%;
-  border-radius: 10px;
-  color:$colorletra;
-  font-weight: bold;
-  white-space:pre-wrap;
-  &:hover {
-      background-color: $color_primary; 
-      color: $color_secondary;
-      cursor: pointer;
-      // transform:scale(1.1)
+//   right: 0px;
+//   background: $backgroundc;
+//   box-shadow: 0 0 1px rgba(black, .25);
+//   border: 2px solid #7f7f7f;
+//   width: $pixel;
+//   text-align: center;
+//   justify-content: center;
+//   padding: 2%;
+//   border-radius: 10px;
+//   color:$colorletra;
+//   font-weight: bold;
+//   white-space:pre-wrap;
+//   &:hover {
+//       background-color: $color_primary; 
+//       color: $color_secondary;
+//       cursor: pointer;
+//       // transform:scale(1.1)
 
-  }
+//   }
+// }
+:root {
+  --color__primary: #394c45;
+  --font__sizeTitle: 30px;
+  --font__sizeText: 15px;
+  --color__secundary: #e6dcd8;
+  --bg__color: #f2efed;
+  --bg__color__layout: #C7BBAF;
 }

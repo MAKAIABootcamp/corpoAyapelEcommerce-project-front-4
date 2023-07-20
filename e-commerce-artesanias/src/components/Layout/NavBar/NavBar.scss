@@ -20,11 +20,14 @@ ul li {
   align-items: center;
   padding: 0 4rem;
   font-size: 1.7rem;
-  gap: 30px;
+  gap: 40px;
+  color: #394C45;
+
 
 
   ul{
     display: flex;
+
   }
 
   .left-list{
@@ -32,9 +35,7 @@ ul li {
     padding-right: 10px;
   }
 
-  li {
-    color: #394C45;
-  }
+
 
   li {
     &:hover {
@@ -60,6 +61,7 @@ ul li {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
   svg {
     &:hover {
@@ -78,6 +80,7 @@ ul li {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
   ul {
     display: grid;
@@ -100,10 +103,9 @@ ul li {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
-  svg{
-    padding-right: 10px;
-  }
+
   .cart-value {
     display: grid;
     align-items: center;
@@ -129,14 +131,13 @@ ul li {
   .logo {
     display: flex;
     margin-top: 15px;
-    margin-left: 20px;
     height: 60px;
   }
 
   .menu-icon{
     position: absolute;
-    top: 15px;
-    right: 0;
+    top: 26px;
+    right: 10px;
     padding: 10px;
     cursor: pointer;
   }
@@ -161,14 +162,10 @@ ul li {
   }
 
   li {
-    padding: 0.5rem 0;
+    padding: 0;
     /* Estilos adicionales para los elementos del menú */
   }
 }
-
-
-
-
 
 
 @media (max-width: 1100px) {
@@ -184,23 +181,20 @@ ul li {
       background: none;
       border: none;
       padding: 0;
-
-      svg {
-        cursor: pointer;
-      }
-
-      &:hover {
-        transform: scale(1.2);
-      }
     }
 
+
+
     .menu-list {
-      // display: block;
       display: none;
 
+      &.active{
+        display: block;
+      }
 
+      :last-child{
+        cursor: pointer;
+      }
     }
   }
 }
-
-
