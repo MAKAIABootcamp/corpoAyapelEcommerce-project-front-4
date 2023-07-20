@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import Facebook from '../../assets/Icons/facebook.png';
 import Twitter from '../../assets/Icons/twitter.png';
 import Pinterest from '../../assets/Icons/pinterest.png';
@@ -12,15 +12,14 @@ import Terminos from '../../assets/Icons/terminos.png';
 import Privacidad from '../../assets/Icons/privacidad.png';
 import Reembolso from '../../assets/Icons/reembolso.png';
 import '../../components/Footer/Footer.scss';
-import { userLogoutAsync } from "../../redux/actions/loginActions";
-
+import { userLogoutAsync } from '../../redux/actions/loginActions';
 
 const Footer = () => {
   const dispatch = useDispatch();
-  const { user,  isLogged } = useSelector((store) => store.login);
-  const logOut =() =>{
-    dispatch(userLogoutAsync())
-  }
+  const { user, isLogged } = useSelector(store => store.login);
+  const logOut = () => {
+    dispatch(userLogoutAsync());
+  };
 
   return (
     <>
@@ -99,9 +98,9 @@ const Footer = () => {
                 </figure>
                 <div className='text'>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    Desde hace más de 10 años estamos formando capacidades para
+                    que los habitantes de Ayapel tengan una segunda oportunidad
+                    y una fuente de ingresos digna.
                   </p>
                 </div>
               </div>
@@ -110,11 +109,11 @@ const Footer = () => {
                 <h4>
                   <b>Nosotros</b>
                 </h4>
-                {user.name ==='' && !isLogged &&
+                {user.name === '' && !isLogged && (
                   <NavLink to='/Login' activeClassname='active'>
-                  <p>Iniciar Sesión</p>
+                    <p>Iniciar Sesión</p>
                   </NavLink>
-                }
+                )}
                 <NavLink to='/AboutUs' activeClassname='active'>
                   <p>¿Quiénes Somos?</p>
                 </NavLink>
@@ -143,7 +142,7 @@ const Footer = () => {
                 <p>comercial@corpoayapel.org</p>
               </div>
             </div>
-            <hr/>
+            <hr />
             <div className='copyright'>
               <p>©CorpoAyapel Artesanías 2023.</p>
             </div>
