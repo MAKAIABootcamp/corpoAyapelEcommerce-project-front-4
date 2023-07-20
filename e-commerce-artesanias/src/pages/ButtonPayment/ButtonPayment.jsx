@@ -1,7 +1,11 @@
 import { Helmet } from 'react-helmet';
+import './ButtonPayment.scss';
 
-const Payment = () => {
-  const amount = 10000;
+const ButtonPayment = () => {
+  /* Acá necesito constantes con la información de la compra */
+  const amount = 10000; // valor de la compra
+  const detail = ''; // detalle de la compra
+
   return (
     <div>
       <Helmet>
@@ -16,14 +20,14 @@ const Payment = () => {
           data-epayco-tax-ico='0.00'
           data-epayco-tax-base={amount}
           data-epayco-name='Compra artesanías'
-          data-epayco-description='Compra artesanías'
+          data-epayco-description={detail}
           data-epayco-currency='cop'
           data-epayco-country='CO'
           data-epayco-test='true'
           data-epayco-external='false'
           data-epayco-response=''
           data-epayco-confirmation=''
-          data-epayco-acepted='http://localhost:5173/PaymentSuccesful'
+          data-epayco-acepted='http://localhost:5173/SuccesfulPurchase'
           data-epayco-button='https://multimedia.epayco.co/dashboard/btns/btn3.png'
         ></button>
       </form>
@@ -31,4 +35,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default ButtonPayment;

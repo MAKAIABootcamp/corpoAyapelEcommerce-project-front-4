@@ -70,7 +70,7 @@ const Cart = () => {
       <h4 onClick={() => navigate(`/`)} className="carritoSubtittle">Apóyanos con más productos</h4>
       <Table striped className="table">
         <thead>
-          <tr>
+          <tr className="tableTitles">
             <th>#</th>
             <th>Producto</th>
             <th>Precio</th>

@@ -18,11 +18,12 @@ import TopSell from '../pages/TopSell/TopSell';
 import News from '../pages/News/News';
 import HandiCrafts from '../pages/HandiCrafts/HandiCrafts';
 import Cart from '../pages/Cart/Cart';
-import Payment from '../pages/Payment/Payment';
+import ButtonPayment from '../pages/ButtonPayment/ButtonPayment';
 import Admin from '../pages/Admin/Admin';
 import NotFound from '../pages/NotFound/NotFound';
 import MyAccount from '../pages/MyAccount/MyAccount';
-import PaymentSuccesful from '../pages/PaymentSuccesful/PaymentSuccesful';
+import SuccesfulPurchase from '../pages/SuccesfulPurchase/SuccesfulPurchase';
+import Layout from '../components/Layout/Layout';
 // import { HashRouter } from "react-router-dom"
 /* import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../Firebase/firebaseConfig';
@@ -62,7 +63,7 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/'>
+        <Route path='/' element={<Layout />}>
           {/* RUTAS PÚBLICAS */}
           <Route element={<PublicRouter isAutentication={isLoggedIn} />}>
             <Route index element={<Home />} />
@@ -83,8 +84,8 @@ const AppRouter = () => {
             <Route path='TopSell' element={<TopSell />} />
             <Route path='News' element={<News />} />
             <Route path='HandiCrafts' element={<HandiCrafts />} />
-            <Route path='Payment' element={<Payment />} />
-            <Route path='PaymentSuccesful' element={<PaymentSuccesful />} />
+            <Route path='ButtonPayment' element={<ButtonPayment />} />
+            <Route path='SuccesfulPurchase' element={<SuccesfulPurchase />} />
           </Route>
           {/* RUTAS PRIVADAS */}
           {isLoggedIn && (
@@ -94,7 +95,7 @@ const AppRouter = () => {
                 element={React.cloneElement(<Admin />, { isLoggedIn })}
               >
                 <Route path='Cart' element={<Cart />} />
-                <Route path='Payment' element={<Payment />} />
+                <Route path='ButtonPayment' element={<ButtonPayment />} />
               </Route>
             </React.Fragment>
           )}
