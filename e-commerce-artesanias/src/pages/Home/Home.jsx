@@ -7,8 +7,8 @@ import { useState, useEffect } from "react";
 import Banner from "../../components/Banner/Banner"
 import { useDispatch } from "react-redux";
 import { actionGetCartAsync } from "../../redux/actions/cartActions";
-import TestSanity from "./TestSanity";
-import TestSanityBanners from "./TestSanityBanners";
+import TestSanity from "../../components/Sanity/TestNotUsed/TestSanity";
+import TestSanityBanners from "../../components/Sanity/TestNotUsed/TestSanityBanners";
 
 const Home = () => {
   const [isFiltered , setisFiltered ]= useState(false)
@@ -25,8 +25,8 @@ const Home = () => {
     <Filter setisFiltered={setisFiltered}/>
     <ProductCards isFiltered={isFiltered}/>
     <Footer/>
-    <TestSanity/>
-    <TestSanityBanners/>
+    {/* <TestSanity/>
+    <TestSanityBanners/> */}
   </div>
   )
 };

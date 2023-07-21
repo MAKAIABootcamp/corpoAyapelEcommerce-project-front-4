@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getAllBanners } from '../../Services/servicesSanity';
-import { urlFor } from '../../sanityClient';
+import { getAllBanners } from '../../../Services/servicesSanity';
+import { urlFor } from '../../../sanityClient';
 
 const TestSanityBanners = () => {
   const [banners, setBanners] = useState([]);

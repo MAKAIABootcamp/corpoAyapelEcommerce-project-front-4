@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { getAllProducts } from '../../Services/servicesSanity';
-import { urlFor } from '../../sanityClient';
+import { useEffect, useState } from 'react';
+import { getAllProducts } from '../../../Services/servicesSanity';
+import { urlFor } from '../../../sanityClient';
 
 const TestSanity = () => {
   const [products, setProducts] = useState([]);
@@ -41,10 +41,7 @@ const TestSanity = () => {
           ))}
           {/* Render other product properties here */}
           <div>
-            <h3>Descripción corta</h3>
-            <p>{product.description}</p>
-            <h3>Producto de test</h3>
-            <p>{product.description}</p>
+            <p>{product.Precio}</p>
             {/* ... Render other properties ... */}
           </div>
         </div>

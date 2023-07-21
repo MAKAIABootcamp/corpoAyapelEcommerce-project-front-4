@@ -1,11 +1,14 @@
-import TestSanitySearch from "./TestSanitySearch"
+import TestSanitySearch from "../../components/Search/TestSanitySearch"
+import Footer from "../../components/Footer/Footer"
+import NavBar from "../../components/Layout/NavBar/NavBar"
 
 
 function Search() {
   return (
     <div>
-      Search
+      <NavBar/>
       <TestSanitySearch/>
+      <Footer/>
     </div>
   )
 }
