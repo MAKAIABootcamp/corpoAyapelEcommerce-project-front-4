@@ -29,10 +29,10 @@ const BannerTestimonies = () => {
   };
 
   return (
-    <div className='banner-container'>
+    <div className='bannerTestimonies-container'>
       {banners.length > 0 && (
-        <div className='banner'>
-          <button className='prev-button' onClick={handlePrevSlide}>
+        <div className='bannerTestimonies'>
+          <button className='prev-buttonTestimonies' onClick={handlePrevSlide}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='16'
@@ -48,11 +48,11 @@ const BannerTestimonies = () => {
             </svg>
           </button>
           <img
-            className='slide'
+            className='slideTestimonies'
             src={banners[currentSlide].imageUrl}
             alt={banners[currentSlide].title}
           />
-          <button className='next-button' onClick={handleNextSlide}>
+          <button className='next-buttonTestimonies' onClick={handleNextSlide}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='16'
