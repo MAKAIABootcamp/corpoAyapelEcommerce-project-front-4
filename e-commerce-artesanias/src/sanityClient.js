@@ -1,14 +1,19 @@
-import {createClient} from '@sanity/client'
+import { createClient } from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
 
 const client = createClient({
   projectId: 'hu2nmken',
   dataset: 'production',
-  useCdn: true, // set to `false` to bypass the edge cache
-  apiVersion: '2023-05-03', // use current date (YYYY-MM-DD) to target the latest API version
-})
+  useCdn: true,
+  apiVersion: '2023-05-03',
+});
 
-const data = await client.fetch(`count(*)`)
-console.log(`Number of documents: ${data}`)
+// Function to create a builder for image URLs
+const builder = imageUrlBuilder(client);
 
+// Function to get the URL for a specific image asset
+export const urlFor = (source) => builder.image(source);
 
-export default sanityClient
+console.log('Sanity client created.');
+
+export default client;

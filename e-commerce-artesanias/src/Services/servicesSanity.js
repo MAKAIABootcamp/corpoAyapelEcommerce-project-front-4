@@ -9,7 +9,7 @@ const client = createClient({
 
 // Function to fetch all products
 export const getAllProducts = async () => {
-  const query = `*[_type == "product"]`;
+  const query = `*[_type == "products"]`;
   return await client.fetch(query);
 };
 
