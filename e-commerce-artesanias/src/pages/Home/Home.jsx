@@ -17,13 +17,10 @@ const Home = () => {
   
   return (
   <div>
-    <NavBar/>
     <Banner/>
     <MainSections/>
     <Filter setisFiltered={setisFiltered}/>
     <ProductCards isFiltered={isFiltered}/>
-    <Footer/>
-
   </div>
   )
 };
