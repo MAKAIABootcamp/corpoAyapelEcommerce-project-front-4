@@ -1,13 +1,3 @@
-
-$color_primary: #394C45;
-$font_size_title: 30px;
-$font_size_text: 15px;
-$color_secondary: #E6DCD8;
-$bg_color: #f2efed;
-$bg_color_layout: #C7BBAF;
-
-
-
 // @mixin button($pixel: 94px, $backgroundc: $color_secondary, $colorletra: $color_primary) {
 //   right: 0px;
 //   background: $backgroundc;
@@ -22,7 +12,7 @@ $bg_color_layout: #C7BBAF;
 //   font-weight: bold;
 //   white-space: pre-wrap;
 //   &:hover {
-//       background-color: $color_primary; 
+//       background-color: $color_primary;
 //       color: $color_secondary;
 //       cursor: pointer;
 //       // transform:scale(1.1);
@@ -45,23 +35,22 @@ $bg_color_layout: #C7BBAF;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /*   font-family: 'Roboto', sans-serif; Colocar la fuente que se quiere*/
+  font-family: 'Roboto', sans-serif; /*Colocar la fuente que se quiere*/
 }
 
 body {
   width: 100%;
-  font-family: "EXTRABOLD";
 }
 
-// $color_primary:#394C45;  
-// $font-sizeTitle:30px; 
+// $color_primary:#394C45;
+// $font-sizeTitle:30px;
 // $font-sizeText:15px;
-// $color_secondary: #E6DCD8;  
+// $color_secondary: #E6DCD8;
 // $bg_color: #f2efed;
 // $bg_color_layout:  #C7BBAF;
 
 // @mixin button($pixel: 94px, $backgroundc: $color_secondary, $colorletra: $color_primary) {
-    
+
 //   right: 0px;
 //   background: $backgroundc;
 //   box-shadow: 0 0 1px rgba(black, .25);
@@ -75,7 +64,7 @@ body {
 //   font-weight: bold;
 //   white-space:pre-wrap;
 //   &:hover {
-//       background-color: $color_primary; 
+//       background-color: $color_primary;
 //       color: $color_secondary;
 //       cursor: pointer;
 //       // transform:scale(1.1)
@@ -88,5 +77,5 @@ body {
   --font__sizeText: 15px;
   --color__secundary: #e6dcd8;
   --bg__color: #f2efed;
-  --bg__color__layout: #C7BBAF;
+  --bg__color__layout: #c7bbaf;
 }

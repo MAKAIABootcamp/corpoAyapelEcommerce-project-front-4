@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,  signInWithPopup, } from "firebase/auth"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,  signInWithPopup, updateProfile } from "firebase/auth"
 import { auth } from "../../Firebase/FirebaseConfig"
 import { loginTypes } from "../types/loginType"
 import { getFilterItemsActionAsync, createItemActionAsync, updateItemActionAsync } from '../../Services/crudColection';
@@ -8,11 +8,13 @@ export const loginUserAsync = ( {email, password} ) =>{
         dispatch(toggleLoading())
         try {
             const {user} = await signInWithEmailAndPassword(auth, email, password)
-            const userCollection = await getFilterItemsActionAsync("users",['uid', '==', user.uid]);
-            const currentUser= {...userCollection[0]}
-            console.log(currentUser)
+            const dataUser= {
+                name: user.displayName,
+                email: user.email,
+                uid: user.uid
+            }
             const error = { status: false, message: ''}
-            dispatch(loginUser(currentUser, error));
+            dispatch(loginUser(dataUser, error));
             dispatch(toggleLogin())
             dispatch(toggleLoading())
             //modifiquee
@@ -75,6 +77,9 @@ export const userCreateAsync = ( {email, password, name} ) =>{
         dispatch(toggleLoading())
         try {
             await createUserWithEmailAndPassword(auth, email, password)
+            await updateProfile(auth.currentUser, {
+                displayName: name
+            });
             const user = {
                 name,
                 email,
