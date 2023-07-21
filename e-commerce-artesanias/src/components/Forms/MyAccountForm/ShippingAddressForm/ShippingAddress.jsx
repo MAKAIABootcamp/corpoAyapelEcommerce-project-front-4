@@ -48,18 +48,7 @@ const ShippingAddress = () => {
 
   return (
     <div className="shipping-address">
-      {/* {(!user || firebaseError) && (
-        <div>
-          {firebaseError ? (
-            <div className="error-message">Error al cargar las direcciones. Inténtalo de nuevo más tarde.</div>
-          ) : (
-            <div>Inicia sesión para ver las direcciones de envío.</div>
-          )}
-          <button className="add-address-button" disabled={user && !firebaseError} onClick={handleAddAddress}>
-            Agregar Nueva Dirección
-          </button>
-        </div>
-      )} */}
+
       <h2>Direcciones de Envío</h2>
       <ul>
         {addresses.map((address) => (
