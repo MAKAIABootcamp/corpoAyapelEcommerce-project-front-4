@@ -31,7 +31,7 @@ const ProductCards = ({ isFiltered }) => {
   console.log(combinedProducts);
 
   return (
-    <div className="container">
+    <div className="containerCards">
       {combinedProducts.length > 0 ? (
         combinedProducts.map((product) => (
           <Card className="card" key={product.id} onClick={() => navigate(`/Details/${product.id}`)}>
