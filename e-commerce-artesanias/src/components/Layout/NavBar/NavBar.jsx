@@ -1,9 +1,13 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import "./NavBar.scss";
 import logo from "../../../assets/Icons/LogoArt.png";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((store) => store.login);
   const navigate = useNavigate();
 
   const handleLinkClick = (path) => {
@@ -45,7 +49,12 @@ const NavBar = () => {
             </svg>
               <ul>
                 {/* NO FUNCIONAN AUN */}
-                <li onClick={() => handleLinkClick("/Login")}>Iniciar sesion</li>
+                {user.name !== '' ? (
+                    <li>{user.name}</li>
+                  ): (
+                    <li onClick={() => handleLinkClick("/Login")}>Iniciar sesion</li>
+                  )
+                }
                 {/* SI NO ESTA LOGUEADO APARECE EL MI CUENTA Y CUANDO ESTA LOGUEADO APARECE EL NOMBRE Y SE QUITA LA OPCION DE INICIAR SESION */}
                 <li onClick={() => handleLinkClick("/MyAccount")}>Mi cuenta</li>
               </ul>
@@ -89,7 +98,14 @@ const NavBar = () => {
                 <div className="validation-mobile">
                   <ul>
                     {/* NO FUNCIONAN AUN */}
-                    <li onClick={() => handleLinkClick("/Login")}>Iniciar sesion</li>
+                    {user.name !== '' ? (
+                        <li>{user.name}</li>
+                      ): (
+                        <li onClick={() => handleLinkClick("/Login")}>Iniciar sesion</li>
+                      )
+
+                    }
+                    
                     {/* SI ESTA LOGUEADO APARECE EL MY ACCOUNT */}
                     <li onClick={() => handleLinkClick("/my-account")}>Mi cuenta</li>
                   </ul>
