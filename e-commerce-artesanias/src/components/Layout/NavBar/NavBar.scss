@@ -151,9 +151,8 @@ ul li {
   right: 0;
   z-index: 3;
   border-radius: 5px;
-  background-color: #C7BBAF;
+  background-color: rgba(199, 187, 175, 0.8); /* Adjust the alpha value as per your preference */
   padding: 1rem;
-  /* Otros estilos para el menú desplegable */
 
   ul {
     list-style-type: none;
