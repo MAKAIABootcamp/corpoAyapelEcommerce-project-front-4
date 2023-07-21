@@ -31,7 +31,7 @@ const TestSanitySearch = () => {
   return (
     <div className="container-main">
       <div>
-        <h1>Busqueda de productos</h1>
+        <h1>Busqueda de productos:</h1>
         <form className="searchForm" onSubmit={handleSearchSubmit}>
           <input
             type="text"
