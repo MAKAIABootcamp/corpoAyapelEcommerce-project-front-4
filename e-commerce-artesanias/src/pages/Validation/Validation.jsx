@@ -77,10 +77,8 @@ function Validation() {
         {errors.password && (
           <span className="error">{errors.password.message}</span>
         )}
-        
-        <Link className="login-button" to="/">
-          Iniciar
-        </Link>
+        <button type="submit" className="login-button">Iniciar</button>
+
          <div className="providers"> 
          <span>Iniciar sesión con: </span>
           <figure

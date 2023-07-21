@@ -32,7 +32,6 @@
         .follow{
             >p{
                 padding: 40px 40px  25px;
-                font-family: 'Dosis' !important;
                 font-size: 15px;
                 font-weight: 400;
                 text-transform: uppercase;
@@ -47,6 +46,11 @@
           height: 30px;
           margin-right: 20px;
           margin-bottom: 25px;
+          transform: scale(1.1);
+      }
+      .icon:hover{
+        background-color: white;
+        border-radius: 15px;
       }
       .socials{
         display: flex;
@@ -59,7 +63,6 @@
         align-items: center;
         flex-wrap: wrap;
         .contact{
-            font-family: 'Dosis' !important;
             h4{
                 text-transform: uppercase;
             }
@@ -85,15 +88,41 @@
     }
     .list{
         h4{
-            font-family: 'Dosis' !important;
             text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+        }
+        a {
+            &:hover{
+                text-decoration: none;
+            }
         }
         p{
             
             color: black;
-            font-family: 'Dosis' !important;
-            text-decoration: underline #33AC4F;
+            text-decoration: none;
+            background-color: #5F8454;
+            display: flex;
+            justify-content: center;
+            width: 150px;
+            border-radius: 8px;
+            &:hover{
+                background-color: #FFF9EE;
+            }
         }
+
     }
 }
 
+@media (max-width: 500px) {
+    .body{
+        .footer-bg{
+          .information{
+            justify-content: center;
+            .contact, .text{
+                text-align: center;
+            }
+          }
+        }
+    }
+}

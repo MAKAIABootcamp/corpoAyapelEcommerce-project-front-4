@@ -1,0 +1,129 @@
+@import "../../../main.scss";
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; /* Set the container's flex-direction to row */
+    border-radius: 10px;
+    background-color: var(--bg__color);
+    width: 100%;
+    justify-content: center;
+    padding: 2% 0;
+    // ... rest of the styles ...
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    // height: 400px;
+    width: 18vw;
+    // width: 25%;
+    height: auto;
+    //  width:  calc(25% - 2%);
+    padding: 2%;
+    background-color: #E6DCD8;
+    margin: 8px;
+
+    .cardImage {
+      height: 14vw;
+      width: 14vw;
+      // height: 200px; 
+      // width: 200px; 
+      border-radius: 20px;
+      filter: opacity(85%);
+      padding: 2%;
+      object-fit: cover;
+    }
+
+    .price {
+      background-color: #E6DCD8;
+      width: 13vw;
+      border-radius: 0 5px;
+      text-align: center;
+      z-index: 2;
+      font-size: 2vh;
+      font-weight: bolder;
+      color: var(--color__primary);
+    }
+
+    .productName {
+      color: var(--color__primary);
+      font-weight: bolder;
+      padding-top: 10px;
+      text-align: center;
+      font-size: 2vh;
+      width: 50%;
+    }
+
+    .productName:hover {
+      text-decoration: underline;
+    }
+
+    .stars {
+      display: flex;
+      align-items: flex-end;
+      margin-left: -40%;
+
+      h4 {
+        color: #F1A548;
+        margin-right: 5px;
+        align-items: flex-end;
+      }
+    }
+
+    .productDescription {
+      justify-content: center;
+      align-items: center;
+      padding: 2% 15%;
+      font-size: 2vh;
+    }
+  }
+
+  .card:hover {
+    cursor: pointer;
+  }
+
+  .errorMessage {
+    color: var(--color__primary);
+    font-weight: bolder;
+    text-align: center;
+  }
+
+
+
+
+
+@media screen and (max-width: 1100px) {
+  .container {
+    display: flex;
+
+    .card {
+      width: 26vw;
+
+      .cardImage {
+        height: 20vw;
+        width: 20vw;
+      }
+
+    }
+
+  }
+}
+@media screen and (max-width: 500px) {
+  .container {
+    display: flex;
+
+    .card {
+      width: 62vw;
+
+      .cardImage {
+        height: 40vw;
+        width: 40vw;
+      }
+
+    }
+
+  }
+}

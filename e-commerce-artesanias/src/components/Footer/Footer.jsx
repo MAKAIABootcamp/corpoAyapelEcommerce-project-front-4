@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import Facebook from '../../assets/Icons/facebook.png';
 import Twitter from '../../assets/Icons/twitter.png';
 import Pinterest from '../../assets/Icons/pinterest.png';
@@ -12,15 +12,14 @@ import Terminos from '../../assets/Icons/terminos.png';
 import Privacidad from '../../assets/Icons/privacidad.png';
 import Reembolso from '../../assets/Icons/reembolso.png';
 import '../../components/Footer/Footer.scss';
-import { userLogoutAsync } from "../../redux/actions/loginActions";
-
+import { userLogoutAsync } from '../../redux/actions/loginActions';
 
 const Footer = () => {
   const dispatch = useDispatch();
-  const { user,  isLogged } = useSelector((store) => store.login);
-  const logOut =() =>{
-    dispatch(userLogoutAsync())
-  }
+  const { user, isLogged } = useSelector(store => store.login);
+  const logOut = () => {
+    dispatch(userLogoutAsync());
+  };
 
   return (
     <>
@@ -99,26 +98,20 @@ const Footer = () => {
                 </figure>
                 <div className='text'>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    A través de las artesanías no solo
+                    ayudas a un artesano/a a generar ingresos sino también a
+                    mejorar su calidad de vida para el/ella y toda su familia.
                   </p>
                 </div>
               </div>
 
               <div className='list'>
-                <h4>
-                  <b>Nosotros</b>
-                </h4>
-                {user.name && isLogged ?
+                <h4>Nosotros</h4>
+                {user.name === '' && !isLogged && (
                   <NavLink to='/Login' activeClassname='active'>
-                  <p>Iniciar Sesión</p>
+                    <p>Iniciar Sesión</p>
                   </NavLink>
-                  :
-                  <a onClick={()=>logOut()}>
-                    <p>Cerrar Sesión</p>
-                  </a>
-                }
+                )}
                 <NavLink to='/AboutUs' activeClassname='active'>
                   <p>¿Quiénes Somos?</p>
                 </NavLink>
@@ -128,9 +121,7 @@ const Footer = () => {
               </div>
 
               <div className='contact'>
-                <h4>
-                  <b>Contáctanos</b>
-                </h4>
+                <h4>Contáctanos</h4>
                 <p>
                   <b>Llámanos</b>
                 </p>
@@ -147,7 +138,7 @@ const Footer = () => {
                 <p>comercial@corpoayapel.org</p>
               </div>
             </div>
-            <hr/>
+            <hr />
             <div className='copyright'>
               <p>©CorpoAyapel Artesanías 2023.</p>
             </div>

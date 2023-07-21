@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../ProductCards/ProductCards.scss';
 import { useNavigate } from 'react-router-dom';
 // import { filterProductsAsync, getProductsAsync } from '../../../redux/productSlice';
+
 const ProductCards = ({ isFiltered }) => {
   const { products, productsFiltered } = useSelector(state => state.productStore);
   const [productsToList, setProductsToList] = useState([]);
