@@ -11,7 +11,9 @@ import Swal from "sweetalert2";
 const Cart = () => {
   const navigate = useNavigate();
   const cart = useSelector((store) => store.cartStore.cart);
-  const user = useSelector((store) => store.login.isLogged);  
+  const isLogged = useSelector((store) => store.login.isLogged);  
+  console.log(isLogged)
+  const user = useSelector((store) => store.login.user);  
   console.log(user)
   const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
@@ -67,13 +69,16 @@ const Cart = () => {
   };
 
 // Validar logIn
-const finishPurchase =(userId) => {
-  if (user){
-    navigate("/Payment")
-      const userLogged= user.find((user) => user.id === userId);
-      const updateCart = {...cart}
-      updateCart['user'] = userLogged
+const finishPurchase =() => {
+  if (isLogged){
+      const updateCart = {
+        products: Object.values(cart),
+        user: user,
+        subtotal: numberToMoney(total)
+      }
+      console.log(updateCart)
       dispatch(actionPutCartAsync(updateCart))
+      navigate("/MyAccount")
     //itegración con firebase
   } else {
     Swal.fire("Debe iniciar sesión para continuar")

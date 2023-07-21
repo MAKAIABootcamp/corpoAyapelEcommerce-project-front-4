@@ -12,6 +12,7 @@ import {
   userLoginProviderAsync,
 } from "../../redux/actions/loginActions";
 import googleIcon from "../../assets/Icons/google.svg";
+import NavBar from "../../components/Layout/NavBar/NavBar";
 
 function Validation() {
   const dispatch = useDispatch();
@@ -54,6 +55,8 @@ function Validation() {
   };
 
   return (
+    <>
+    <NavBar/>
     <section className="login-page">
       <p className="title">Iniciar sesión</p>
       <form className="formLogin" onSubmit={handleSubmit(onSubmitForm)}>
@@ -94,6 +97,7 @@ function Validation() {
         Registrarse
       </Link>
     </section>
+    </>
   );
 }
 

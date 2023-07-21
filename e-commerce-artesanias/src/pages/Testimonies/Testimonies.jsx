@@ -11,16 +11,11 @@ const Testimonies = () => {
       <h1 className='mainTestimonies__title'>Nuestros Artesanos</h1>
       <section className='mainTestimonies__texts'>
         <p className='mainTestimonies__texts--info'>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla veniam
-          quidem distinctio natus nisi voluptatibus architecto recusandae omnis
-          quam, repellendus dignissimos nemo eius magni soluta fuga est quas
-          blanditiis doloremque.
+        "Por eso estamos tan orgullosos de este proyecto. Porque hemos visto como ha transformado la comunidad, porque con la utilidad podemos seguir con nuestros proyecto y porque cada vexz que visitamos las casas de nuestros artesanos nos enorgullecemos de sus logros"
         </p>
         <p className='mainTestimonies__texts--info info2'>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla veniam
-          quidem distinctio natus nisi voluptatibus architecto recusandae omnis
-          quam, repellendus dignissimos nemo eius magni soluta fuga est quas
-          blanditiis doloremque.
+        A través de las artesanías no solo ayudas a un artesano/a a generar ingresos sino también a mejorar su calidad de vida para el/ella y toda su familia.
+          
         </p>
       </section>
       <section className='mainTestimonies__images'>

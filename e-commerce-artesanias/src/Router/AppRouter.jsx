@@ -71,7 +71,7 @@ const AppRouter = () => {
             <Route path='AboutUs' element={<AboutUs />} />
             <Route path='Contact' element={<Contact />} />
             <Route path='Search' element={<Search />} />
-            <Route path='Login' element={<Validation />} />
+
             <Route path='MyAccount' element={<MyAccount />} />
             <Route path='Register' element={<Register />} />
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
@@ -100,6 +100,7 @@ const AppRouter = () => {
             </React.Fragment>
           )}
         </Route>
+        <Route path="Login" element={<Validation/>}/>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
