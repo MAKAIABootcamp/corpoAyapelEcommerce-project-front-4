@@ -113,7 +113,7 @@ const NavBar = () => {
             </svg>
             <ul className='cart-value'>
               <li onClick={() => handleLinkClick('/Cart')}>Mi carrito</li>
-              <li>MIRAR COMENTARIO</li>
+              <li></li>
               {/* SE NECESITA VINCULACION CON EL TOTAL DEL CARRITO */}
             </ul>
           </div>
