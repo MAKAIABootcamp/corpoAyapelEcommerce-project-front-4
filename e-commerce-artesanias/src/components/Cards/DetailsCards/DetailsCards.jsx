@@ -78,8 +78,13 @@ const DetailsCards = () => {
             <h3 className="subtittleProductPrice">  {numberToMoney(productInfo.price)} </h3>
             <p className="productDescription">{productInfo.decription} </p>
             <Button className="button" onClick={() => {
-              onAddingToCart(productInfo.id);
-              toggleToast();
+              if(user?.email){
+                onAddingToCart(productInfo.id);
+                toggleToast();
+              } else {
+                toggleToastLogin();
+              }
+
             }}>
               Agregar al carrito
             </Button>
@@ -93,6 +98,17 @@ const DetailsCards = () => {
                 <strong className="me-auto">Producto agregado</strong>
               </Toast.Header>
               <Toast.Body>¡El producto se ha agregado con éxito!</Toast.Body>
+            </Toast>
+            <Toast className="toast"
+              show={showToastLogin}
+              onClose={toggleToastLogin}
+              autohide 
+              delay={1000} 
+            >
+              <Toast.Header>
+                <strong className="me-auto">Inicia sesión</strong>
+              </Toast.Header>
+              <Toast.Body>¡Inicia sesión para agregar al carrito!</Toast.Body>
             </Toast>
           </div>
         </div>

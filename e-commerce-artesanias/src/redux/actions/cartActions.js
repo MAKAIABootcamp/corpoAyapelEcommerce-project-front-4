@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { cartTypes } from "../types/cartTypes";
+import { createItemActionAsync, getFilterItemsActionAsync } from '../../Services/crudColection';
+
 // Mostrar productos del carrito
-export const actionGetCartAsync = () => {
+export const actionGetCartAsync = (userUid) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get('http://localhost:3000/cart');
-      const cart = response.data;
-      console.log(cart)
+      const cart = await getFilterItemsActionAsync('Carrito', ['user', "==", userUid])
       dispatch(actionGetCartSync(cart));
     } catch (error) {
       console.log(error);
@@ -23,7 +23,7 @@ const actionGetCartSync = (cart) => {
   }
 }
 // Agregar al carrito
-export const actionPostCartAsync = (product) => {
+export const actionPostCartAsync = (productId, user) => {
     return async (dispatch) => {
       try {
         const response = await axios.post('http://localhost:3000/cart', product);
@@ -51,9 +51,7 @@ export const actionPostCartAsync = (product) => {
   const actionPostCartSync = (product) => {
     return {
         type: cartTypes.CART_ADD,
-        payload: {
-            cart: product
-        }
+        payload: product
     }
 }
 
