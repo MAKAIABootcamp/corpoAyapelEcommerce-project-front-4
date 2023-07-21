@@ -107,11 +107,15 @@ const Footer = () => {
 
               <div className='list'>
                 <h4>Nosotros</h4>
-                {user.name === '' && !isLogged && (
+                  {user.name && isLogged ?
                   <NavLink to='/Login' activeClassname='active'>
-                    <p>Iniciar Sesión</p>
+                  <p>Iniciar Sesión</p>
                   </NavLink>
-                )}
+                  :
+                  <a onClick={()=>logOut()}>
+                    <p>Cerrar Sesión</p>
+                  </a>
+                }
                 <NavLink to='/AboutUs' activeClassname='active'>
                   <p>¿Quiénes Somos?</p>
                 </NavLink>
