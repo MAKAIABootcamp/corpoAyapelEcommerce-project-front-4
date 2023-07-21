@@ -9,11 +9,9 @@ const MyAccount = () => {
     return (
     <div>MyAccount
       <div className="page-content">
-        <NavBar/>
         <Orders/>
         <ShippingAddress/>
         <BillingAddress/>
-        <Footer/>
       </div>
     </div>
     );

@@ -6,7 +6,6 @@ import Imagen from "../../assets/Images/matica.png"
 const PrivacyPolicy = () => {
   return (
     <>
-    <NavBar/>
       <section className='content'>
         <div>
           <h1>Política de privacidad</h1>

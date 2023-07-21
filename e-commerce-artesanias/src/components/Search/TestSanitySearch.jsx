@@ -5,7 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
-
+import "./TestSanitySearch.scss"
+import Swal from "sweetalert2";
 const TestSanitySearch = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,6 +17,12 @@ const TestSanitySearch = () => {
 
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
+
+    if (searchTerm.trim() === "") {
+      Swal.fire("Error", "Ingresa un término de búsqueda", "error");
+      return;
+    }
+
     try {
       const productsData = await getAllProducts();
       // Filter products based on the search term
@@ -26,21 +33,22 @@ const TestSanitySearch = () => {
     } catch (error) {
       console.error('Error fetching products:', error);
     }
+
   };
 
   return (
     <div className="container-main">
       <div>
-        <h1>Busqueda de productos</h1>
+        <h1 className='searchTittle'>Busqueda de productos</h1>
         <form className="searchForm" onSubmit={handleSearchSubmit}>
           <input
             type="text"
             value={searchTerm}
             onChange={handleSearch}
             className="searchInput"
-            placeholder="Search products..."
+            placeholder="Nombre del producto..."
           />
-          <button type="submit" className="searchButton">Search</button>
+          <button type="submit" className="searchButton" >Buscar</button>
         </form>
       </div>
       <div className='container'>

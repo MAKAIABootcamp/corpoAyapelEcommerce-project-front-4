@@ -1,17 +1,47 @@
-@import "../../../main.scss";
+@import "../../main.scss";
+.container-main {
 
-.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--bg__color);
+    padding: 5%;
+    align-items: center;
+    .searchTittle{
+      color: var(--color__primary);
+    }
+
+    .searchForm{
+      display: flex;
+      width: 100%;
+      gap: 5%;
+      
+      .searchInput {
+          color: black;
+          display: block;
+          justify-content: space-between;
+          border: 0;
+          width: 70%;
+          height: 40px;
+          padding: 10px;
+          border-radius: 5px;
+      }
+  
+      .searchButton {
+          padding: 2%;
+          background-color: var(--color__secundary);
+          color: var(--color__primary);
+          width: 30%;
+        }
+        .searchButton :hover{
+        border: 1px solid var(--color__primary);
+      }
+  }
+  }
+  .productContainer{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row; /* Set the container's flex-direction to row */
-    border-radius: 10px;
-    background-color: var(--bg__color);
-    width: 100%;
-    justify-content: center;
-    padding: 2% 0;
-    // ... rest of the styles ...
   }
-  
   .card {
     display: flex;
     align-items: center;
