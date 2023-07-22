@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { cartTypes } from "../types/cartTypes";
-// Mostrar productos del carrito
+
 export const actionGetCartAsync = () => {
   return async (dispatch) => {
     try {
@@ -22,6 +22,9 @@ const actionGetCartSync = (cart) => {
       }
   }
 }
+
+
+
 // Agregar al carrito
 export const actionPostCartAsync = (product) => {
     return async (dispatch) => {

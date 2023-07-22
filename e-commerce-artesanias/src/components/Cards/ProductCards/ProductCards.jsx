@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../ProductCards/ProductCards.scss';
 import { useNavigate } from 'react-router-dom';
 import { numberToMoney } from '../../../Services/utilities';
+import { getAllProducts } from '../../../Services/servicesSanity';
+import { urlFor } from '../../../sanityClient';
 // import { filterProductsAsync, getProductsAsync } from '../../../redux/productSlice';
 
 const ProductCards = ({ isFiltered }) => {
@@ -32,22 +34,48 @@ const ProductCards = ({ isFiltered }) => {
   console.log(combinedProducts);
 
   return (
-    <div className="containerCards">
+//     <div className="containerCards">
+//       {combinedProducts.length > 0 ? (
+//         combinedProducts.map((product) => (
+//           <Card className="card" key={product.id} onClick={() => navigate(`/Details/${product.id}`)}>
+//             <Card.Img className="cardImage" variant="top" src={product.img["1"]} />
+//             <Card.Text className="price" variant="primary" >
+//               {numberToMoney(product.price)} 
+//             </Card.Text>
+//             <Card.Title className="productName">{product.product_name}</Card.Title>
+//             <div className="stars">
+//               <h4>★</h4>
+//               <h4>★</h4>
+//               <h4>★</h4>
+//             </div>
+//             <Card.Text className="productDescription">
+//               Some quick example text to build on the card title and make up the bulk of the card's content.
+//             </Card.Text>
+//           </Card>
+//         ))
+//       ) : (
+//         <div> <h3 className='errorMessage'> Lo sentimos, no hay productos disponibles. </h3></div>
+//       )}
+//     </div>
+//   );
+// };
+
+<div className="containerCards">
       {combinedProducts.length > 0 ? (
         combinedProducts.map((product) => (
-          <Card className="card" key={product.id} onClick={() => navigate(`/Details/${product.id}`)}>
-            <Card.Img className="cardImage" variant="top" src={product.img["1"]} />
+          <Card className="card" key={product._id} onClick={() => navigate(`/Details/${product._id}`)}>
+           <Card.Img className="cardImage" variant="top" src={urlFor(product[`image${1}`].asset._ref).url()} alt={product.name} />
             <Card.Text className="price" variant="primary" >
-              {numberToMoney(product.price)} 
+              {numberToMoney(product.Precio)} 
             </Card.Text>
-            <Card.Title className="productName">{product.product_name}</Card.Title>
+            <Card.Title className="productName">{product.name}</Card.Title>
             <div className="stars">
               <h4>★</h4>
               <h4>★</h4>
               <h4>★</h4>
             </div>
             <Card.Text className="productDescription">
-              Some quick example text to build on the card title and make up the bulk of the card's content.
+              {product.description}
             </Card.Text>
           </Card>
         ))

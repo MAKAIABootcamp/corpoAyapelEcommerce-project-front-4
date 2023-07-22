@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { actionGetCartAsync } from '../../redux/actions/cartActions';
 import TestSanity from '../../components/Sanity/TestNotUsed/TestSanity';
 import TestSanityBanners from '../../components/Sanity/TestNotUsed/TestSanityBanners';
+import TestSanitySearch from '../../components/Search/TestSanitySearch';
 
 const Home = () => {
   const [isFiltered, setisFiltered] = useState(false);
