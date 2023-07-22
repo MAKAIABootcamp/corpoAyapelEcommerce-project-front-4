@@ -7,7 +7,7 @@ import "../../pages/MyAccount/MyAccount.scss";
 
 const MyAccount = () => {
     return (
-    <div>MyAccount
+    <div>
       <div className="page-content">
         <Orders/>
         <ShippingAddress/>
