@@ -42,7 +42,9 @@ function Validation() {
       dispatch(loginUser({}, err));
     }
     if (isLogged && loading === false && error.status === false) {
-      if (user.name) {
+      if(user.isAdmin) {
+        navigate('/Admin')
+      } else if (!user.isAdmin) {
         navigate("/");
       } else {
         navigate("/register");

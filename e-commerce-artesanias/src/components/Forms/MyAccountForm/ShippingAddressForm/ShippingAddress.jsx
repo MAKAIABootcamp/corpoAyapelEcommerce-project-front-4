@@ -34,7 +34,12 @@ const ShippingAddress = () => {
     event.preventDefault();
     const validation = true;
     if(validation){
-      dispatch(createShippingAddressActionsAsync(formData)).then(data=>{
+      const dataShipping = {
+        shipping_address: {
+          ...formData
+        }
+      }
+      dispatch(createShippingAddressActionsAsync(dataShipping, user)).then(data=>{
         setFormData(initialValue)
         Swal.fire({
             icon: 'success',
