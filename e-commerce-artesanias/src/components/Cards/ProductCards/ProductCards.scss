@@ -1,9 +1,8 @@
 @import "../../../main.scss";
 
-.container {
+.containerCards {
   display: flex;
   flex-wrap: wrap;
-  // flex-direction: row;
   border-radius: 10px;
   background-color:  var(--bg__color);
   width: 100%;
@@ -49,16 +48,12 @@
 
     .productName {
       color: var(--color__primary);
-      font-weight: bolder;
       padding-top: 10px;
       text-align: center;
       font-size: 2vh;
-      width: 50%;
+      width: 55%;
     }
 
-    .productName:hover {
-      text-decoration: underline;
-    }
 
     .stars {
       display: flex;
@@ -82,8 +77,12 @@
 
   .card:hover {
     cursor: pointer;
+    // background-color: #e6d7cc;
+    border: 3px solid var(--bg__color__layout);
   }
-
+  .card:hover .productName{
+    font-weight: bold;
+  }
   .errorMessage {
     color: var(--color__primary);
     font-weight: bolder;
@@ -95,7 +94,7 @@
 
 
 @media screen and (max-width: 1100px) {
-  .container {
+  .containerCards {
     display: flex;
 
     .card {
@@ -110,8 +109,24 @@
 
   }
 }
+@media screen and (max-width: 800px) {
+  .containerCards {
+    display: flex;
+
+    .card {
+      width: 42vw;
+
+      .cardImage {
+        height: 30vw;
+        width: 30vw;
+      }
+
+    }
+
+  }
+}
 @media screen and (max-width: 500px) {
-  .container {
+  .containerCards {
     display: flex;
 
     .card {

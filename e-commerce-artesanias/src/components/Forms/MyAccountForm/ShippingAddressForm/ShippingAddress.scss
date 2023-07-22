@@ -1,6 +1,8 @@
 .shipping-address {
     margin-bottom: 20px;
     display: grid;
+    background-color: var(--bg__color);
+    padding: 5%;
   
     h2 {
       font-size: 18px;
@@ -48,7 +50,8 @@
           padding: 10px 20px;
           font-size: 16px;
           cursor: pointer;
-  
+          background-color: var(--color__secundary);
+          color: var(--color__primary);
           &:disabled {
             opacity: 0.5;
             cursor: not-allowed;

@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../ProductCards/ProductCards.scss';
 import { useNavigate } from 'react-router-dom';
+import { numberToMoney } from '../../../Services/utilities';
 // import { filterProductsAsync, getProductsAsync } from '../../../redux/productSlice';
 
 const ProductCards = ({ isFiltered }) => {
@@ -31,13 +32,13 @@ const ProductCards = ({ isFiltered }) => {
   console.log(combinedProducts);
 
   return (
-    <div className="container">
+    <div className="containerCards">
       {combinedProducts.length > 0 ? (
         combinedProducts.map((product) => (
           <Card className="card" key={product.id} onClick={() => navigate(`/Details/${product.id}`)}>
             <Card.Img className="cardImage" variant="top" src={product.img["1"]} />
-            <Card.Text className="price" variant="primary">
-              ${product.price}
+            <Card.Text className="price" variant="primary" >
+              {numberToMoney(product.price)} 
             </Card.Text>
             <Card.Title className="productName">{product.product_name}</Card.Title>
             <div className="stars">

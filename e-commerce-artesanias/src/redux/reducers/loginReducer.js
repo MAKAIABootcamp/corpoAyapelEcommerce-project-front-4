@@ -15,6 +15,7 @@ const initialState = {
 
 export const loginReducer = (state = initialState, action ) =>{
     switch(action.type){
+
         case loginTypes.CREATE_USER:
             return {
                 ...state,
@@ -53,6 +54,13 @@ export const loginReducer = (state = initialState, action ) =>{
                ...state,
                 isLogged: !state.isLogged
             }
+
+        case loginTypes.SET_LOGIN:
+                return {
+                   ...state,
+                    // isLogged: action.payload
+                    isLogged: true
+                }
 
         default:
             return state;

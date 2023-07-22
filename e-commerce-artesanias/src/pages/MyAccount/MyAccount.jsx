@@ -7,13 +7,11 @@ import "../../pages/MyAccount/MyAccount.scss";
 
 const MyAccount = () => {
     return (
-    <div>MyAccount
+    <div>
       <div className="page-content">
-        <NavBar/>
         <Orders/>
         <ShippingAddress/>
         <BillingAddress/>
-        <Footer/>
       </div>
     </div>
     );

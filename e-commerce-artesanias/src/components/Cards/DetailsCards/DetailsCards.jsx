@@ -6,11 +6,12 @@ import { actionPostCartAsync, actionPutCartAsync, actionGetCartAsync } from "../
 import Button from 'react-bootstrap/Button';
 import Toast from 'react-bootstrap/Toast';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { numberToMoney } from "../../../Services/utilities";
 
 const DetailsCards = () => {
   const cart = useSelector((store) => store.cartStore.cart);
   const [productInfo, setProductInfo] = useState();
-  const [selectedImage, setSelectedImage] = useState("");  
+  const [selectedImage, setSelectedImage] = useState("");
   const [showToast, setShowToast] = useState(false);
   const product = useSelector((store) => store.productStore);
   const dispatch = useDispatch();
@@ -20,28 +21,26 @@ const DetailsCards = () => {
     infoProduct();
   }, [id]);
 
-  
-
   const infoProduct = () => {
     const dataProduct = product.products;
     const getProduct = dataProduct.find((product) => product.id == id);
     setProductInfo(getProduct);
-    setSelectedImage(Object.values(getProduct.img)[0]);    
+    setSelectedImage(Object.values(getProduct.img)[0]);
   };
-  
+
   // encuentra el producto que se esta mostrando para enviarlo al carrito 
- 
+
   const onAddingToCart = (productId) => {
     console.log("productId", productId)
     const productInCart = cart.find(item => item.id == productId);
     console.log("productInCart", productInCart)
-    if(productInCart){
-      const newProduct = {...productInCart}
-      newProduct.quantity =  newProduct.quantity + 1;
+    if (productInCart) {
+      const newProduct = { ...productInCart }
+      newProduct.quantity = newProduct.quantity + 1;
       dispatch(actionPutCartAsync(newProduct))
     } else {
       const selectedProduct = product.products.find((product) => product.id === productId);
-      const productToAddToCart = {...selectedProduct}
+      const productToAddToCart = { ...selectedProduct }
       productToAddToCart['quantity'] = 1
       dispatch(actionPostCartAsync(productToAddToCart))
     }
@@ -57,27 +56,27 @@ const DetailsCards = () => {
       {productInfo ? (
         <div className="containerDetails">
           <div className="detailsImages">
-            <img 
-            className="mainImage"
-            src={selectedImage || productInfo.img.imageUrl}
-            alt="Product main Image"/>
-            <div className="containerOtherImages" > 
-            {Object.values(productInfo.img).map((imageUrl, index) => (
-              <img
-                key={index}
-                className={`otherimg ${imageUrl === selectedImage ? 'active' : ''}`}
-                src={imageUrl}
-                alt={`Image ${index + 1}`}
-                onClick={() => setSelectedImage(imageUrl)}
-              />
-            ))}
+            <img
+              className="mainImage"
+              src={selectedImage || productInfo.img.imageUrl}
+              alt="Product main Image" />
+            <div className="containerOtherImages" >
+              {Object.values(productInfo.img).map((imageUrl, index) => (
+                <img
+                  key={index}
+                  className={`otherimg ${imageUrl === selectedImage ? 'active' : ''}`}
+                  src={imageUrl}
+                  alt={`Image ${index + 1}`}
+                  onClick={() => setSelectedImage(imageUrl)}
+                />
+              ))}
             </div>
-            
+
           </div>
           <div className="detailsInfo">
-            <h1>{productInfo.product_name} </h1>
-            <h3> {productInfo.price} </h3>
-            <h5>{productInfo.decription} </h5>
+            <h1 className="tittleProductName">{productInfo.product_name} </h1>
+            <h3 className="subtittleProductPrice">  {numberToMoney(productInfo.price)} </h3>
+            <p className="productDescription">{productInfo.decription} </p>
             <Button className="button" onClick={() => {
               onAddingToCart(productInfo.id);
               toggleToast();
@@ -87,8 +86,8 @@ const DetailsCards = () => {
             <Toast className="toast"
               show={showToast}
               onClose={toggleToast}
-              autohide 
-              delay={5000} 
+              autohide
+              delay={5000}
             >
               <Toast.Header>
                 <strong className="me-auto">Producto agregado</strong>

@@ -31,7 +31,27 @@ export const actionFilterProductSync = (category) => {
       payload: category,
   };
 };
+//---------------------SEARCH-------------------------------
 
+export const actionSearchProductAsync = (searchParam) => {
+  return (dispatch, getState) => {
+    try {
+      const { products } = getState(); // Obtener el estado actual de los productos desde Redux Store
+      const filteredProduct = products.filter((item) =>
+        item.name && item.name.toLowerCase().includes(searchParam.toLowerCase())
+      );
+      dispatch(actionSearchProductSync(filteredProduct));
+    } catch (error) {
+      console.error(error);
+      dispatch(actionSearchProductSync([]));
+    }
+  };
+};
 
-
+const actionSearchProductSync = (filteredProduct) => {
+  return {
+    type: productTypes.PRODUCTS_FILTERED,
+    payload: filteredProduct,
+  };
+};
 

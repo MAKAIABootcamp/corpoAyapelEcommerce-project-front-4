@@ -18,10 +18,12 @@ import TopSell from '../pages/TopSell/TopSell';
 import News from '../pages/News/News';
 import HandiCrafts from '../pages/HandiCrafts/HandiCrafts';
 import Cart from '../pages/Cart/Cart';
-import Payment from '../pages/Payment/Payment';
+import ButtonPayment from '../pages/ButtonPayment/ButtonPayment';
 import Admin from '../pages/Admin/Admin';
 import NotFound from '../pages/NotFound/NotFound';
 import MyAccount from '../pages/MyAccount/MyAccount';
+import SuccesfulPurchase from '../pages/SuccesfulPurchase/SuccesfulPurchase';
+import Layout from '../components/Layout/Layout';
 // import { HashRouter } from "react-router-dom"
 /* import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../Firebase/firebaseConfig';
@@ -61,7 +63,7 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/'>
+        <Route path='/' element={<Layout />}>
           {/* RUTAS PÚBLICAS */}
           <Route element={<PublicRouter isAutentication={isLoggedIn} />}>
             <Route index element={<Home />} />
@@ -69,12 +71,12 @@ const AppRouter = () => {
             <Route path='AboutUs' element={<AboutUs />} />
             <Route path='Contact' element={<Contact />} />
             <Route path='Search' element={<Search />} />
-            <Route path='Login' element={<Validation />} />
+
             <Route path='MyAccount' element={<MyAccount />} />
-            <Route path='Register' element={<Register/>}/>
+            <Route path='Register' element={<Register />} />
             <Route path='TermsAndConditions' element={<TermsAndConditions />} />
             <Route path='PrivacyPolicy' element={<PrivacyPolicy />} />
-            <Route path='RefundPolicy' element={<RefundPolicy/>}/>
+            <Route path='RefundPolicy' element={<RefundPolicy />} />
             <Route path='Testimonies' element={<Testimonies />} />
             <Route path='CreateAccount' element={<CreateAccount />} />
             <Route path='Cart' element={<Cart />} />
@@ -82,17 +84,23 @@ const AppRouter = () => {
             <Route path='TopSell' element={<TopSell />} />
             <Route path='News' element={<News />} />
             <Route path='HandiCrafts' element={<HandiCrafts />} />
+            <Route path='ButtonPayment' element={<ButtonPayment />} />
+            <Route path='SuccesfulPurchase' element={<SuccesfulPurchase />} />
           </Route>
           {/* RUTAS PRIVADAS */}
           {isLoggedIn && (
             <React.Fragment>
-              <Route path='Admin' element={React.cloneElement(<Admin />, {isLoggedIn})}>
+              <Route
+                path='Admin'
+                element={React.cloneElement(<Admin />, { isLoggedIn })}
+              >
                 <Route path='Cart' element={<Cart />} />
-                <Route path='Payment' element={<Payment />} />
+                <Route path='ButtonPayment' element={<ButtonPayment />} />
               </Route>
             </React.Fragment>
           )}
         </Route>
+        <Route path="Login" element={<Validation/>}/>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -11,8 +11,9 @@
     .table {
         padding: 2% 10%;
         align-items: center;
+        width: 70%;
 
-        thead {
+        .table__head {
 
             align-items: center;
             justify-content: center;
@@ -23,11 +24,13 @@
                 justify-content: center;
                 width: 10vw;
                 text-align: center;
-                color: var(--color_primary);
+                color: var(--color__primary);
             }
         }
 
         tbody {
+            align-items: center;
+                justify-content: center;
             tr {
                 align-items: center;
                 justify-content: center;
@@ -35,7 +38,7 @@
             }
 
             td {
-                color: var(--color_primary);
+                color: var(--color__primary);
                 text-align: center;
                 align-items: center;
                 width: 10vw;
@@ -47,18 +50,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: red;
+            // background-color: red;
             justify-content: center;
 
             img {
-                width: 100%;
+                height: 8vw;
+                width:8vw;
                 border-radius: 10px;
             }
         }
     }
 
     .carritoTittle {
-        color: var(--color_primary);
+        color: var(--color__primary);
         text-align: center;
     }
 
@@ -81,27 +85,74 @@
         gap: 10%;
         padding: 2%;
         align-items: end;
+        .button {
+            // @include button($pixel: 40%);
+            padding: 0.5%;
+            background-color: var(--color__secundary);
+            color: var(--color__primary);
+            margin-bottom: 2px;
+            width: 20%;
+          }
+        .button:hover{
+          border: 1px solid var(--color__primary);
+          font-weight: bolder;
+        }
     }
 
-    Button {
-        // @include button ($pixel: 10%);
-        padding: 0.1%;
-        margin-bottom: 0.2%;
+    .button {
+        // @include button($pixel: 40%);
+        padding: 1%;
+        background-color: var(--color__secundary);
+        color: var(--color__primary);
+      }
+    .button:hover{
+      border: 1px solid var(--color__primary);
+    }
+    .counter{
+        display: flex;
+        gap: 2%;
+        justify-content: space-evenly;
         align-items: center;
+        .counterButton {
+            width: 10%;
+            border-radius: 3px;
+            // background-color: transparent;
+            padding: 2%;
+            background-color: var(--color__secundary);
+           
+        }
     }
-
-    .counterButton {
-        width: 7%;
-        border-radius: 3px;
-        align-items: center;
-        // background-color: transparent;
+    
+    .subtotalTittle{
+        font-weight: bold;
     }
-
     .cartNote {
         font-size: smaller;
         font-weight: bolder;
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 1100px) {
+    .cartContainer{
+        .counter{
+            display: flex;
+            .counterButton {
+                width: 20%;  
+            }
+        }
+    }
   }
+
+@media only screen and (max-width: 700px) {
+    .cartContainer{
+        .buttonsContainer {
+            .button {
+                width: 30%;
+              }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px){
+    
+}

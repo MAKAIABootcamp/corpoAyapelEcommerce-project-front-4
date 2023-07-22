@@ -6,7 +6,6 @@ import '../../components/Footer/RefundPolicy.scss';
 const RefundPolicy = () => {
   return (
     <>
-      <NavBar />
       <section className='Text'>
         <div>
           <h1>Política de reembolso</h1>

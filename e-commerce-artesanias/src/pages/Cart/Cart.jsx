@@ -6,9 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionDeletCartAsync, actionGetCartAsync, actionPutCartAsync, actionUpdateCart } from "../../redux/actions/cartActions";
 import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
+import { numberToMoney } from "../../Services/utilities";
+import Swal from "sweetalert2";
 const Cart = () => {
   const navigate = useNavigate();
   const cart = useSelector((store) => store.cartStore.cart);
+  const isLogged = useSelector((store) => store.login.isLogged);  
+  console.log(isLogged)
+  const user = useSelector((store) => store.login.user);  
+  console.log(user)
   const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
 
@@ -62,14 +68,30 @@ const Cart = () => {
     return total;
   };
 
-
+// Validar logIn
+const finishPurchase =() => {
+  if (isLogged){
+      const updateCart = {
+        products: Object.values(cart),
+        user: user,
+        subtotal: numberToMoney(total)
+      }
+      console.log(updateCart)
+      dispatch(actionPutCartAsync(updateCart))
+      navigate("/MyAccount")
+    //itegración con firebase
+  } else {
+    Swal.fire("Debe iniciar sesión para continuar")
+        navigate("/LogIn")
+  }
+}
 
   return (
     <div className="cartContainer">
       <h2 className="carritoTittle">Carrito</h2>
       <h4 onClick={() => navigate(`/`)} className="carritoSubtittle">Apóyanos con más productos</h4>
       <Table striped className="table">
-        <thead>
+        <thead className="table__head">
           <tr>
             <th>#</th>
             <th>Producto</th>
@@ -87,9 +109,9 @@ const Cart = () => {
                 <img className="productImage" src={Object.values(product.img)[0]} alt={product.product_name} />
                 {product.product_name}
               </td>
-              <td> ${product.price}</td>
+              <td>  {numberToMoney(product.price)} </td>
               <td>
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="counter">
                   <Button variant="light" onClick={() => decrementQuantity(product.id)} className="counterButton">
                     -
                   </Button>
@@ -101,11 +123,12 @@ const Cart = () => {
               </td>
               {/* <td> ${product.price * quantities[product.id] || product.price }</td> */}
               <td>${calculateProductTotal(product) || product.price}</td>
+              {/* <td>{{numberToMoney(calculateProductTotal(product))}  || {numberToMoney(product.price)}}</td> */}
               <td>
-                <button onClick={() => {
+                <Button onClick={() => {
                   onRemovingToCart(product.id)
-                }}> Eliminar producto
-                </button>
+                }} className="button"> Eliminar producto
+                </Button>
               </td>
             </tr>
           ))}
@@ -114,16 +137,16 @@ const Cart = () => {
       <CartCards />
       <div className="buttonsContainer">
         <div className="subtotalInfo">
-          <span className="subtotalTittle"> Subtotal</span>
-          <span className="subtotalValue"> ${total}</span>
+          <span className="subtotalTittle"> Subtotal: </span>
+          <span className="subtotalValue">  {numberToMoney(total)} </span>
         </div>
-        <Button onClick={() => navigate("/Payment")}>
+        <Button onClick={() => finishPurchase()} className="button"> 
           Finalizar pedido
         </Button>
-        <Button onClick={() => navigate(`/`)}>
+        <Button onClick={() => navigate(`/`)} className="button">
           Seguir comprando
         </Button>
-        <span className="cartNote" >Los costes de envio y los inpuestos se añaden durante el pago  </span>
+        <span className="cartNote" >Los costes de envío y los inpuestos se añaden durante el pago  </span>
       </div>
     </div>
   )

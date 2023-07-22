@@ -38,6 +38,7 @@ export const actionPostCartAsync = (product) => {
   export const actionPutCartAsync = (product) => {
     return async (dispatch) => {
       try {
+        console.log(product)
         const response = await axios.put(`http://localhost:3000/cart/${product.id}`, product);
         const cart = response.data;
         dispatch(actionPutCartSync(cart));

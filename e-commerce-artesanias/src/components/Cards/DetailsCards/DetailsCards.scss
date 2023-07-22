@@ -47,20 +47,28 @@
         align-items: center;
         width: 55%;
         justify-content: center;
-        h1 {
+        .tittleProductName {
             color: var(--color__primary);
            text-align: center;
            justify-content: center;
         }
-        h5{
+        .subtittleProductPrice{
             width: 50%;
             white-space: pre-line;
             line-height: 18px;
+            color: rgb(137, 209, 30);
+            text-align: center;
         }
         .button {
             // @include button($pixel: 40%);
             padding: 1%;
+            background-color: var(--color__secundary);
+            color: var(--color__primary);
           }
+        .button:hover{
+          border: 2px solid var(--color__primary);
+          font-weight: bolder;
+        }
           .toast{
             display: flex;
             flex-direction: column;
