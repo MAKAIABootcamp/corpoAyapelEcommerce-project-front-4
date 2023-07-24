@@ -33,6 +33,23 @@ const ProductCards = ({ isFiltered }) => {
   const combinedProducts = isFiltered ? productsFiltered : products;
   console.log(combinedProducts);
 
+  // Función para seleccionar 10 productos aleatorios
+  const getRandomProducts = () => {
+    const randomProducts = combinedProducts.sort(() => 0.5 - Math.random()).slice(0, 10);
+    console.log(randomProducts)
+    // setProductsToList(randomProducts);
+    // return randomProducts.slice(0, 10);
+    return randomProducts;
+  };
+
+  useEffect(() => {
+    // getRandomProducts(); 
+    // Llamar a la función para obtener productos aleatorios al cargar la página
+  // }, [combinedProducts]);
+  const randomProducts = getRandomProducts();
+    setProductsToList(randomProducts);
+  }, []);
+
   return (
 //     <div className="containerCards">
 //       {combinedProducts.length > 0 ? (
