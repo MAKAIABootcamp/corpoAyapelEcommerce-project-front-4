@@ -1,17 +1,18 @@
 # MarketPlace corpoAyapel 
 ![logo](/src/assets/Images/logo.png)
 ## Autores:
-- Natalia Maldonado
-- Paola Torres
-- Andres Parra 
-- Diego Samudio
+-  [Natalia Maldonado](https://github.com/NataliaMR26)  
+- [Paola Torres](https://github.com/PaolaTorresV)  
+- [Andres Parra](https://github.com/AndresParra11) 
+- [Diego Samudio](https://github.com/DISARODS)
   
 ## Descripción: 
-Este es el aplicativo web del e-commerce de corpoAyapel el cual presenta los productos , permite filtrar por categorias, ver detalles del producto, agrega y eliminar del carrito 
+Este es el aplicativo web del e-commerce de corpoAyapel el cual presenta los productos previamente creados por el aadministrador, permite al usuario filtrar por categorias, ver detalles del producto, agrega y eliminar del carrito.
+Tomando un enfoque orientado a los artesanos que fabrican estos productos, se ha creado una sección en la cual se comparten testimonios.
 
 ### Las herramientas empleadas fueron: 
-- Vite + React js y redux
-- Para la autenticasión y alamacenamiento de información Firebase
+- Para la creación y funcionalidad del proyecto: Vite + React js y redux
+- Para la autenticación de usuarios y alamacenamiento de información: Firebase
 - Para la validación de los formularios: Formik y Yup.
 - Para los estilos: React Bootstrap,  Sass y MaterialUI para los iconos  
 ### Las funcionalidades que incluye sons las siguientes:
