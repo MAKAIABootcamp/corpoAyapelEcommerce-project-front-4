@@ -35,7 +35,7 @@ const onFiltered = (searchValue) => {
 // Si el valor de búsqueda es "Todos", pasa un valor vacío al filtro
 if (searchValue === "Todos") {
   dispatch(actionGetProductAsync());
-  setisFiltered(false);
+  setisFiltered("Todos");
 } else {
   const filteredProducts = products.filter((product) => {
     // Verificar si la categoría está presente en alguna de las propiedades

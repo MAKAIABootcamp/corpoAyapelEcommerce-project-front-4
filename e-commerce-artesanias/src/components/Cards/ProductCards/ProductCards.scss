@@ -16,7 +16,7 @@
     justify-content: center;
     position: relative;
     // height: 400px;
-    width: 18vw;
+    width: 20vw;
     // width: 25%;
     height: auto;
     //  width:  calc(25% - 2%);
@@ -26,8 +26,8 @@
     
 
     .cardImage {
-      height: 13vw;
-      width: 13vw;
+      height: 15vw;
+      width: 15vw;
       // height: 200px; 
       // width: 200px; 
       border-radius: 20px;
@@ -49,11 +49,13 @@
     }
 
     .productName {
-      color: var(--color__primary);
+      // color: var(--color__primary);
+      color: #986C4A;
       padding-top: 10px;
       text-align: center;
       font-size: 2vh;
       width: 55%;
+      font-weight: 100;
     }
 
 
