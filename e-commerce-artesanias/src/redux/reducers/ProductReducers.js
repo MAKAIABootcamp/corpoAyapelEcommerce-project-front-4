@@ -35,7 +35,7 @@ export const productReducers = (state = productState, action) => {
       case productTypes.PRODUCTS_GET:
         return {
           ...state,
-          products: action.payload.product
+          products: [...action.payload]
         };
         case productTypes.PRODUCTS_FILTERED:
             const filteredProducts = state.products.filter((product) => {
