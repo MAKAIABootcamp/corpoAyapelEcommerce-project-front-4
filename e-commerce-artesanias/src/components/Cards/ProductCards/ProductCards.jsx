@@ -3,18 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actionGetProductAsync, actionFilterProductSync } from '../../../redux/actions/ProductActions';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Toast from 'react-bootstrap/Toast';
 import '../ProductCards/ProductCards.scss';
 import { useNavigate } from 'react-router-dom';
 import { numberToMoney } from '../../../Services/utilities';
 // import { filterProductsAsync, getProductsAsync } from '../../../redux/productSlice';
 
 const ProductCards = ({ isFiltered }) => {
-  const { products, productsFiltered } = useSelector(state => state.productStore);
-  const [productsToList, setProductsToList] = useState([]);
-  
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showToastLogin, setShowToastLogin] = useState(false);
+  const [productsToList, setProductsToList] = useState([]);
+  
+  const { products, productsFiltered } = useSelector(state => state.productStore);
+  const { user } = useSelector((store) => store.login);
+
+  const toggleToastLogin = () => setShowToastLogin(!showToastLogin)
 
   useEffect(() => {
     dispatch(actionGetProductAsync());
@@ -29,13 +33,21 @@ const ProductCards = ({ isFiltered }) => {
   }, [isFiltered, products, productsFiltered]);
 
   const combinedProducts = isFiltered ? productsFiltered : products;
-  console.log(combinedProducts);
+
 
   return (
     <div className="containerCards">
       {combinedProducts.length > 0 ? (
         combinedProducts.map((product) => (
-          <Card className="card" key={product.id} onClick={() => navigate(`/Details/${product.id}`)}>
+          <Card className="card" key={product.id} 
+            onClick={() => {
+              if(user?.email){
+                navigate(`/Details/${product.id}`)
+              } else{
+                toggleToastLogin();
+              }
+              
+            }}>
             <Card.Img className="cardImage" variant="top" src={product.img["1"]} />
             <Card.Text className="price" variant="primary" >
               {numberToMoney(product.price)} 
@@ -54,6 +66,17 @@ const ProductCards = ({ isFiltered }) => {
       ) : (
         <div> <h3 className='errorMessage'> Lo sentimos, no hay productos disponibles. </h3></div>
       )}
+      <Toast className="toast"
+        show={showToastLogin}
+        onClose={toggleToastLogin}
+        autohide 
+        delay={5000} 
+      >
+        <Toast.Header>
+          <strong className="me-auto">Inicia sesión</strong>
+        </Toast.Header>
+        <Toast.Body>¡Inicia sesión para agregar al carrito!</Toast.Body>
+      </Toast>
     </div>
   );
 };

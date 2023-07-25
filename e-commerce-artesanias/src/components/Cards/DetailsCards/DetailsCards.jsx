@@ -5,21 +5,28 @@ import "../DetailsCards/DetailsCards.scss";
 import { actionPostCartAsync, actionPutCartAsync, actionGetCartAsync } from "../../../redux/actions/cartActions";
 import Button from 'react-bootstrap/Button';
 import Toast from 'react-bootstrap/Toast';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { numberToMoney } from "../../../Services/utilities";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const DetailsCards = () => {
-  const cart = useSelector((store) => store.cartStore.cart);
+  // const cart = useSelector((store) => store.cartStore.cart);
   const [productInfo, setProductInfo] = useState();
+  const [showToastLogin, setShowToastLogin] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [showToast, setShowToast] = useState(false);
   const product = useSelector((store) => store.productStore);
+  const { user } = useSelector((store) => store.login);
   const dispatch = useDispatch();
   const { id } = useParams();
 
+  
+  const toggleToastLogin = () => setShowToastLogin(!showToastLogin)
+
   useEffect(() => {
-    infoProduct();
-  }, [id]);
+    if(product.products.length>0 && id){
+      infoProduct();
+    }
+  }, [id, product]);
 
   const infoProduct = () => {
     const dataProduct = product.products;
@@ -31,20 +38,19 @@ const DetailsCards = () => {
   // encuentra el producto que se esta mostrando para enviarlo al carrito 
 
   const onAddingToCart = (productId) => {
-    console.log("productId", productId)
-    const productInCart = cart.find(item => item.id == productId);
-    console.log("productInCart", productInCart)
+    const productInCart = user.car_products.find(item => item.productId == productId);
+    let newProduct;
     if (productInCart) {
-      const newProduct = { ...productInCart }
+      newProduct = { ...productInCart }
       newProduct.quantity = newProduct.quantity + 1;
-      dispatch(actionPutCartAsync(newProduct))
+      dispatch(actionPostCartAsync(newProduct, user))
     } else {
-      const selectedProduct = product.products.find((product) => product.id === productId);
-      const productToAddToCart = { ...selectedProduct }
-      productToAddToCart['quantity'] = 1
-      dispatch(actionPostCartAsync(productToAddToCart))
+      newProduct = { 
+        productId: productId
+      }
+      newProduct['quantity'] = 1;
+      dispatch(actionPostCartAsync(newProduct, user))
     }
-    dispatch(actionGetCartAsync())
   }
 
   const toggleToast = () => {
@@ -78,8 +84,13 @@ const DetailsCards = () => {
             <h3 className="subtittleProductPrice">  {numberToMoney(productInfo.price)} </h3>
             <p className="productDescription">{productInfo.decription} </p>
             <Button className="button" onClick={() => {
-              onAddingToCart(productInfo.id);
-              toggleToast();
+              if(user?.email){
+                onAddingToCart(productInfo.id);
+                toggleToast();
+              } else {
+                toggleToastLogin();
+              }
+
             }}>
               Agregar al carrito
             </Button>
@@ -93,6 +104,17 @@ const DetailsCards = () => {
                 <strong className="me-auto">Producto agregado</strong>
               </Toast.Header>
               <Toast.Body>¡El producto se ha agregado con éxito!</Toast.Body>
+            </Toast>
+            <Toast className="toast"
+              show={showToastLogin}
+              onClose={toggleToastLogin}
+              autohide 
+              delay={1000} 
+            >
+              <Toast.Header>
+                <strong className="me-auto">Inicia sesión</strong>
+              </Toast.Header>
+              <Toast.Body>¡Inicia sesión para agregar al carrito!</Toast.Body>
             </Toast>
           </div>
         </div>

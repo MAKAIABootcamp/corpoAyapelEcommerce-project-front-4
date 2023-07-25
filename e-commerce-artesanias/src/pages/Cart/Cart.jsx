@@ -1,16 +1,16 @@
+import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import CartCards from "../../components/Cards/CartCards/CartCards";
 import "./Cart.scss"
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from "react-redux";
 import { actionDeletCartAsync, actionGetCartAsync, actionPutCartAsync, actionUpdateCart } from "../../redux/actions/cartActions";
-import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import { numberToMoney } from "../../Services/utilities";
 import Swal from "sweetalert2";
 const Cart = () => {
   const navigate = useNavigate();
-  const cart = useSelector((store) => store.cartStore.cart);
+  const  [cart, setCart] = useState([])
   const isLogged = useSelector((store) => store.login.isLogged);  
   console.log(isLogged)
   const user = useSelector((store) => store.login.user);  
@@ -19,36 +19,36 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    dispatch(actionGetCartAsync());
-  }, [dispatch]);
-
-
+    if(user){
+      setCart([...user.car_products])
+    }
+  }, [user]);
 
   useEffect(() => {
     setTotal(calculateTotal());
   }, [cart]);
 
   const onRemovingToCart = (productId) => {
-    const selectedProduct = cart.find((product) => product.id === productId);
+    const selectedProduct = cart.find((product) => product.productId === productId);
     if (selectedProduct) {
       dispatch(actionDeletCartAsync(selectedProduct));
     }
   };
 
   const incrementQuantity = (productId) => {
-    const selectedProduct = cart.find((product) => product.id === productId);
+    const selectedProduct = cart.find((product) => product.productId === productId);
     const updatedProduct = { ...selectedProduct }
     updatedProduct.quantity += 1
     dispatch(actionPutCartAsync(updatedProduct))
-    dispatch(actionGetCartAsync());
+    dispatch(actionGetCartAsync(user.uid));
   };
 
   const decrementQuantity = (productId) => {
-    const selectedProduct = cart.find((product) => product.id === productId);
+    const selectedProduct = cart.find((product) => product.productId === productId);
     const updatedProduct = { ...selectedProduct }
     updatedProduct.quantity -= 1
     dispatch(actionPutCartAsync(updatedProduct))
-    dispatch(actionGetCartAsync());
+    dispatch(actionGetCartAsync(user.uid));
   };
   // Función para calcular el total de cada producto
   const calculateProductTotal = (product) => {

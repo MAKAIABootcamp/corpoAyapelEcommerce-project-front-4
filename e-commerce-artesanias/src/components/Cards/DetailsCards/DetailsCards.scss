@@ -69,21 +69,21 @@
           border: 2px solid var(--color__primary);
           font-weight: bolder;
         }
-          .toast{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 10%;
-            left: 80%;
-            background-color:#E6DCD8;
-            opacity: 1;
-            border-style: double;
-            padding: 1%;
-            color: var(--color__primary);
-            filter: drop-shadow(5px 7px 6px #C7BBAF);
-          }
+        .toast{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 10%;
+          left: 80%;
+          background-color:#E6DCD8;
+          opacity: 1;
+          border-style: double;
+          padding: 1%;
+          color:  var(--color__primary);
+          filter: drop-shadow(5px 7px 6px #C7BBAF);
+        }
 
       
     }
