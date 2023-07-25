@@ -1,89 +1,74 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../Filter/Filter.scss";
 import { actionFilterProductSync, actionGetProductAsync } from "../../redux/actions/ProductActions";
+import { useEffect, useState } from "react";
 // import { filterProductsAsync, getProductsAsync } from '../../redux/productSlice';
+
+
 const Filter = ({ setisFiltered }) => {
+  const dispatch = useDispatch();  
+  const [categories, setCategories] = useState([]);
+  const { products } = useSelector(state => state.productStore);
 
-  const dispatch = useDispatch();
-  // const onFiltered = (searchValue) => {
-  //   console.log(searchValue);
-  //   const searchParam = "category";
-  //   setisFiltered(true);
-  //   dispatch(actionFilterProductSync(searchValue));
-  //   // dispatch(actionFilterProductAsync({ [searchParam]: searchValue }));
+  useEffect(() => {
+    // Función auxiliar para obtener todas las categorías de los productos
+    const getAllCategories = () => {
+      const allCategories = products.flatMap((product) => [
+        product.category,
+        product.category2,
+        product.category3,
+      ]);
 
-  // };
-   const categories = [
-    {
-      id: 11,
-      name: "Todos",
-    },
-    {
-      id: 2,
-      name: "Bandejas",
-    },
-    {
-      id: 3,
-      name: "Cajas",
-    },
-    {
-      id: 4,
-      name: "Canastos",
-    },
-    {
-      id: 5,
-      name: "Decoración",
-    },
-    {
-      id: 6,
-      name: "Lámparas",
-    },
-    {
-      id: 7,
-      name: "Materas",
-    },
-    {
-      id: 8,
-      name: "Mesas Auxiliares",
-    },
-    {
-      id: 1,
-      name: "Navidad",
-    },
-    {
-      id: 9,
-      name: "Papeleras",
-    },
-    {
-      id: 10,
-      name: "Para la Mesa",
-    },
-  ];
-  
-  const onFiltered = (searchValue) => {
+      // Filtrar las categorías para eliminar valores undefined y duplicados
+      return allCategories.filter((category) => category !== undefined && category !== null);
+    };
+
+    // Obtener todas las categorías y eliminar duplicados
+    const uniqueCategories = Array.from(new Set(getAllCategories()));
+    setCategories(uniqueCategories);
+  }, [products]);
+
+const onFiltered = (searchValue) => {
     console.log(searchValue);
     const searchParam = "category";
     setisFiltered(true);
-    
-    // Si el valor de búsqueda es "Todos", pasa un valor vacío al filtro
-    if (searchValue === "Todos") {
-      dispatch(actionGetProductAsync());
-      setisFiltered(false);
-      // dispatch(actionFilterProductSync(""));
-    } else {
-      dispatch(actionFilterProductSync(searchValue));
-    }
-  };
-  
-  return <div className="ulContainer">
-    <ul className="ulFilter">
-      {categories.map((category) => (
+// Si el valor de búsqueda es "Todos", pasa un valor vacío al filtro
+if (searchValue === "Todos") {
+  dispatch(actionGetProductAsync());
+  setisFiltered(false);
+} else {
+  const filteredProducts = products.filter((product) => {
+    // Verificar si la categoría está presente en alguna de las propiedades
+    return (
+      product.category === searchValue ||
+      product.category2 === searchValue ||
+      product.category3 === searchValue
+      // Agrega más propiedades de categoría según sea necesario
+    );
+  });
+  dispatch(actionFilterProductSync(searchValue));
+  // dispatch(actionFilterProductSync(filteredProducts));
+}
+};
+
+
+
+
+return <div className="ulContainer">
+  <ul className="ulFilter">
+    {/* {categories.map((category) => (
         <li onClick={() => {
           onFiltered(category.name);
         }} key={category.id}> {category.name}  </li>
-      ))}
-    </ul>
-  </div>;
+      ))} */}
+    <li onClick={() => onFiltered("Todos")}> Todos </li>
+    {categories.map((category, index) => (
+      <li key={index} onClick={() => onFiltered(category)}>
+        {category}
+      </li>
+    ))}
+  </ul>
+</div>;
 };
 
 export default Filter;
