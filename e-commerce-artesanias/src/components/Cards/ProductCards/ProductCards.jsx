@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../ProductCards/ProductCards.scss';
 import { useNavigate } from 'react-router-dom';
 import { numberToMoney } from '../../../Services/utilities';
-// import { getAllProducts } from '../../../Services/servicesSanity';
+import { getAllProducts } from '../../../Services/servicesSanity';
 import { urlFor } from '../../../sanityClient';
 // import { filterProductsAsync, getProductsAsync } from '../../../redux/productSlice';
 
@@ -18,9 +18,9 @@ const ProductCards = ({ isFiltered }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   dispatch(actionGetProductAsync());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(actionGetProductAsync());
+  }, [dispatch]);
 
   useEffect(() => {
     if (isFiltered) {
