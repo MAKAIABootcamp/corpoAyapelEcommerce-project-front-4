@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import { numberToMoney } from "../../Services/utilities";
 import Swal from "sweetalert2";
+import { urlFor } from '../../../src/sanityClient';
 const Cart = () => {
   const navigate = useNavigate();
   const cart = useSelector((store) => store.cartStore.cart);
@@ -17,11 +18,20 @@ const Cart = () => {
   console.log(user)
   const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
+  const [getCartProdcuts, setGetCartProducts] = useState(() => {
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem("productsInCart"));
+    return cartFromLocalStorage || {};
+  });
+  // const getCartProdcuts = JSON.parse(localStorage.getItem("productsInCart"));
+  // console.log(getCartProdcuts)
 
-  useEffect(() => {
-    dispatch(actionGetCartAsync());
-  }, [dispatch]);
+  const cartArray = Object.values(getCartProdcuts);
+console.log("ProductsInCart",cartArray)
 
+
+  // useEffect(() => {
+  //   dispatch(actionGetCartAsync());
+  // }, [dispatch]);
 
 
   useEffect(() => {
@@ -29,37 +39,55 @@ const Cart = () => {
   }, [cart]);
 
   const onRemovingToCart = (productId) => {
-    const selectedProduct = cart.find((product) => product.id === productId);
-    if (selectedProduct) {
-      dispatch(actionDeletCartAsync(selectedProduct));
-    }
+    // const selectedProduct = cart.find((product) => product.id === productId);
+    // if (selectedProduct) {
+    //   dispatch(actionDeletCartAsync(selectedProduct));
+    // }
+    // Eliminar el producto del carrito en el almacenamiento local
+    const updatedCart = { ...getCartProdcuts };
+    delete updatedCart[productId];
+    localStorage.setItem("productsInCart", JSON.stringify(updatedCart));
+
+    // Actualizar el estado para que el componente se re-renderice y muestre los cambios
+    setGetCartProducts(updatedCart);
   };
 
   const incrementQuantity = (productId) => {
-    const selectedProduct = cart.find((product) => product.id === productId);
+    const selectedProduct = cartArray.find((product) => product._id === productId);
     const updatedProduct = { ...selectedProduct }
+    console.log(selectedProduct)
     updatedProduct.quantity += 1
-    dispatch(actionPutCartAsync(updatedProduct))
-    dispatch(actionGetCartAsync());
+    // dispatch(actionPutCartAsync(updatedProduct))
+    // dispatch(actionPutCartAsync(updatedProduct))
+    // dispatch(actionGetCartAsync());
+    // Actualizar el producto en el estado local del carrito
+    const updatedCart = { ...getCartProdcuts, [productId]: updatedProduct };
+    localStorage.setItem("productsInCart", JSON.stringify(updatedCart));
+    // return updatedCart;
+    setGetCartProducts(updatedCart);
   };
 
   const decrementQuantity = (productId) => {
-    const selectedProduct = cart.find((product) => product.id === productId);
+    const selectedProduct = cartArray.find((product) => product._id === productId);
     const updatedProduct = { ...selectedProduct }
     updatedProduct.quantity -= 1
-    dispatch(actionPutCartAsync(updatedProduct))
-    dispatch(actionGetCartAsync());
+    // dispatch(actionPutCartAsync(updatedProduct))
+    // dispatch(actionGetCartAsync());
+    const updatedCart = { ...getCartProdcuts, [productId]: updatedProduct };
+    localStorage.setItem("productsInCart", JSON.stringify(updatedCart));
+    // return updatedCart;
+    setGetCartProducts(updatedCart);
   };
   // Función para calcular el total de cada producto
   const calculateProductTotal = (product) => {
-    return Number(product.price) * product.quantity;
+    return Number(product.Precio) * product.quantity;
   };
 
   // Función para calcular el total general de los productos
   const calculateTotal = () => {
     let total = 0;
-    console.log("cart", cart)
-    cart.forEach((product) => {
+    console.log("cart", cartArray)
+    cartArray.forEach((product) => {
       const productTotal = calculateProductTotal(product);
       console.log("productTotal", productTotal)
       total += productTotal;
@@ -72,14 +100,17 @@ const Cart = () => {
 const finishPurchase =() => {
   if (isLogged){
       const updateCart = {
-        products: Object.values(cart),
-        user: user,
+        products: Object.values(cartArray),
+        // user: user,
         subtotal: numberToMoney(total)
       }
       console.log(updateCart)
-      dispatch(actionPutCartAsync(updateCart))
+      // dispatch(actionPutCartAsync(updateCart))
+      localStorage.removeItem("productsInCart")
+      setGetCartProducts({});
+      localStorage.setItem("order", JSON.stringify(updateCart));
       navigate("/MyAccount")
-    //itegración con firebase
+
   } else {
     Swal.fire("Debe iniciar sesión para continuar")
         navigate("/LogIn")
@@ -102,31 +133,31 @@ const finishPurchase =() => {
           </tr>
         </thead>
         <tbody>
-          {Array.isArray(cart) && cart.map((product, index) => (
+          {cartArray.map((product, index) => (
             <tr key={index}>
               <td>{index + 1}</td>
               <td className="nameImageColumn">
-                <img className="productImage" src={Object.values(product.img)[0]} alt={product.product_name} />
-                {product.product_name}
+                <img className="productImage"src={urlFor(product[`image${1}`].asset._ref).url()} alt={product.name} />
+                {product.name}
               </td>
-              <td>  {numberToMoney(product.price)} </td>
+              <td>  {numberToMoney(product.Precio)} </td>
               <td>
                 <div className="counter">
-                  <Button variant="light" onClick={() => decrementQuantity(product.id)} className="counterButton">
+                  <Button variant="light" onClick={() => decrementQuantity(product._id)} className="counterButton">
                     -
                   </Button>
                   <span>{product.quantity} </span>
-                  <Button variant="light" onClick={() => incrementQuantity(product.id)} className="counterButton">
+                  <Button variant="light" onClick={() => incrementQuantity(product._id)} className="counterButton">
                     +
                   </Button>
                 </div>
               </td>
               {/* <td> ${product.price * quantities[product.id] || product.price }</td> */}
-              <td>${calculateProductTotal(product) || product.price}</td>
+              <td>${calculateProductTotal(product) || product.Precio}</td>
               {/* <td>{{numberToMoney(calculateProductTotal(product))}  || {numberToMoney(product.price)}}</td> */}
               <td>
                 <Button onClick={() => {
-                  onRemovingToCart(product.id)
+                  onRemovingToCart(product._id)
                 }} className="button"> Eliminar producto
                 </Button>
               </td>

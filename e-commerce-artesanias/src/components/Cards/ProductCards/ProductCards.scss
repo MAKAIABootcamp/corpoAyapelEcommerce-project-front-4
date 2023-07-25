@@ -20,13 +20,14 @@
     // width: 25%;
     height: auto;
     //  width:  calc(25% - 2%);
-    padding: 2%;
+    padding: 1%;
     background-color: #E6DCD8;
     margin: 8px;
+    
 
     .cardImage {
-      height: 14vw;
-      width: 14vw;
+      height: 13vw;
+      width: 13vw;
       // height: 200px; 
       // width: 200px; 
       border-radius: 20px;
@@ -44,6 +45,7 @@
       font-size: 2vh;
       font-weight: bolder;
       color: var(--color__primary);
+      font-family: "Roboto", sans-serif;
     }
 
     .productName {
@@ -68,10 +70,10 @@
     }
 
     .productDescription {
-      justify-content: center;
-      align-items: center;
+      flex-grow: 1;
       padding: 2% 15%;
-      font-size: 2vh;
+      font-size: 1.6vh;
+      // font-family: sans-serif;
     }
   }
 
