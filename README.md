@@ -7,8 +7,12 @@
 - [Diego Samudio](https://github.com/DISARODS)
   
 ## Descripción: 
-Este es el aplicativo web del e-commerce de corpoAyapel el cual presenta los productos previamente creados por el aadministrador, permite al usuario filtrar por categorias, ver detalles del producto, agrega y eliminar del carrito.
-Tomando un enfoque orientado a los artesanos que fabrican estos productos, se ha creado una sección en la cual se comparten testimonios.
+Este es el aplicativo web e-commerce de Artesanías CorpoAyapel, el cual presenta una página para la venta de productos realizados por los artesanos, dándoles más visibilidad a su trabajo.
+Los productos son previamente creados por el administrador al que se le permite editar o modificar el contendio que desee. El usuario desde la página puede filtrar por categorias, ver detalles del producto, agregar y eliminar productos del carrito, a su vez contando con un inicio de sesión con correo o con cuenta de google, permitiendo el registro si no está logueado aún y formulario de direcciones para realizar su pedido.
+Tomando un enfoque orientado a los artesanos que fabrican estos productos, se ha creado una sección en la cual se comparten testimonios y el "quiénes somos" para conocer más acerca de los mismos.
+Contamos con sus redes sociales y una sección de Contacto para que se comuniquen directamente con ellos de una forma más eficiente. 
+Para la realización de la compra se cuentan con diferentes medios de pago.
+Cuenta con un diseño responsivo y maquetado dinámico.
 
 ### Las herramientas empleadas fueron: 
 - Para la creación y funcionalidad del proyecto: Vite + React js y redux
