@@ -2,21 +2,20 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import "../DetailsCards/DetailsCards.scss";
-import { actionPostCartAsync, actionPutCartAsync, actionGetCartAsync } from "../../../redux/actions/cartActions";
+// import { actionPostCartAsync, actionPutCartAsync, actionGetCartAsync } from "../../../redux/actions/cartActions";
 import Button from 'react-bootstrap/Button';
 import Toast from 'react-bootstrap/Toast';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { numberToMoney } from "../../../Services/utilities";
-import { createClient } from '@sanity/client';
 import { urlFor } from '../../../sanityClient';
 import { getProductById } from '../../../Services/servicesSanity';
 const DetailsCards = () => {
-  const cart = useSelector((store) => store.cartStore.cart);
+  // const cart = useSelector((store) => store.cartStore.cart);
   const [productInfo, setProductInfo] = useState();
   const [selectedImage, setSelectedImage] = useState("");
   const [showToast, setShowToast] = useState(false);
   const product = useSelector((store) => store.productStore);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { id } = useParams();
 
 
