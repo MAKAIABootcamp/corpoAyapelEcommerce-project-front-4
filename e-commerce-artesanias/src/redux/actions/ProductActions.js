@@ -32,9 +32,7 @@ import {getAllProducts} from "../../Services/servicesSanity"
   const actionGetProductSync = (product) => {
     return {
         type: productTypes.PRODUCTS_GET,
-        payload: {
-            product: product
-        }
+        payload: product
     }
 }
 //-----------------------FILTRO-----------------------------------

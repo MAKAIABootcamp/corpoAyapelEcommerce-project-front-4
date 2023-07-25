@@ -49,11 +49,13 @@
     }
 
     .productName {
-      color: var(--color__primary);
+      // color: var(--color__primary);
+      color: #986C4A;
       padding-top: 10px;
       text-align: center;
       font-size: 2vh;
       width: 55%;
+      font-weight: 100;
     }
 
 
