@@ -105,24 +105,25 @@ const ProductCards = ({ isFiltered }) => {
       ) : (
         <div> <h3 className='errorMessage'> Lo sentimos, no hay productos disponibles. </h3></div>
       )} */}
-      {isFiltered && isFiltered !== 'Todos' && productsFiltered.length
-        ? productsFiltered.map(product => (
-            <Card
-              className='card'
-              key={product._id}
-              onClick={() => navigate(`/Details/${product._id}`)}
-            >
-              <Card.Img
-                className='cardImage'
-                variant='top'
-                src={urlFor(product[`image${1}`].asset._ref).url()}
-                alt={product.name}
-              />
-              <Card.Text className='price' variant='primary'>
-                {numberToMoney(product.Precio)}
-              </Card.Text>
-              <Card.Title className='productName'>{product.name}</Card.Title>
-              {/* <div className="stars">
+      {
+        isFiltered && isFiltered !== 'Todos' && productsFiltered.length
+          ? productsFiltered.map(product => (
+              <Card
+                className='card'
+                key={product._id}
+                onClick={() => navigate(`/Details/${product._id}`)}
+              >
+                <Card.Img
+                  className='cardImage'
+                  variant='top'
+                  src={urlFor(product[`image${1}`].asset._ref).url()}
+                  alt={product.name}
+                />
+                <Card.Text className='price' variant='primary'>
+                  {numberToMoney(product.Precio)}
+                </Card.Text>
+                <Card.Title className='productName'>{product.name}</Card.Title>
+                {/* <div className="stars">
               <h4>★</h4>
               <h4>★</h4>
               <h4>★</h4>
@@ -130,31 +131,31 @@ const ProductCards = ({ isFiltered }) => {
             <Card.Text className="productDescription">
               {product.description}
             </Card.Text> */}
-            </Card>
-          ))
-        : products &&
-          products.length &&
-          products.map((product, index) => {
-            if (index < 10) {
-              return (
-                <Card
-                  className='card'
-                  key={product._id}
-                  onClick={() => navigate(`/Details/${product._id}`)}
-                >
-                  <Card.Img
-                    className='cardImage'
-                    variant='top'
-                    src={urlFor(product[`image${1}`].asset._ref).url()}
-                    alt={product.name}
-                  />
-                  <Card.Text className='price' variant='primary'>
-                    {numberToMoney(product.Precio)}
-                  </Card.Text>
-                  <Card.Title className='productName'>
-                    {product.name}
-                  </Card.Title>
-                  {/* <div className="stars">
+              </Card>
+            ))
+          : products &&
+            products.length &&
+            products.map((product, index) => {
+              if (index < 10) {
+                return (
+                  <Card
+                    className='card'
+                    key={product._id}
+                    onClick={() => navigate(`/Details/${product._id}`)}
+                  >
+                    <Card.Img
+                      className='cardImage'
+                      variant='top'
+                      src={urlFor(product[`image${1}`].asset._ref).url()}
+                      alt={product.name}
+                    />
+                    <Card.Text className='price' variant='primary'>
+                      {numberToMoney(product.Precio)}
+                    </Card.Text>
+                    <Card.Title className='productName'>
+                      {product.name}
+                    </Card.Title>
+                    {/* <div className="stars">
               <h4>★</h4>
               <h4>★</h4>
               <h4>★</h4>
@@ -162,29 +163,29 @@ const ProductCards = ({ isFiltered }) => {
             <Card.Text className="productDescription">
               {product.description}
             </Card.Text> */}
-                </Card>
-              );
-            }
-            if (isFiltered === 'Todos') {
-              return (
-                <Card
-                  className='card'
-                  key={product._id}
-                  onClick={() => navigate(`/Details/${product._id}`)}
-                >
-                  <Card.Img
-                    className='cardImage'
-                    variant='top'
-                    src={urlFor(product[`image${1}`].asset._ref).url()}
-                    alt={product.name}
-                  />
-                  <Card.Text className='price' variant='primary'>
-                    {numberToMoney(product.Precio)}
-                  </Card.Text>
-                  <Card.Title className='productName'>
-                    {product.name}
-                  </Card.Title>
-                  {/* <div className="stars">
+                  </Card>
+                );
+              }
+              if (isFiltered === 'Todos') {
+                return (
+                  <Card
+                    className='card'
+                    key={product._id}
+                    onClick={() => navigate(`/Details/${product._id}`)}
+                  >
+                    <Card.Img
+                      className='cardImage'
+                      variant='top'
+                      src={urlFor(product[`image${1}`].asset._ref).url()}
+                      alt={product.name}
+                    />
+                    <Card.Text className='price' variant='primary'>
+                      {numberToMoney(product.Precio)}
+                    </Card.Text>
+                    <Card.Title className='productName'>
+                      {product.name}
+                    </Card.Title>
+                    {/* <div className="stars">
               <h4>★</h4>
               <h4>★</h4>
               <h4>★</h4>
@@ -192,11 +193,11 @@ const ProductCards = ({ isFiltered }) => {
             <Card.Text className="productDescription">
               {product.description}
             </Card.Text> */}
-                </Card>
-              );
-            }
-          })
-          // <div>Búsqueda no encontrada</div>
+                  </Card>
+                );
+              }
+            })
+        // <div>Búsqueda no encontrada</div>
       }
     </div>
   );
