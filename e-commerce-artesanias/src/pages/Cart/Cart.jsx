@@ -17,11 +17,11 @@ const Cart = () => {
   console.log(user)
   const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
-
-  useEffect(() => {
-    dispatch(actionGetCartAsync());
-  }, [dispatch]);
-
+  const getCartProdcuts = JSON.parse(localStorage.getItem("productsInCart"));
+console.log(getCartProdcuts)
+  // useEffect(() => {
+  //   dispatch(actionGetCartAsync());
+  // }, [dispatch]);
 
 
   useEffect(() => {

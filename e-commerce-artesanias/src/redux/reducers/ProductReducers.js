@@ -43,15 +43,37 @@ export const productReducers = (state = productState, action) => {
                 product.category === action.payload ||
                 product.category2 === action.payload ||
                 product.category3 === action.payload
-                // Agrega más propiedades de categoría según sea necesario
               );
             });
       
             return {
               ...state,
-              productsFiltered: filteredProducts
+              // productsFiltered: filteredProducts
+              productsFiltered: [...filteredProducts]
             };
           default:
             return state;
         }
       };
+      // export const productReducers = (state = productState, action) => {
+      //   switch (action.type) {
+      //     case productTypes.PRODUCTS_GET:
+      //       return {
+      //         ...state,
+      //         products: action.payload.product
+      //       };
+      //       case productTypes.PRODUCTS_FILTERED:
+      //         return {
+      //           ...state,
+      //           filteredProducts: state.products.filter((product) => {
+      //             return (
+      //               product.category === action.payload ||
+      //               product.category2 === action.payload ||
+      //               product.category3 === action.payload
+      //             );
+      //           })
+      //         };
+      //         default:
+      //           return state;
+      //       }
+      //     };

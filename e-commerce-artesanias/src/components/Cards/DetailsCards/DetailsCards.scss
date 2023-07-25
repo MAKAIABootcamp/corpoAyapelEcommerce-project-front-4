@@ -45,7 +45,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 55%;
+        width: 50%;
         justify-content: center;
         .tittleProductName {
             color: var(--color__primary);
@@ -58,6 +58,15 @@
             line-height: 18px;
             color: rgb(137, 209, 30);
             text-align: center;
+        }
+
+        .productDescription{
+          width: 60%;
+        }
+        .subtittleProductDescription{
+          color: var(--color__primary);
+          font-weight: bold;
+          
         }
         .button {
             // @include button($pixel: 40%);

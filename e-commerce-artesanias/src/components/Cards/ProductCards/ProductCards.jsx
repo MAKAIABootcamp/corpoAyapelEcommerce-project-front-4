@@ -30,11 +30,12 @@ const ProductCards = ({ isFiltered }) => {
     }
   }, [isFiltered, products, productsFiltered]);
 
-  const combinedProducts = isFiltered ? productsFiltered : products;
-  console.log(combinedProducts);
+  // const combinedProducts = isFiltered ? productsFiltered : products;
+  // console.log(combinedProducts);
 
   // Función para seleccionar 10 productos aleatorios
   const getRandomProducts = () => {
+    const combinedProducts = isFiltered ? productsFiltered : products;
     const randomProducts = combinedProducts.sort(() => 0.5 - Math.random()).slice(0, 10);
     console.log(randomProducts)
     // setProductsToList(randomProducts);
@@ -48,7 +49,7 @@ const ProductCards = ({ isFiltered }) => {
   // }, [combinedProducts]);
   const randomProducts = getRandomProducts();
     setProductsToList(randomProducts);
-  }, []);
+  }, [products, productsFiltered, isFiltered]);
 
   return (
 //     <div className="containerCards">
@@ -78,8 +79,8 @@ const ProductCards = ({ isFiltered }) => {
 // };
 
 <div className="containerCards">
-      {combinedProducts.length > 0 ? (
-        combinedProducts.map((product) => (
+      {productsToList.length > 0 ? (
+        productsToList.map((product) => (
           <Card className="card" key={product._id} onClick={() => navigate(`/Details/${product._id}`)}>
            <Card.Img className="cardImage" variant="top" src={urlFor(product[`image${1}`].asset._ref).url()} alt={product.name} />
             <Card.Text className="price" variant="primary" >

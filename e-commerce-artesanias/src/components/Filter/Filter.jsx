@@ -17,7 +17,6 @@ const Filter = ({ setisFiltered }) => {
         product.category,
         product.category2,
         product.category3,
-        // Agrega más propiedades de categoría según sea necesario
       ]);
 
       // Filtrar las categorías para eliminar valores undefined y duplicados
@@ -47,8 +46,8 @@ if (searchValue === "Todos") {
       // Agrega más propiedades de categoría según sea necesario
     );
   });
-  // dispatch(actionFilterProductSync(searchValue));
-  dispatch(actionFilterProductSync(filteredProducts));
+  dispatch(actionFilterProductSync(searchValue));
+  // dispatch(actionFilterProductSync(filteredProducts));
 }
 };
 

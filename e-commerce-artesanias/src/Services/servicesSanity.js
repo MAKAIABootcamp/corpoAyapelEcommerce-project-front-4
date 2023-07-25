@@ -21,10 +21,11 @@ export const getAllBanners = async () => {
 
 // Function to fetch a product by its ID
 export const getProductById = async (id) => {
-  const query = `*[ _type == "product" && _id == "${id}" ]`;
+  // const query = `*[ _type == "product" && _id == "${id}" ]`;
+  const query = `*[ _type == "products" && _id == "${id}" ]`;
   const response = await client.fetch(query);
   // return await client.fetch(query);
-  console.log('API Response:', response);
+  console.log('API Response:', response[0]);
   return response;
 };
 

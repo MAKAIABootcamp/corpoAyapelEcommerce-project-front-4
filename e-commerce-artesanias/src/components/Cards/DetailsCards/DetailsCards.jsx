@@ -45,7 +45,7 @@ const DetailsCards = () => {
       setProductInfo(null);
     }
   };
-  
+
   useEffect(() => {
     console.log('ID:', id);
     infoProduct();
@@ -54,27 +54,53 @@ const DetailsCards = () => {
 
   // encuentra el producto que se esta mostrando para enviarlo al carrito 
 
-  const onAddingToCart = (productId) => {
-    console.log("productId", productId)
-    const productInCart = cart.find(item => item.id == productId);
-    console.log("productInCart", productInCart)
-    if (productInCart) {
-      const newProduct = { ...productInCart }
-      newProduct.quantity = newProduct.quantity + 1;
-      dispatch(actionPutCartAsync(newProduct))
-    } else {
-      const selectedProduct = product.products.find((product) => product.id === productId);
-      const productToAddToCart = { ...selectedProduct }
-      productToAddToCart['quantity'] = 1
-      dispatch(actionPostCartAsync(productToAddToCart))
-    }
-    dispatch(actionGetCartAsync())
-  }
+  // const onAddingToCart = (productId) => {
+  //   console.log("productId", productId)
+  //   const productInCart = cart.find(item => item.id == productId);
+  //   console.log("productInCart", productInCart)
+  //   if (productInCart) {
+  //     const newProduct = { ...productInCart }
+  //     newProduct.quantity = newProduct.quantity + 1;
+  //     dispatch(actionPutCartAsync(newProduct))
+  //   } else {
+  //     const selectedProduct = product.products.find((product) => product.id === productId);
+  //     const productToAddToCart = { ...selectedProduct }
+  //     productToAddToCart['quantity'] = 1
+  //     dispatch(actionPostCartAsync(productToAddToCart))
+  //   }
+  //   dispatch(actionGetCartAsync())
+  // }
 
   const toggleToast = () => {
     setShowToast(!showToast);
   };
 
+  const onAddingToCart = (productId) => {
+    // Aquí añadimos la lógica para agregar el producto al carrito con su cantidad
+  if (productInfo) {
+    // Comprobamos si el carrito ya existe en el local storage
+    const existingCart = localStorage.getItem("productsInCart");
+    let cartItems = existingCart ? JSON.parse(existingCart) : {};
+
+    const newProductId = productInfo._id;
+    if (cartItems[newProductId]) {
+      // Si el producto ya está en el carrito, aumentamos la cantidad en 1
+      cartItems[newProductId].quantity += 1;
+    } else {
+      // Si el producto no está en el carrito, lo agregamos con cantidad 1
+      cartItems[newProductId] = {
+        ...productInfo,
+        quantity: 1,
+      };
+    }
+
+    // Guardamos el carrito actualizado en el local storage
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+
+    // Mostramos un mensaje de éxito usando el estado setShowToast
+    setShowToast(true);
+  }
+};
   return (
     <div>
       {productInfo ? (
@@ -82,23 +108,24 @@ const DetailsCards = () => {
           <div className="detailsImages">
             <img
               className="mainImage"
-              src={selectedImage || product.image1?.asset?._ref}
+              // src={selectedImage || product.image1?.asset?._ref}
+              // src={urlFor(productInfo[`image${1}`].asset._ref).url()}
+              src={selectedImage ? urlFor(selectedImage).url() : urlFor(productInfo[`image${1}`].asset._ref).url()}
               alt="Product main Image" />
-              {/* <img className="cardImage" variant="top" src={urlFor(product[`image${imageIndex}`].asset._ref).url()} alt={product.name} /> */}
-            {/* <div className="containerOtherImages" >
+            <div className="containerOtherImages" >
               {Array.from({ length: 4 }, (_, index) => (
-    product[`image${index + 1}`]?.asset?._ref && (
-      <img
-        key={`image-${index}`}
-        className="cardImage"
-        variant="top"
-        src={urlFor(product[`image${index + 1}`].asset._ref).url()}
-        alt={product.name}
-        onClick={() => setSelectedImage(product[`image${index + 1}`]?.asset?._ref)}
-      />
-    )
-  ))}
-              {productInfo.img && Object.values(productInfo.img).map((imageUrl, index) => (
+                productInfo[`image${index + 1}`]?.asset?._ref && (
+                  <img
+                    key={`image-${index}`}
+                    className={`otherimg ${selectedImage === productInfo[`image${index + 1}`]?.asset?._ref ? 'active' : ''}`}
+                    variant="top"
+                    src={urlFor(productInfo[`image${index + 1}`].asset._ref).url()}
+                    alt={productInfo.name}
+                    onClick={() => setSelectedImage(productInfo[`image${index + 1}`]?.asset?._ref)}
+                  />
+                )
+              ))}
+              {/* {productInfo.img && Object.values(productInfo.img).map((imageUrl, index) => (
                 <img
                   key={index}
                   className={`otherimg ${imageUrl === selectedImage ? 'active' : ''}`}
@@ -106,14 +133,20 @@ const DetailsCards = () => {
                   alt={`Image ${index + 1}`}
                   onClick={() => setSelectedImage(imageUrl)}
                 />
-              ))}
-            </div> */}
+              ))} */}
+
+
+
+            </div>
 
           </div>
           <div className="detailsInfo">
             <h1 className="tittleProductName">{productInfo?.name}</h1>
             <h3 className="subtittleProductPrice"> {numberToMoney(productInfo?.Precio)} </h3>
             <p className="productDescription">{productInfo?.description2} </p>
+            <h4 className="subtittleProductDescription"> Cuidados y recomendaciones </h4>
+            <p className="productDescription">{productInfo?.recomendations} </p>
+
             <Button className="button" onClick={() => {
               onAddingToCart(product._id);
               toggleToast();
