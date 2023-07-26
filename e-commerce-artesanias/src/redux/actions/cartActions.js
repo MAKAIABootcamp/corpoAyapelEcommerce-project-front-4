@@ -4,7 +4,7 @@ import { loginTypes } from "../types/loginType";
 import { updateItemActionAsync, getFilterItemsActionAsync } from '../../Services/crudColection';
 
 // Mostrar productos del carrito
-export const actionGetCartAsync = (userUid) => {
+export const actionGetCartAsync = () => {
   return async (dispatch) => {
     try {
       const user = await getFilterItemsActionAsync('Users', ['uid', "==", userUid])
@@ -16,8 +16,10 @@ export const actionGetCartAsync = (userUid) => {
   };
 };
 
+
+
 // Agregar al carrito
-export const actionPostCartAsync = (product, user) => {
+export const actionPostCartAsync = (product, user, deleteItem) => {
     return async (dispatch) => {
       try {
         
@@ -25,7 +27,9 @@ export const actionPostCartAsync = (product, user) => {
           car_products: [...user.car_products]
         }
         const IndexItem = all_car.car_products.findIndex(item => item.productId === product.productId)
-        if (IndexItem > -1){
+        if(deleteItem && IndexItem > -1){
+          all_car.car_products.splice(IndexItem, 1);
+        } else if (IndexItem > -1){
           all_car.car_products.splice(IndexItem, 1, product);
           console.log(all_car)
         } else {

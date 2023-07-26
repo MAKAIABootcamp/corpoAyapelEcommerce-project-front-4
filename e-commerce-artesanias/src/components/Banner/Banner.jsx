@@ -1,3 +1,8 @@
+// import { useState, useEffect } from "react";
+// import { getAllBanners } from "../../Services/servicesSanity";
+// import { urlFor } from "../../sanityClient";
+// import "../../components/Banner/Banner.scss";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Banner.scss";

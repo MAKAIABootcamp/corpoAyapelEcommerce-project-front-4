@@ -16,17 +16,18 @@
     justify-content: center;
     position: relative;
     // height: 400px;
-    width: 18vw;
+    width: 20vw;
     // width: 25%;
     height: auto;
     //  width:  calc(25% - 2%);
-    padding: 2%;
+    padding: 1%;
     background-color: #E6DCD8;
     margin: 8px;
+    
 
     .cardImage {
-      height: 14vw;
-      width: 14vw;
+      height: 15vw;
+      width: 15vw;
       // height: 200px; 
       // width: 200px; 
       border-radius: 20px;
@@ -44,14 +45,17 @@
       font-size: 2vh;
       font-weight: bolder;
       color: var(--color__primary);
+      font-family: "Roboto", sans-serif;
     }
 
     .productName {
-      color: var(--color__primary);
+      // color: var(--color__primary);
+      color: #986C4A;
       padding-top: 10px;
       text-align: center;
       font-size: 2vh;
       width: 55%;
+      font-weight: 100;
     }
 
 
@@ -68,10 +72,10 @@
     }
 
     .productDescription {
-      justify-content: center;
-      align-items: center;
+      flex-grow: 1;
       padding: 2% 15%;
-      font-size: 2vh;
+      font-size: 1.6vh;
+      // font-family: sans-serif;
     }
   }
 

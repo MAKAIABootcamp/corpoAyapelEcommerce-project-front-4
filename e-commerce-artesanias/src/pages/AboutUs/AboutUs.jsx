@@ -1,14 +1,7 @@
 import './AboutUs.scss';
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import Banner from '../../components/Banner/Banner';
 
 const AboutUs = () => {
-  const handleNavegateFacebook = () => {
-    window.open('https://www.facebook.com/corpoayapel', '_blank');
-  };
-  const handleNavegateTwitter = () => {
-    window.open('https://twitter.com/CorpoAyapel', '_blank');
-  };
   return (
     <div className='aboutUs'>
       <main className='mainAboutUs'>
@@ -32,18 +25,6 @@ const AboutUs = () => {
             otros proyectos.
           </p>
         </section>
-        <div className='mainAboutUs__buttons'>
-          <button
-            className='mainAboutUs__buttons--readMore'
-            onClick={() => handleNavegateTwitter()}
-          >
-            Síguenos
-          </button>
-          <FacebookRoundedIcon
-            className='mainAboutUs__buttons--iconFacebook'
-            onClick={() => handleNavegateFacebook()}
-          />
-        </div>
       </main>
     </div>
   );

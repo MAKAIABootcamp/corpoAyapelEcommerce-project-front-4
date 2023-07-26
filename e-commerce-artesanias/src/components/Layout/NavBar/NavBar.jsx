@@ -7,7 +7,7 @@ import logo from '../../../assets/Icons/LogoArt.png';
 const NavBar = () => {
   const [totalProducts,setTotalProducts] = useState(0)
   const dispatch = useDispatch();
-  const { user } = useSelector(store => store.login);
+  const { user, isLogged } = useSelector(store => store.login);
   const navigate = useNavigate();
 
   const handleLinkClick = path => {
@@ -22,12 +22,14 @@ const NavBar = () => {
 
   
   useEffect(() => {
-    if(user?.car_products.length>0){
+    if(user?.car_products.length>0 && isLogged){
       const products = user.car_products.reduce(
         (accumulator, currentValue) => accumulator + currentValue.quantity,
         0
       );
       setTotalProducts(products);
+    } else {
+      setTotalProducts(0);
     }
   }, [user]);
 

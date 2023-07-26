@@ -30,7 +30,7 @@ const TestSanity = () => {
           {Array.from({ length: 4 }, (_, index) => index + 1).map((imageIndex) => (
             product[`image${imageIndex}`]?.asset?._ref && (
               <div key={`image-${imageIndex}`}>
-                {/* <h3>Imagen {imageIndex}</h3> */}
+                <h3>Imagen {imageIndex}</h3>
                 <img
                   src={urlFor(product[`image${imageIndex}`].asset._ref).url()}
                   alt={`Image ${imageIndex} of ${product.name}`}

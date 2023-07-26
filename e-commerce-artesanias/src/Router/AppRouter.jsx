@@ -18,12 +18,12 @@ import TopSell from '../pages/TopSell/TopSell';
 import News from '../pages/News/News';
 import HandiCrafts from '../pages/HandiCrafts/HandiCrafts';
 import Cart from '../pages/Cart/Cart';
-import ButtonPayment from '../pages/ButtonPayment/ButtonPayment';
 import Admin from '../pages/Admin/Admin';
 import NotFound from '../pages/NotFound/NotFound';
 import MyAccount from '../pages/MyAccount/MyAccount';
 import SuccesfulPurchase from '../pages/SuccesfulPurchase/SuccesfulPurchase';
 import Layout from '../components/Layout/Layout';
+import ConfirmPayment from '../pages/ConfirmPayment/ConfirmPayment';
 // import { HashRouter } from "react-router-dom"
 /* import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../Firebase/firebaseConfig';
@@ -84,7 +84,7 @@ const AppRouter = () => {
             <Route path='TopSell' element={<TopSell />} />
             <Route path='News' element={<News />} />
             <Route path='HandiCrafts' element={<HandiCrafts />} />
-            <Route path='ButtonPayment' element={<ButtonPayment />} />
+            <Route path='ConfirmPayment' element={<ConfirmPayment />} />
             <Route path='SuccesfulPurchase' element={<SuccesfulPurchase />} />
           </Route>
           {/* RUTAS PRIVADAS */}
@@ -93,10 +93,10 @@ const AppRouter = () => {
             element={<Admin />}
           >
             <Route path='Cart' element={<Cart />} />
-            <Route path='ButtonPayment' element={<ButtonPayment />} />
+            <Route path='ConfirmPayment' element={<ConfirmPayment />} />
           </Route>
         </Route>
-        <Route path="Login" element={<Validation/>}/>
+        <Route path='Login' element={<Validation />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>

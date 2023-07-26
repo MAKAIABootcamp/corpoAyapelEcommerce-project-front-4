@@ -8,6 +8,7 @@ import Banner from '../../components/Banner/Banner';
 import { useDispatch } from 'react-redux';
 import TestSanity from '../../components/Sanity/TestNotUsed/TestSanity';
 import TestSanityBanners from '../../components/Sanity/TestNotUsed/TestSanityBanners';
+import TestSanitySearch from '../../components/Search/TestSanitySearch';
 
 const Home = () => {
   const [isFiltered, setisFiltered] = useState(false);
