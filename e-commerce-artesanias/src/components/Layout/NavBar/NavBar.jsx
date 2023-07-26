@@ -23,10 +23,9 @@ const NavBar = () => {
     <div>
       <nav className='nav-bar'>
         <div className='desktop'>
-          <img className='logo' src={logo} alt='logo' />
+          <img onClick={() => handleLinkClick('/')} className='logo' src={logo} alt='logo' />
 
           <ul className='left-list'>
-            <li onClick={() => handleLinkClick('/')}>Artesanías</li>
             <li onClick={() => handleLinkClick('/AboutUs')}>¿Quiénes somos?</li>
             <li onClick={() => handleLinkClick('/Contact')}>Contacto</li>
           </ul>
@@ -149,19 +148,6 @@ const NavBar = () => {
 
             <div className='Search-mobile'>
               <p onClick={() => handleLinkClick('/Search')}>Buscar</p>
-            </div>
-
-            <div className='validation-mobile'>
-              <ul>
-                {/* NO FUNCIONAN AUN */}
-                <li onClick={() => handleLinkClick('/Login')}>
-                  Iniciar sesion
-                </li>
-                {/* SI ESTA LOGUEADO APARECE EL MY ACCOUNT */}
-                <li onClick={() => handleLinkClick('/my-account')}>
-                  Mi cuenta
-                </li>
-              </ul>
             </div>
 
             <div className='Search-mobile'>

@@ -66,4 +66,3 @@ const actionSearchProductSync = (filteredProduct) => {
     payload: filteredProduct,
   };
 };
-
