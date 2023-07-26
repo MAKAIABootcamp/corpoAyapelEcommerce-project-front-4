@@ -11,7 +11,7 @@ Este es el aplicativo web e-commerce de Artesanías CorpoAyapel, el cual present
 Los productos son previamente creados por el administrador al que se le permite editar o modificar el contendio que desee. 
 
 El usuario desde la página puede filtrar por categorias, ver detalles del producto, agregar y eliminar productos del carrito, a su vez, puede registrarse en la página e iniciar sesión  con correo electrónico o con cuenta de google,
-permitiendo al usuario crear un perfil en el que puede cargar su información personal como dirección de envio y facturación a travéz de respectivos formularios.
+permitiendo al usuario crear un perfil en el que puede cargar su información personal como dirección de envio y facturación a través de sus respectivos formularios.
 
 Tomando un enfoque orientado a los artesanos que fabrican estos productos, se ha creado una sección en la cual se comparten testimonios y el "quiénes somos" para conocer más acerca de los mismos.
 Se pueden visualizar las redes sociales y una sección de Contacto para que sea posible contactarse con el personal de CorpoAyapel. 
