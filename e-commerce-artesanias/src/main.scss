@@ -35,7 +35,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif; /*Colocar la fuente que se quiere*/
+  font-family: var(--font__family__primary);
 }
 
 body {
@@ -71,6 +71,9 @@ body {
 
 //   }
 // }
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
 :root {
   --color__primary: #394c45;
   --font__sizeTitle: 30px;
@@ -78,4 +81,5 @@ body {
   --color__secundary: #e6dcd8;
   --bg__color: #f2efed;
   --bg__color__layout: #c7bbaf;
+  --font__family__primary: 'Dosis', sans-serif;
 }
