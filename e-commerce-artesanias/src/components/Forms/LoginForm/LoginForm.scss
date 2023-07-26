@@ -1,0 +1,122 @@
+.login-page {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://cdnx.jumpseller.com/corpoayapel-artesanias/image/16670332/542d61c0-d0ae-4361-9aac-d46e65ea5715.jpg?1649685849');
+        background-size: cover;
+        filter: brightness(0.4);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0% 70%;
+    }
+
+    .title {
+        background-color: #394C45;
+        width: 300px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        font-size: 20px;
+        color: antiquewhite;
+        z-index: 3;
+        position:relative;
+        margin-top: 10%;
+    }
+
+    .formLogin {
+        text-align: initial;
+        z-index: 3;
+        justify-content: center;
+        align-items: center;
+   
+        input {
+            color: black;
+            display: block;
+            justify-content: space-between;
+            border: 0;
+            margin-bottom: 30px;
+            width: 300px;
+            height: 40px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    }
+
+    .login-button {
+        background-color: #394C45;
+        width: 130px;
+        height: 30px;
+        border: 0;
+        border-radius: 15px;
+        left: -28%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: antiquewhite;
+        padding: 2%;
+        position: relative;
+        margin: auto;
+        transform: translateX(70%);
+    }
+
+    .providers{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(35%);
+        padding: 10px;
+        margin-top: 20px;
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            display: flex;
+            background-color: white;
+            border-radius: 20px;
+            margin: auto;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        
+        span{
+            color: black;
+            background-color: white;
+            width: 150px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+
+        }
+    }
+    
+    .button-register {
+        text-decoration: none;
+        background-color: #9ECF93;
+        color: black;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        height: 30px;
+        border-radius: 15px;
+        width: 160px;
+        position: relative;
+        left: 10%;
+        transform: translateX(30%);
+        margin-top: 60px;
+    }
+}
+

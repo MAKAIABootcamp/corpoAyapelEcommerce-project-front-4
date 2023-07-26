@@ -1,0 +1,237 @@
+.nav-bar {
+  display: flex;
+  height: 100px;
+  background-color: #C7BBAF;
+  justify-content: space-evenly;
+
+
+  .logo {
+    margin-left: 0px;
+    height: 60px;
+    &:hover {
+      opacity: calc(80%);
+      cursor: pointer;
+    }
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+ul li {
+  list-style-type: none;
+}
+}
+
+.desktop {
+  display: flex;
+  align-items: center;
+  padding: 0 4rem;
+  font-size: 1.7rem;
+  gap: 40px;
+  color: #394C45;
+
+
+
+  ul{
+    display: flex;
+
+  }
+
+  .left-list{
+    gap: 50px;
+    padding-right: 10px;
+  }
+
+
+
+  li {
+    &:hover {
+      opacity: calc(80%);
+      cursor: pointer;
+    }
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
+
+
+
+
+
+.nav-bar h2 {
+  font-size: 30px;
+  color: #394C45;
+}
+
+
+
+//ZONA DERECHA NAVBAR
+
+.Search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+
+  svg {
+    &:hover {
+      border-radius: 10px;
+      padding: 1%;
+      cursor: pointer;
+    }
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &:hover {
+    opacity: calc(90%);
+    cursor: pointer;
+  }
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.validation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  ul {
+    display: grid;
+  }
+
+  svg {
+    &:hover {
+      border-radius: 10px;
+      padding: 1%;
+      cursor: pointer;
+    }
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &:hover {
+    opacity: calc(90%);
+  }
+}
+
+.nav-bag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+
+  .cart-value {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+
+  svg {
+    &:hover {
+      border-radius: 10px;
+      padding: 1%;
+      cursor: pointer;
+    }
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &:hover {
+    opacity: calc(90%);
+    cursor: pointer;
+  }
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.mobile {
+  display: none;
+
+  .logo {
+    display: flex;
+    margin-top: 15px;
+    height: 60px;
+  }
+
+  .menu-icon{
+    position: absolute;
+    top: 26px;
+    right: 10px;
+    padding: 10px;
+  }
+
+}
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 100px;
+  right: 0;
+  z-index: 3;
+  border-radius: 5px;
+  background-color: rgba(199, 187, 175, 0.8); /* Adjust the alpha value as per your preference */
+  padding: 1rem;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    padding: 0;
+    /* Estilos adicionales para los elementos del menú */
+  }
+}
+
+
+@media (max-width: 1100px) {
+  .desktop {
+    display: none;
+  }
+
+
+  .mobile {
+    display: flex;
+
+    .menu-icon {
+      display: block;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+
+
+
+    .menu-list {
+      display: none;
+
+      &.active{
+        display: block;
+      }
+
+      :last-child{
+        cursor: pointer;
+      }
+    }
+  }
+
+    .left-list-mobile{
+      li {
+    cursor: pointer;
+  }
+  }
+
+  
+}

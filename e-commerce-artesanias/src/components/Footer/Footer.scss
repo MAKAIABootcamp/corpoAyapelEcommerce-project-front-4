@@ -1,0 +1,128 @@
+.body{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #C7BBAF;
+    .buttons{
+        gap: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: #FFF9EE;
+        width: 100%;
+        font-family: "Josefin Sans";
+        font-size: 12px;
+        padding: 20px;
+        a{
+            flex-basis: 200px;
+        }
+        span{
+            color: black;
+        }
+        .icons{
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            margin-right: 7px;
+        }
+    }
+    .footer-bg{
+        padding: 0 60px;
+        .follow{
+            >p{
+                padding: 40px 40px  25px;
+                font-size: 15px;
+                font-weight: 400;
+                text-transform: uppercase;
+                text-align: center;
+                letter-spacing: 0.5em;
+                line-height: 1.4;
+            }
+        }
+
+      .icon{
+          width: 30px;
+          height: 30px;
+          margin-right: 20px;
+          margin-bottom: 25px;
+          transform: scale(1.1);
+      }
+      .icon:hover{
+        background-color: white;
+        border-radius: 15px;
+      }
+      .socials{
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+      }
+      .information{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        .contact{
+            h4{
+                text-transform: uppercase;
+            }
+            p{
+              margin: 0;
+            }
+        }
+        .logo{
+            width: 150px;
+            height: 100%;
+            margin: 30px;
+        }
+        .text{
+            max-width: 200px;
+          }
+        
+      }
+      .copyright{
+        display: block;
+        text-align: center;
+        padding: 5px;
+      }
+    }
+    .list{
+        h4{
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+        }
+        a {
+            &:hover{
+                text-decoration: none;
+            }
+        }
+        p{
+            
+            color: black;
+            text-decoration: none;
+            background-color: #5F8454;
+            display: flex;
+            justify-content: center;
+            width: 150px;
+            border-radius: 8px;
+            &:hover{
+                background-color: #FFF9EE;
+            }
+        }
+
+    }
+}
+
+@media (max-width: 500px) {
+    .body{
+        .footer-bg{
+          .information{
+            justify-content: center;
+            .contact, .text{
+                text-align: center;
+            }
+          }
+        }
+    }
+}

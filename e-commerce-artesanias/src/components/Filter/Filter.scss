@@ -1,0 +1,82 @@
+@import "../../main.scss";
+.ulContainer{
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg__color);
+    width: 100%;
+   
+    .ulFilter{
+        display: flex;
+        background-color:#E6DCD8;
+        padding: 0.4%;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        list-style: none;
+        filter: drop-shadow(5px 7px 6px #C7BBAF);
+        li{
+            color:  #986C4A;
+            font-weight: bold;
+        }
+        li:hover{
+            border-bottom: 2px solid #986C4A;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .ulContainer{
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        padding: 2%;
+        .ulFilter {
+            display: flex;
+            flex-direction: column;
+            width: 36%;
+            align-items: start;
+            padding: 2%;
+            height: 50vh;
+            margin-top: 88%;
+            li{
+                text-align: start;
+            }
+
+        }
+    }
+    
+  }
+  @media screen and (max-width: 800px) {
+    .ulContainer{
+        .ulFilter {
+            margin-top: 700px;
+            li{
+                text-align: start;
+                padding-left: 1%;
+            }
+
+        }
+    }
+    
+  }
+  @media screen and (max-width: 500px) {
+    .ulContainer{
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 2%;
+        .ulFilter {
+            width: 68%;
+            align-items: center;
+             padding: 2%;
+            height: 523px;
+            position: inherit;
+            margin-top: 720px;
+        }
+    }
+    
+  }
