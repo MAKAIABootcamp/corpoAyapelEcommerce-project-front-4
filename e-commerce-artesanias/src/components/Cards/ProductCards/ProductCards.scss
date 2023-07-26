@@ -23,11 +23,12 @@
     padding: 1%;
     background-color: #E6DCD8;
     margin: 8px;
+    border-radius: 20px;
     
 
     .cardImage {
-      height: 15vw;
-      width: 15vw;
+      height: 17vw;
+      width: 17vw;
       // height: 200px; 
       // width: 200px; 
       border-radius: 20px;
@@ -83,6 +84,7 @@
     cursor: pointer;
     // background-color: #e6d7cc;
     border: 3px solid var(--bg__color__layout);
+    filter: drop-shadow(5px 7px 6px #C7BBAF);
   }
   .card:hover .productName{
     font-weight: bold;

@@ -1,9 +1,9 @@
 import { loginTypes } from "../types/loginType";
 const initialState = {
     user: {
-        name: '',
-        email: '',
-        password: '',
+        // name: '',
+        // email: '',
+        // password: '',
     },
     error: {
         status: undefined,
@@ -20,9 +20,10 @@ export const loginReducer = (state = initialState, action ) =>{
             return {
                 ...state,
                 user: {
-                    name: action.payload.user.name,
-                    email: action.payload.user.email,
-                    password: action.payload.user.password,
+                    ...action.payload.user
+                    // name: action.payload.user.name,
+                    // email: action.payload.user.email,
+                    // password: action.payload.user.password,
                 },
                 error: {
                     status: action.payload.error.status,

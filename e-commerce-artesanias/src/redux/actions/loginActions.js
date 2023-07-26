@@ -1,4 +1,5 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,  signInWithPopup, updateProfile } from "firebase/auth"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, updateProfile } from "firebase/auth"
+import { getUserFromDatabase } from "../../Services/userServices";
 import { auth } from "../../Firebase/FirebaseConfig"
 import { loginTypes } from "../types/loginType"
 import { getFilterItemsActionAsync, createItemActionAsync, updateItemActionAsync } from '../../Services/crudColection';
@@ -7,8 +8,10 @@ export const loginUserAsync = ( {email, password} ) =>{
     return async (dispatch) =>{
         dispatch(toggleLoading())
         try {
-            const {user} = await signInWithEmailAndPassword(auth, email, password)
-            const dataUser= {
+            const { user } = await signInWithEmailAndPassword(auth, email, password);
+            const response = await getUserFromDatabase(email);
+            const dataUser = {
+                ...response,
                 name: user.displayName,
                 email: user.email,
                 uid: user.uid

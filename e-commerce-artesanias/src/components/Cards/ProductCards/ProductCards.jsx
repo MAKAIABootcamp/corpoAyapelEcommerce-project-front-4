@@ -120,9 +120,9 @@ const ProductCards = ({ isFiltered }) => {
                   alt={product.name}
                 />
                 <Card.Text className='price' variant='primary'>
-                  {numberToMoney(product.Precio)}
+                   {product.name}
                 </Card.Text>
-                <Card.Title className='productName'>{product.name}</Card.Title>
+                <Card.Title className='productName'> {numberToMoney(product.Precio)} </Card.Title>
                 {/* <div className="stars">
               <h4>★</h4>
               <h4>★</h4>
@@ -136,7 +136,7 @@ const ProductCards = ({ isFiltered }) => {
           : products &&
             products.length &&
             products.map((product, index) => {
-              if (index < 10) {
+              if (index < 8) {
                 return (
                   <Card
                     className='card'
@@ -150,10 +150,10 @@ const ProductCards = ({ isFiltered }) => {
                       alt={product.name}
                     />
                     <Card.Text className='price' variant='primary'>
-                      {numberToMoney(product.Precio)}
+                    {product.name} 
                     </Card.Text>
                     <Card.Title className='productName'>
-                      {product.name}
+                         {numberToMoney(product.Precio)}
                     </Card.Title>
                     {/* <div className="stars">
               <h4>★</h4>
@@ -180,10 +180,10 @@ const ProductCards = ({ isFiltered }) => {
                       alt={product.name}
                     />
                     <Card.Text className='price' variant='primary'>
-                      {numberToMoney(product.Precio)}
+                    {product.name} 
                     </Card.Text>
                     <Card.Title className='productName'>
-                      {product.name}
+                       {numberToMoney(product.Precio)}
                     </Card.Title>
                     {/* <div className="stars">
               <h4>★</h4>

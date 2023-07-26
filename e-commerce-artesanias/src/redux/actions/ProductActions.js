@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { productTypes } from "../types/ProductTypes";
 // import { getAllProducts } from '../../../Services/servicesSanity';
-import {getAllProducts} from "../../Services/servicesSanity"
+import { getAllProducts, obtenerProductosRecientes } from "../../Services/servicesSanity";
 
 // Esta es la función asincrona que hace la llamada al local host
 // export const actionGetProductAsync = () => {
@@ -35,6 +35,27 @@ import {getAllProducts} from "../../Services/servicesSanity"
         payload: product
     }
 }
+
+//----Obtener productos nuevos-----
+
+export const getNewProductAsync = () => {
+  return async (dispatch) => {
+    try {
+      const response = await obtenerProductosRecientes();
+      dispatch(getNewProductSync(response))
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+const getNewProductSync = (newProducts) => {
+  return {
+    type: productTypes.NEW_PRODUCTS,
+    payload: newProducts
+  }
+}
+
 //-----------------------FILTRO-----------------------------------
 
 export const actionFilterProductSync = (category) => {

@@ -34,11 +34,12 @@
     color: white;
     text-align: center;
     width: 100%;
-    font-size: medium;
+    font-size:2rem;
+    cursor: pointer;
   }
   .section1__name:hover{
-    font-size: large;
-    background-color: rgba(0, 0, 0, 0.6)
+    font-size:2.2rem;
+    background-color: rgba(0, 0, 0, 0.6);
   }
   
   .section3__name{
@@ -49,10 +50,11 @@
     color: white;
     text-align: center;
     width: 100%;
-    font-size: medium;
+    font-size:2rem;
+    cursor: pointer;
   }
   .section3__name:hover{
-    font-size: large;
+    font-size:2.2rem;
     background-color: rgba(0, 0, 0, 0.6)
   }
   
@@ -64,11 +66,12 @@
     color: white;
     text-align: center;
     width: 100%;
-    font-size: medium;
+    font-size:2rem;
+    cursor: pointer;
   }
   .section2__name:hover{
     background-color: rgba(0, 0, 0, 0.6);
-    font-size: large;
+    font-size:2.2rem;
   }
 
 @media screen and (max-width: 900px) {

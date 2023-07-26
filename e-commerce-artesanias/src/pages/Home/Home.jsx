@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <MainSections />
+      <MainSections setisFiltered={setisFiltered}/>
       <Filter setisFiltered={setisFiltered} />
       <ProductCards isFiltered={isFiltered} />
       {/* <TestSanity/>

@@ -9,6 +9,7 @@ const NavBar = () => {
   const { user } = useSelector(store => store.login);
   const navigate = useNavigate();
 
+  console.log(user);
   const handleLinkClick = path => {
     navigate(path);
   };
@@ -44,16 +45,16 @@ const NavBar = () => {
             </svg>
             <p onClick={() => handleLinkClick('/Search')}>Buscar</p>
             {/* <ul> */}
-              {/* NO FUNCIONAN AUN */}
-              {/* {user.name !== '' ? (
+            {/* NO FUNCIONAN AUN */}
+            {/* {user.name !== '' ? (
                 <li>{user.name}</li>
               ) : (
                 <li onClick={() => handleLinkClick('/Login')}>
                   Iniciar sesion
                 </li>
               )} */}
-              {/* SI NO ESTA LOGUEADO APARECE EL MI CUENTA Y CUANDO ESTA LOGUEADO APARECE EL NOMBRE Y SE QUITA LA OPCION DE INICIAR SESION */}
-              {/* <li onClick={() => handleLinkClick('/MyAccount')}>Mi cuenta</li>
+            {/* SI NO ESTA LOGUEADO APARECE EL MI CUENTA Y CUANDO ESTA LOGUEADO APARECE EL NOMBRE Y SE QUITA LA OPCION DE INICIAR SESION */}
+            {/* <li onClick={() => handleLinkClick('/MyAccount')}>Mi cuenta</li>
             </ul> */}
           </div>
 
@@ -71,8 +72,8 @@ const NavBar = () => {
             <ul className='cart-value'>
               <li>Mi carrito</li>
               <li>MIRAR COMENTARIO</li> */}
-              {/* SE NECESITA VINCULACION CON EL TOTAL DEL CARRITO */}
-            {/* </ul>
+          {/* SE NECESITA VINCULACION CON EL TOTAL DEL CARRITO */}
+          {/* </ul>
           </div> */}
 
           <div className='validation'>
@@ -88,8 +89,8 @@ const NavBar = () => {
             </svg>
             <ul>
               {/* NO FUNCIONAN AUN */}
-              {user.name !== '' ? (
-                <li>{user.name}</li>
+              {(user && Object.entries(user).length && user.name) ? (
+                <li>{user?.name}</li>
               ) : (
                 <li onClick={() => handleLinkClick('/Login')}>
                   Iniciar sesion
