@@ -8,6 +8,9 @@
   .logo {
     margin-left: 20px;
     height: 60px;
+    &:hover {
+      opacity: calc(80%);
+    }
   }
 
 ul li {
