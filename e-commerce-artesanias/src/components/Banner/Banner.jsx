@@ -6,9 +6,9 @@ import "./Banner.scss";
 const Banner = () => {
   const [banners, setBanners] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
-    // Fetch all banners from Sanity when the component mounts
     const fetchBanners = async () => {
       try {
         const bannersData = await getAllBanners();
@@ -21,14 +21,32 @@ const Banner = () => {
     fetchBanners();
   }, []);
 
+  useEffect(() => {
+    // Set a timer to change the banner every 10 seconds
+    const timer = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % banners.length);
+      setActiveImage((prevImage) => (prevImage + 1) % banners.length);
+    }, 10000); // 10 seconds in milliseconds
+
+    // Clear the timer when the component unmounts or when the banners change
+    return () => clearInterval(timer);
+  }, [banners.length]);
+
   const handlePrevSlide = () => {
     setCurrentSlide((prevSlide) =>
       prevSlide === 0 ? banners.length - 1 : prevSlide - 1
     );
+    setActiveImage((prevImage) => (prevImage === 0 ? banners.length - 1 : prevImage - 1));
   };
 
   const handleNextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % banners.length);
+    setActiveImage((prevImage) => (prevImage + 1) % banners.length);
+  };
+
+  const handleSelectImage = (index) => {
+    setCurrentSlide(index);
+    setActiveImage(index);
   };
 
   return (
@@ -36,9 +54,7 @@ const Banner = () => {
       {banners.length > 0 && (
         <div className="banner">
           <button className="prev-button" onClick={handlePrevSlide}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-            </svg>
+            {/* Previous button SVG */}
           </button>
           <img
             className="slide"
@@ -46,10 +62,19 @@ const Banner = () => {
             alt={`Image 1 of ${banners[currentSlide].title}`}
           />
           <button className="next-button" onClick={handleNextSlide}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-          </svg>
+            {/* Next button SVG */}
           </button>
+          <div className="navigation-images">
+            {banners.map((banner, index) => (
+              <img
+                key={index}
+                className={`mobile-image ${activeImage === index ? "active" : ""}`}
+                src={urlFor(banner.image2.asset._ref).url()}
+                alt={`Image ${index + 2}`}
+                onClick={() => handleSelectImage(index)}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

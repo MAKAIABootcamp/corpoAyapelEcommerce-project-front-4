@@ -19,6 +19,20 @@ export const getAllBanners = async () => {
   return await client.fetch(query);
 };
 
+
+// Function to fetch all banners about us
+export const getAllBannersAboutUs = async () => {
+  const query = `*[_type == "banner-about-us"]`;
+  return await client.fetch(query);
+};
+
+// Function to fetch all banners testimonios
+export const getAllBannersTestimonies = async () => {
+  const query = `*[_type == "banner-testimonies"]`;
+  return await client.fetch(query);
+};
+
+
 // Function to fetch a product by its ID
 export const getProductById = async (id) => {
   // const query = `*[ _type == "product" && _id == "${id}" ]`;
@@ -34,3 +48,5 @@ export const getBannerById = async (id) => {
   const query = `*[ _type == "banner" && _id == "${id}" ]`;
   return await client.fetch(query);
 };
+
+//CREAR FUNCIONES DE ID DE SER NECESARIO

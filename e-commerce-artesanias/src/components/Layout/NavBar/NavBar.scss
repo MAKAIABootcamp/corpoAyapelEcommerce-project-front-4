@@ -6,10 +6,14 @@
 
 
   .logo {
-    margin-left: 20px;
+    margin-left: 0px;
     height: 60px;
     &:hover {
       opacity: calc(80%);
+      cursor: pointer;
+    }
+    &:active {
+      cursor: grabbing;
     }
   }
 
@@ -43,6 +47,10 @@ ul li {
   li {
     &:hover {
       opacity: calc(80%);
+      cursor: pointer;
+    }
+    &:active {
+      cursor: grabbing;
     }
   }
 }
@@ -71,11 +79,19 @@ ul li {
     &:hover {
       border-radius: 10px;
       padding: 1%;
+      cursor: pointer;
+    }
+    &:active {
+      cursor: grabbing;
     }
   }
 
   &:hover {
     opacity: calc(90%);
+    cursor: pointer;
+  }
+  &:active {
+    cursor: grabbing;
   }
 }
 
@@ -93,6 +109,10 @@ ul li {
     &:hover {
       border-radius: 10px;
       padding: 1%;
+      cursor: pointer;
+    }
+    &:active {
+      cursor: grabbing;
     }
   }
 
@@ -118,11 +138,19 @@ ul li {
     &:hover {
       border-radius: 10px;
       padding: 1%;
+      cursor: pointer;
+    }
+    &:active {
+      cursor: grabbing;
     }
   }
 
   &:hover {
     opacity: calc(90%);
+    cursor: pointer;
+  }
+  &:active {
+    cursor: grabbing;
   }
 }
 
@@ -140,7 +168,6 @@ ul li {
     top: 26px;
     right: 10px;
     padding: 10px;
-    cursor: pointer;
   }
 
 }
@@ -173,6 +200,7 @@ ul li {
     display: none;
   }
 
+
   .mobile {
     display: flex;
 
@@ -182,6 +210,7 @@ ul li {
       border: none;
       padding: 0;
     }
+
 
 
 
@@ -197,4 +226,12 @@ ul li {
       }
     }
   }
+
+    .left-list-mobile{
+      li {
+    cursor: pointer;
+  }
+  }
+
+  
 }

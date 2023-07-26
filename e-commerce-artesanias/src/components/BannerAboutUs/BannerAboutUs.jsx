@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { getAllBannersTestimonies } from "../../Services/servicesSanity";
+import { getAllBannersAboutUs } from "../../Services/servicesSanity";
 import { urlFor } from "../../sanityClient";
-import "./BannerTestimonies.scss";
+import "./BannerAboutUs.scss";
 
-const BannerTestimonies = () => {
+const BannerAboutUs = () => {
   const [banners, setBanners] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -11,7 +11,7 @@ const BannerTestimonies = () => {
     // Fetch all banners from Sanity when the component mounts
     const fetchBanners = async () => {
       try {
-        const bannersData = await getAllBannersTestimonies();
+        const bannersData = await getAllBannersAboutUs();
         setBanners(bannersData);
       } catch (error) {
         console.error('Error fetching banners:', error);
@@ -56,4 +56,4 @@ const BannerTestimonies = () => {
   );
 };
 
-export default BannerTestimonies;
+export default BannerAboutUs;
