@@ -2,14 +2,14 @@
 import products from './products'
 import banner from './banner'
 import banneraboutus from './banneraboutus'
-import bannertestimonios from './bannertestimonios'
+import bannertestimonies from './bannertestimonies'
 
 
 export const schemaTypes = [
     products,
     banner,
     banneraboutus,
-    bannertestimonios
+    bannertestimonies
     
 ]
 

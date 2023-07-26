@@ -1,5 +1,5 @@
 export default {
-    name: 'banner-testimonios',
+    name: 'banner-testimonies',
     type: 'document',
     title: 'Banners Testimonios',
     fields: [
