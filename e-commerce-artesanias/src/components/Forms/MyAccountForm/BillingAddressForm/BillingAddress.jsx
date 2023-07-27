@@ -26,7 +26,12 @@ const BillingAddress = () => {
     event.preventDefault();
     const validation = true;
     if(validation){
-      dispatch(createBillingAddressActionsAsync(formData)).then(data=>{
+      const dataBilling = {
+        billing_address: {
+          ...formData
+        }
+      }
+      dispatch(createBillingAddressActionsAsync(dataBilling,user)).then(data=>{
         setFormData(initialValue)
         Swal.fire({
             icon: 'success',

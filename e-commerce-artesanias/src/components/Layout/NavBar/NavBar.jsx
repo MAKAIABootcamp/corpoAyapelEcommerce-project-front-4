@@ -1,12 +1,13 @@
+import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
 import './NavBar.scss';
 import logo from '../../../assets/Icons/LogoArt.png';
 
 const NavBar = () => {
+  const [totalProducts,setTotalProducts] = useState(0)
   const dispatch = useDispatch();
-  const { user } = useSelector(store => store.login);
+  const { user, isLogged } = useSelector(store => store.login);
   const navigate = useNavigate();
 
   const handleLinkClick = path => {

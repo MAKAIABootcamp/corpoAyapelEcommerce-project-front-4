@@ -8,10 +8,13 @@ export const loginUserAsync = ( {email, password} ) =>{
         dispatch(toggleLoading())
         try {
             const {user} = await signInWithEmailAndPassword(auth, email, password)
+            const userCollection = await getFilterItemsActionAsync("Users",['uid', '==', user.uid]);
+            const currentUser= {...userCollection[0]}
             const dataUser= {
                 name: user.displayName,
                 email: user.email,
-                uid: user.uid
+                uid: user.uid,
+                ...currentUser
             }
             const error = { status: false, message: ''}
             dispatch(loginUser(dataUser, error));
@@ -37,14 +40,36 @@ export const userLoginProviderAsync = (provider) => {
         dispatch(toggleLoading())
         try {
             const { user } = await signInWithPopup(auth, provider);
-
             const dataUser= {
                 name: user.displayName,
                 email: user.email,
                 uid: user.uid
             }
+            const userCollection = await getFilterItemsActionAsync("Users",['uid', '==', user.uid]);
+            let currentUser;
+            console.log(userCollection)
+            if(userCollection.length === 0){
+                const newUser = {
+                    uid: user.uid,
+                    car_products: [],
+                    billing_address: {},
+                    shipping_address: {},
+                    isAdmin: false,
+                }
+                const userNewData= await  createItemActionAsync(newUser ,"Users");
+                currentUser = {
+                    ...dataUser,
+                    ...userNewData.item
+                };
+            } else{
+                currentUser= {
+                    ...dataUser,
+                    ...userCollection[0]
+                }
+            }
+            console.log(currentUser)
             const error = { status: false, message: ''}
-            dispatch(loginUser(dataUser, error))
+            dispatch(loginUser(currentUser, error))
             dispatch(toggleLogin())
             dispatch(toggleLoading())
             //modifiquee
@@ -76,15 +101,25 @@ export const userCreateAsync = ( {email, password, name} ) =>{
     return async (dispatch) =>{
         dispatch(toggleLoading())
         try {
-            await createUserWithEmailAndPassword(auth, email, password)
+            await createUserWithEmailAndPassword(auth, email, password);
             await updateProfile(auth.currentUser, {
                 displayName: name
             });
+            const newUser = {
+                uid: auth.currentUser.uid,
+                car_products: [],
+                billing_address: {},
+                shipping_address: {},
+                isAdmin: false,
+            }
+            const userCollection = await  createItemActionAsync(newUser ,"Users");
+
             const user = {
                 name,
                 email,
-                uid: auth.currentUser.uid,
+                ...userCollection.item
             };
+            console.log(user)
             const error = { status: false, message: ''}
             dispatch(userCreate(user, error))
             dispatch(toggleLogin())
