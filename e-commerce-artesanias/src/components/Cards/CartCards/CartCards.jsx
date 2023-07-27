@@ -1,6 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-const CartCards = () => {
-  return <div className="container">
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// const CartCards = () => {
+//   return <div className="container">
   {/* { combinedProducts.length > 0 ? (
      combinedProducts.map((product) => (
       <div key={product.id}>
@@ -25,7 +25,7 @@ const CartCards = () => {
   ) : (
     <div> <h3 className='errorMessage'> Lo sentimos, no hay productos disponibles. </h3></div>
   )} */}
-</div>;
+{/* </div>;
 };
 
-export default CartCards;
+export default CartCards; */}

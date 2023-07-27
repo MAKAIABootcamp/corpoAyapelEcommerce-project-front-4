@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import { numberToMoney } from '../../Services/utilities';
 import Swal from 'sweetalert2';
 import { urlFor } from '../../../src/sanityClient';
+
 const Cart = () => {
   const navigate = useNavigate();
   const  [cart, setCart] = useState([])
@@ -44,13 +45,13 @@ const Cart = () => {
   const cartArray = Object.values(getCartProdcuts);
   console.log('ProductsInCart', cartArray);
 
-  // useEffect(() => {
-  //   dispatch(actionGetCartAsync());
-  // }, [dispatch]);
 
   useEffect(() => {
-    setTotal(calculateTotal());
-  }, [cart]);
+    updateTotal(); 
+  }, [cartArray]); 
+
+  
+
 
   const onRemovingToCart = productId => {
     // const selectedProduct = cart.find((product) => product.id === productId);
@@ -135,6 +136,11 @@ const Cart = () => {
     return total;
   };
 
+  // Función para actualizar el subtotal 
+  const updateTotal = () => {
+    const newTotal = calculateTotal();
+    setTotal(newTotal);
+  };
   // Validar logIn
   const finishPurchase = () => {
     if (isLogged) {
@@ -187,42 +193,39 @@ const Cart = () => {
               <td> {numberToMoney(product.Precio)} </td>
               <td>
                 <div className='counter'>
-                  <Button
+                  <button
                     variant='light'
                     onClick={() => decrementQuantity(product._id)}
                     className='counterButton'
                   >
                     -
-                  </Button>
+                  </button>
                   <span>{product.quantity} </span>
-                  <Button
+                  <button
                     variant='light'
                     onClick={() => incrementQuantity(product._id)}
                     className='counterButton'
                   >
                     +
-                  </Button>
+                  </button>
                 </div>
               </td>
-              {/* <td> ${product.price * quantities[product.id] || product.price }</td> */}
-              <td>${calculateProductTotal(product) || product.Precio}</td>
-              {/* <td>{{numberToMoney(calculateProductTotal(product))}  || {numberToMoney(product.price)}}</td> */}
+              <td>{numberToMoney(calculateProductTotal(product) || product.Precio)} </td>
               <td>
-                <Button
+                <button
                   onClick={() => {
                     onRemovingToCart(product._id);
                   }}
-                  className='button'
+                  className='eliminarButton'
                 >
                   {' '}
                   Eliminar producto
-                </Button>
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
-      <CartCards />
       <div className='buttonsContainer'>
         <div className='subtotalInfo'>
           <span className='subtotalTittle'> Subtotal: </span>

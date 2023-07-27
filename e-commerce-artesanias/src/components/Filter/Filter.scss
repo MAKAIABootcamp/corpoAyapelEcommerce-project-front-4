@@ -40,43 +40,93 @@
             align-items: start;
             padding: 2%;
             height: 50vh;
-            margin-top: 88%;
+            margin-top: 82vw;
+            margin-left: 30vw;
+            // position: relative;
+            // top: 2vw;
+            // left: 25vw;
             li{
-                text-align: start;
+                // text-align: start;
+                text-align: center;
             }
 
         }
     }
     
   }
+  @media screen and (max-width: 850px) {
+    .ulContainer{
+        justify-content: center;
+        .ulFilter {
+            margin-top: 87vw;
+            margin-right: 30vw;
+            justify-content: center;
+            align-items: center;
+            li{
+                // text-align: start;
+                text-align: center;
+                justify-content: center;
+            align-items: center;
+            }
+        }
+    }
+  }
   @media screen and (max-width: 800px) {
     .ulContainer{
+    
         .ulFilter {
-            margin-top: 700px;
+            margin-top: 104vw;
             li{
-                text-align: start;
+                text-align: center;
                 padding-left: 1%;
             }
 
         }
     }
+  }
+  @media screen and (max-width: 700px) {
+    .ulContainer{
     
+        .ulFilter {
+            margin-top: 111vw;
+        }
+    }
+  }
+  @media screen and (max-width: 650px) {
+    .ulContainer{
+       
+        .ulFilter {
+            margin-top: 120vw;
+        }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .ulContainer{
+        
+        .ulFilter {
+            margin-top: 130vw;
+            align-items: center;
+        }
+    }
   }
   @media screen and (max-width: 500px) {
     .ulContainer{
         margin: 0;
         width: 100%;
         display: flex;
-        justify-content: center;
+      
         padding: 2%;
+      
         .ulFilter {
-            width: 68%;
-            align-items: center;
+            width: 72%;
              padding: 2%;
             height: 523px;
-            position: inherit;
+            // position: inherit;
             margin-top: 720px;
+           
         }
     }
+
+
     
   }

@@ -10,6 +10,7 @@ const NavBar = () => {
   const { user, isLogged } = useSelector(store => store.login);
   const navigate = useNavigate();
 
+  console.log(user);
   const handleLinkClick = path => {
     navigate(path);
     setIsMenuOpen(false); // Cierra el menú cuando se hace clic en un elemento
@@ -77,8 +78,8 @@ const NavBar = () => {
             </svg>
             <ul>
               {/* NO FUNCIONAN AUN */}
-              {user.name !== '' ? (
-                <li>{user.name}</li>
+              {(user && Object.entries(user).length && user.name) ? (
+                <li>{user?.name}</li>
               ) : (
                 <li onClick={() => handleLinkClick('/Login')}>
                   Iniciar sesion

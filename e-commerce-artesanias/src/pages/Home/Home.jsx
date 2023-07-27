@@ -12,11 +12,15 @@ import TestSanitySearch from '../../components/Search/TestSanitySearch';
 
 const Home = () => {
   const [isFiltered, setisFiltered] = useState(false);
+  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(actionGetCartAsync());
+  // }, []);
 
   return (
     <div>
       <Banner />
-      <MainSections />
+      <MainSections setisFiltered={setisFiltered}/>
       <Filter setisFiltered={setisFiltered} />
       <ProductCards isFiltered={isFiltered} />
       {/* <TestSanity/>

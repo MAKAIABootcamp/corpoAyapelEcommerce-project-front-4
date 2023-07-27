@@ -6,7 +6,7 @@ import { productReducers } from "../redux/reducers/ProductReducers";
 // import productSlice from "./productSlice";
 
 const  reducer = {
-  // user: useReducer,
+  //user: useReducer,
   login: loginReducer,
   // productStore: productSlice.reducer,
   productStore: productReducers,
