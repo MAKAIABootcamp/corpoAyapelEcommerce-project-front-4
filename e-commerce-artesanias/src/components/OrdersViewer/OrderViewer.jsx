@@ -1,4 +1,5 @@
 import React from 'react';
+import "./OrderViewer.scss"
 
 // Fake data for orders mockup in Spanish
 const fakeOrders = [
