@@ -161,7 +161,7 @@ const NavBar = () => {
                 )}
 
                 {/* SI ESTA LOGUEADO APARECE EL MY ACCOUNT */}
-                <li onClick={() => handleLinkClick('/my-account')}>
+                <li onClick={() => handleLinkClick('/MyAccount')}>
                   Mi cuenta
                 </li>
               </ul>
