@@ -156,7 +156,7 @@ const NavBar = () => {
                   <li>{user.name}</li>
                 ) : (
                   <li onClick={() => handleLinkClick('/Login')}>
-                    Iniciar sesion
+                    Iniciar sesion.
                   </li>
                 )}
 
