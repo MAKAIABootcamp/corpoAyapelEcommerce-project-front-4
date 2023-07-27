@@ -101,8 +101,8 @@
   text-transform: uppercase;
   text-align: left !important;
   a {
-    color: var(--color__primary) !important;
-    text-decoration: none;
+    color: var(--color__primary);
+    text-decoration: underline;
     &:hover {
       text-decoration: underline;
     }
