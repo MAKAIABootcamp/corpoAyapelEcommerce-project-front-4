@@ -205,7 +205,7 @@ const Cart = () => {
           Seguir comprando
         </Button>
         <span className='cartNote'>
-          Los costes de envío y los inpuestos se añaden durante el pago{' '}
+          Los costos de envío y los inpuestos se añaden durante el pago{' '}
         </span>
       </div>
     </div>

@@ -13,6 +13,7 @@ import {
 } from "../../redux/actions/loginActions";
 import googleIcon from "../../assets/Icons/google.svg";
 import NavBar from "../../components/Layout/NavBar/NavBar";
+import Footer from "../../components/Footer/Footer";
 
 function Validation() {
   const dispatch = useDispatch();
@@ -62,19 +63,19 @@ function Validation() {
       <form className="formLogin" onSubmit={handleSubmit(onSubmitForm)}>
         <input
           type="text"
-          placeholder="nombre de usuario"
+          placeholder="Nombre de usuario"
           {...register("user", { required: "Ingresa un nombre" })}
         />
         {errors.email && <span className="error">{errors.user.message}</span>}
         <input
           type="text"
-          placeholder="correo"
+          placeholder="Correo"
           {...register("email", { required: "Ingresa un email" })}
         />
         {errors.email && <span className="error">{errors.email.message}</span>}
         <input
           type="password"
-          placeholder="contraseña"
+          placeholder="Contraseña"
           {...register("password", { required: "Ingresa una contraseña" })}
         />
         {errors.password && (
@@ -97,6 +98,7 @@ function Validation() {
         Registrarse
       </Link>
     </section>
+    <Footer/>
     </>
   );
 }
