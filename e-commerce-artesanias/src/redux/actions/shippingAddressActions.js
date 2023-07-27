@@ -1,28 +1,33 @@
-import { shippingAddressTypes } from "../types/shippingAddressTypes";
-import { createItemActionAsync } from '../../Services/crudColection';
+import { loginTypes } from "../types/loginType";
+import { updateItemActionAsync } from '../../Services/crudColection';
 
 
-export const createShippingAddressActionsAsync = (shipping) => {
+export const createShippingAddressActionsAsync = (shipping, user) => {
   return async (dispatch) => {
     try {
-      const shippingDoc = await createItemActionAsync(shipping,'Dirección de envío');
-      dispatch(createShippingAddressAction(shippingDoc.item));
-      return shippingDoc
-    } catch (error) {
-      console.log(error);
-      dispatch(
-        createShippingAddressAction({
-            shippingAddress: {},
-            status: "error",
-        })
+      const shippingDoc = await updateItemActionAsync('Users', shipping,user.id);
+      const newData = {
+        ...user,
+        ...shippingDoc,
+      }
+      const error = { status: false, message: ''}
+      dispatch(createShippingAddressAction(newData,error));
+      return newData
+    } catch (err) {
+      console.log(err);
+      const error = { status: true, message: 'Error al guardar datos de envío'}
+      dispatch(createShippingAddressAction(user,error)
       );
     }
   };
 };
 
-const createShippingAddressAction = (shipping) => {
+const createShippingAddressAction = (user, error) => {
   return {
-    type: shippingAddressTypes.SHIPPING_ADDRESS_CREATE,
-    payload: { ...shipping },
+    type: loginTypes.UPDATE_USER,
+    payload: {
+      user,
+      error
+    },
   };
 };
