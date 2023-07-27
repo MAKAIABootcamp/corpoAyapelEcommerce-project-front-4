@@ -88,12 +88,13 @@ const AppRouter = () => {
           <Route path='HandiCrafts' element={<HandiCrafts />} />
           <Route path='Cart' element={<Cart />} />
           <Route path='Register' element={<Register />} />
+          <Route path='SuccesfulPurchase' element={<SuccesfulPurchase />} />
+
 
           {/* RUTAS PÚBLICAS */}
           <Route element={<PublicRouter isAutentication={isLoggedIn} />}>
 
             {/* <Route path='MyAccount' element={<MyAccount />} /> */}
-            <Route path='SuccesfulPurchase' element={<SuccesfulPurchase />} />
             {/* <Route path='CreateAccount' element={<CreateAccount />} /> */}
             {/* <Route path='Cart' element={<Cart />} /> */}
             {/* Analizar si son necesarios */}
