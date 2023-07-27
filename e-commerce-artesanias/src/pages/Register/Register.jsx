@@ -53,8 +53,8 @@ const Register = () => {
             placeholder='Nombre de usuario'
             {...register('name', { required: 'Nombre requerido' })} 
           />
+           {errors.name ? <span className='text-red'>{errors.name.message}</span> : <></>}
         </label>
-        {errors.name ? <span className='text-red'>{errors.name.message}</span> : <></>}
         
         <label className='input-form' >
           <input 
@@ -63,8 +63,9 @@ const Register = () => {
              placeholder='Correo'
             {...register('email', { required: 'Email es requerido', validate:validateEmail })} 
           />
+          {errors.email ? <span className='text-red'>{errors.email.message}</span> : <></>}
         </label>
-        {errors.email ? <span className='text-red'>{errors.email.message}</span> : <></>}
+        
         <label className='input-form'>
           <input 
             className={`text-field ${errors.password ? 'border-red' : ''}`}
@@ -72,8 +73,9 @@ const Register = () => {
             placeholder='Contraseña'
             {...register('password', { required: 'Contraseña requerida' })}
           />
+          {errors.password ? <span className='text-red'>{errors.password.message}</span> : <></>}
         </label>
-        {errors.password ? <span className='text-red'>{errors.password.message}</span> : <></>}
+        
         <NavLink className='signIn' to='/Login'>Sign In</NavLink>
         <button className='save-data-user' disabled={loading} type='submit'>Registrarme</button>
       </form>

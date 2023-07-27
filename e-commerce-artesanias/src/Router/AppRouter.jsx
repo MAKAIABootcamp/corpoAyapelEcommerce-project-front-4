@@ -31,8 +31,9 @@ import { loginActionSync } from '../redux/actions/userAction'; */
 
 const AppRouter = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+/*const { user } = useSelector(store => store.user);
 
-  /*const { user } = useSelector(store => store.user);
   const dispatch = useDispatch(); */
 
   /* useEffect(() => {
@@ -88,11 +89,12 @@ const AppRouter = () => {
             <Route path='SuccesfulPurchase' element={<SuccesfulPurchase />} />
           </Route>
           {/* RUTAS PRIVADAS */}
-          <Route path='Admin' element={<Admin />}>
+          <Route
+            path='Admin'
+            element={<Admin />}
+          >
             <Route path='Cart' element={<Cart />} />
             <Route path='ConfirmPayment' element={<ConfirmPayment />} />
-            <Route path='SuccesfulPurchase' element={<SuccesfulPurchase />} />
-            <Route path='MyAccount' element={<MyAccount />} />
           </Route>
         </Route>
         <Route path='Login' element={<Validation />} />

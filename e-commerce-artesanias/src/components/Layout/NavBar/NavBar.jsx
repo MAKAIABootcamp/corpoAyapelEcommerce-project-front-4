@@ -5,7 +5,7 @@ import './NavBar.scss';
 import logo from '../../../assets/Icons/LogoArt.png';
 
 const NavBar = () => {
-  const [totalProducts, setTotalProducts] = useState(0);
+  const [totalProducts,setTotalProducts] = useState(0)
   const dispatch = useDispatch();
   const { user, isLogged } = useSelector(store => store.login);
   const navigate = useNavigate();

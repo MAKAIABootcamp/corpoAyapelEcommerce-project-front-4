@@ -19,7 +19,7 @@ const ShippingAddress = () => {
   const dispatch = useDispatch();
   const [addresses, setAddresses] = useState([]);
   const { user } = useSelector((store) => store.login);
-  const [formData, setFormData] = useState(initialValue);
+  const [formData, setFormData] = useState(user.shipping_address || initialValue);
 
 
 
@@ -40,7 +40,7 @@ const ShippingAddress = () => {
         }
       }
       dispatch(createShippingAddressActionsAsync(dataShipping, user)).then(data=>{
-        setFormData(initialValue)
+        /*setFormData(initialValue)*/
         Swal.fire({
             icon: 'success',
             title: 'Genial',
