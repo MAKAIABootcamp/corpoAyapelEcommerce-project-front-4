@@ -5,7 +5,7 @@ import seccion1 from "../../assets/Images/seccion1.jpg"
 import seccion2 from "../../assets/Images/seccion2.jpg"
 import seccion3 from "../../assets/Images/seccion3.jpg"
 import "./MainSections.scss"
-
+// import { firebaseConfig }  from "../../Firebase/FirebaseConfig"
 
 const MainSections = ({ setisFiltered }) => {
 
@@ -17,6 +17,9 @@ const MainSections = ({ setisFiltered }) => {
     dispatch(getNewProductAsync());
     setisFiltered(true);
   }
+
+  // const comprasRef = firebase.firestore().collection('compras');
+  // const query = comprasRef.orderBy('cantidad_vendida', 'desc').limit(4);
 
   return (
     <div className="sections-container">

@@ -23,7 +23,9 @@ const TestSanitySearch = () => {
   // useEffect(() => {
   //   setShowCards(productsFiltered && productsFiltered.length > 0);
   // }, []);
-
+  // useEffect(() => {
+  //   showCards();
+  // }, []);
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -48,6 +50,8 @@ const TestSanitySearch = () => {
       setShowCards(true);
     } catch (error) {
       console.error('Error fetching products:', error);
+      setShowCards(false);
+      Swal.fire("Error", "Producto no encontrado", "error");
     }
 
   };
@@ -67,6 +71,7 @@ const TestSanitySearch = () => {
           <button type="submit" className="searchButton" >Buscar</button>
         </form>
       </div>
+      {/* {showCards && productsFiltered.length > && <ProductCards isFiltered={true} />} */}
       {showCards && <ProductCards isFiltered={true} />}
       {/* <ProductCards isFiltered={true}/> */}
       {/* <div className='container'>

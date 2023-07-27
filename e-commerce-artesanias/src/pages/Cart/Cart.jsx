@@ -165,26 +165,26 @@ const Cart = () => {
               <td> {numberToMoney(product.Precio)} </td>
               <td>
                 <div className='counter'>
-                  <Button
+                  <button
                     variant='light'
                     onClick={() => decrementQuantity(product._id)}
                     className='counterButton'
                   >
                     -
-                  </Button>
+                  </button>
                   <span>{product.quantity} </span>
-                  <Button
+                  <button
                     variant='light'
                     onClick={() => incrementQuantity(product._id)}
                     className='counterButton'
                   >
                     +
-                  </Button>
+                  </button>
                 </div>
               </td>
               <td>{numberToMoney(calculateProductTotal(product) || product.Precio)} </td>
               <td>
-                <Button
+                <button
                   onClick={() => {
                     onRemovingToCart(product._id);
                   }}
@@ -192,7 +192,7 @@ const Cart = () => {
                 >
                   {' '}
                   Eliminar producto
-                </Button>
+                </button>
               </td>
             </tr>
           ))}

@@ -119,7 +119,7 @@ const ProductCards = ({ isFiltered }) => {
                   src={urlFor(product[`image${1}`].asset._ref).url()}
                   alt={product.name}
                 />
-                <Card.Text className='price' variant='primary'>
+                <Card.Text className='price' productName variant='primary'>
                    {product.name}
                 </Card.Text>
                 <Card.Title className='productName'> {numberToMoney(product.Precio)} </Card.Title>
