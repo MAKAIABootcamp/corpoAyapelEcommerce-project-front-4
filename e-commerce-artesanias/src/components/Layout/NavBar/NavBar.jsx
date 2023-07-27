@@ -31,7 +31,7 @@ const NavBar = () => {
           <img onClick={() => handleLinkClick('/')} className='logo' src={logo} alt='logo' />
 
           <ul className='left-list'>
-            <li onClick={() => handleLinkClick('/AboutUs')}>¿Quiénessomos?</li>
+            <li onClick={() => handleLinkClick('/AboutUs')}>¿Quiénes somos?</li>
             <li onClick={() => handleLinkClick('/Contact')}>Contacto</li>
           </ul>
 

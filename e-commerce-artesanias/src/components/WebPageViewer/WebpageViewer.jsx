@@ -1,29 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const WebpageViewer = () => {
-  const [content, setContent] = useState('');
-
-  useEffect(() => {
-    const fetchWebsiteContent = async () => {
-      try {
-        const url = 'https://ayapelartesanias.sanity.studio/';
-        const response = await fetch(url);
-        const data = await response.text();
-        setContent(data);
-      } catch (error) {
-        console.error('Error fetching website content:', error);
-      }
-    };
-
-    fetchWebsiteContent();
-  }, []);
+  const externalUrl = 'https://ayapelartesanias.sanity.studio/';
 
   return (
-    <div style={{ width: '100%', height: '100vh', overflow: 'auto' }}>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+    <div style={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div>
+        <h1 style={{ textAlign: 'center' }}>Visor de Páginas Web</h1>
+        <p style={{ textAlign: 'center' }}>
+          Haz clic en el botón de abajo para visitar el sitio web externo.
+        </p>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <a href={externalUrl} target="_blank" rel="noopener noreferrer">
+            <button style={{ padding: '10px 20px', fontSize: '16px' }}>Visitar Sitio Web Externo</button>
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default WebpageViewer;
+
 
