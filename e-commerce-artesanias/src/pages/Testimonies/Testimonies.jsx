@@ -24,13 +24,13 @@ const Testimonies = () => {
       </section>
       <section className='mainTestimonies__images'>
         <div className='mainTestimonies__images--socialMedia'>
-          <h2>Conoce nuestras historias en nuestro Instagram.</h2>
+          <h2>Descubre nuestras inspiradoras historias en Instagram.</h2>
           <InstagramIcon
             className='instagramIcon'
             onClick={() => handleNavegateInstagram()}
           />
         </div>
-        <BannerTestimonies />
+        <BannerTestimonies className='bannerTestimonies' />
       </section>
     </main>
   );
