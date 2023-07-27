@@ -5,8 +5,9 @@ import seccion1 from "../../assets/Images/seccion1.jpg"
 import seccion2 from "../../assets/Images/seccion2.jpg"
 import seccion3 from "../../assets/Images/seccion3.jpg"
 import "./MainSections.scss"
+import { dataBase } from "../../Firebase/FirebaseConfig";
 // import { firebaseConfig }  from "../../Firebase/FirebaseConfig"
-
+// const [masVendidos, setMasVendidos] = useState([]);
 const MainSections = ({ setisFiltered }) => {
 
   const navigate = useNavigate();
@@ -20,6 +21,29 @@ const MainSections = ({ setisFiltered }) => {
 
   // const comprasRef = firebase.firestore().collection('compras');
   // const query = comprasRef.orderBy('cantidad_vendida', 'desc').limit(4);
+//  const getMasVendidos = async (cantidad) => {
+//     try {
+//       // Realiza la consulta para obtener los documentos de la colección "compras" ordenados por "cantidad_vendida" en orden descendente y limitados a la cantidad especificada.
+//       const q = query(collection(dataBase, "user"), orderBy("quantity", "desc"), limit(4));
+//       const querySnapshot = await getDocs(q);
+  
+//       // Procesa los resultados y devuelve un array con los productos más vendidos
+//       const masVendidos = querySnapshot.docs.map((doc) => doc.data().producto);
+  
+//       return masVendidos;
+//     } catch (error) {
+//       console.error("Error al obtener los más vendidos:", error);
+//       return [];
+//     }
+//   };
+
+//   useEffect(() => {
+//     // Llama a la función para obtener los productos más vendidos cuando se monta el componente
+//     const fetchMasVendidos = async () => {
+//       const productosMasVendidos = await getMasVendidos(10); // Obtén los 10 productos más vendidos
+//       setMasVendidos(productosMasVendidos);
+//     };
+// });
 
   return (
     <div className="sections-container">
@@ -41,6 +65,9 @@ const MainSections = ({ setisFiltered }) => {
         </figure>
         <h2 className="section3__name">Los más vendidos</h2>
       </div>
+      {/* {masVendidos.map((producto, index) => (
+          <li key={index}>{producto}</li>
+        ))} */}
     </div>
   )
 };
