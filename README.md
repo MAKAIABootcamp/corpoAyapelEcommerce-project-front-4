@@ -1,5 +1,5 @@
 # MarketPlace corpoAyapel 
-![logo](/src/assets/Images/logo.png)
+![logo](https://images.jumpseller.com/store/corpoayapel-artesanias/store/logo/LogoArt.png?1620736148)
 ## Autores:
 -  [Natalia Maldonado](https://github.com/NataliaMR26)  
 - [Paola Torres](https://github.com/PaolaTorresV)  
