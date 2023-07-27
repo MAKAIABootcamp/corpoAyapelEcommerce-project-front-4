@@ -33,6 +33,7 @@ const AppRouter = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
 /*const { user } = useSelector(store => store.user);
+
   const dispatch = useDispatch(); */
 
   /* useEffect(() => {

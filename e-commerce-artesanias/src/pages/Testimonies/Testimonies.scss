@@ -18,6 +18,7 @@
     gap: 35px;
     &--info {
       width: 600px;
+      font-size: 16px;
       text-align: center;
       color: var(--color__primary);
     }
@@ -78,7 +79,20 @@
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 850px) {
+  .mainTestimonies {
+    padding-left: 30px;
+    padding-right: 30px;
+    &__texts {
+      width: 100%;
+    }
+    &__images {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 580px) {
   .info2 {
     display: none;
   }
@@ -94,7 +108,10 @@
     }
     &__images {
       width: 350px;
+      flex-direction: column;
       &--socialMedia {
+        order: 5;
+        padding-top: 20px;
         h2 {
           font-size: 14px;
           margin: 0px;

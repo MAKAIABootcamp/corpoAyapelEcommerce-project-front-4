@@ -32,7 +32,7 @@ const BillingAddress = () => {
         }
       }
       dispatch(createBillingAddressActionsAsync(dataBilling,user)).then(data=>{
-
+        /*setFormData(initialValue)*/
         Swal.fire({
             icon: 'success',
             title: 'Genial',

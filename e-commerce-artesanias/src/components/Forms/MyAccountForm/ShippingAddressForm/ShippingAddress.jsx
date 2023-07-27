@@ -40,6 +40,7 @@ const ShippingAddress = () => {
         }
       }
       dispatch(createShippingAddressActionsAsync(dataShipping, user)).then(data=>{
+        /*setFormData(initialValue)*/
         Swal.fire({
             icon: 'success',
             title: 'Genial',

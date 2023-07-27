@@ -1,10 +1,56 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { actionGetCartAsync } from '../../redux/actions/cartActions';
 import './succesfulPurchase.scss';
 import StarIcon from '@mui/icons-material/Star';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const SuccesfulPurchase = () => {
-  /* Acá necesito constantes con la información de la compra */
-  const amount = 10000; // valor de la compra
-  const detail = 'La compra fue...'; // detalle de la compra
+  const dispatch = useDispatch();
+  const [cartArray, setCartArray] = useState([]);
+  const { user } = useSelector(store => store.login);
+  const { products } = useSelector(store => store.productStore);
+
+  useEffect(() => {
+    if (user.uid) {
+      dispatch(actionGetCartAsync(user.uid));
+    }
+    if (user.car_products && user.car_products.length > 0) {
+      let productsSaveCar = [];
+      user.car_products.map(productCar => {
+        const getProduct = products.find(
+          item => item._id == productCar.productId
+        );
+        productsSaveCar.push({ ...productCar, ...getProduct });
+      });
+      setCartArray(productsSaveCar);
+    }
+  }, [user]);
+
+  console.log(user);
+
+  let amount = 0;
+  const message1 = 'Querido ' + user.name + ' realizaste la compra de ';
+  let detail = '';
+  cartArray.forEach(producto => {
+    amount += producto.quantity * producto.Precio;
+    detail += producto.quantity + ' ' + producto.name + ' ';
+  });
+
+  const formatNumberToCurrency = number => {
+    const formattedNumber = new Intl.NumberFormat('es-CL', {
+      style: 'currency',
+      currency: 'CLP',
+      minimumFractionDigits: 0,
+    }).format(number);
+
+    return formattedNumber;
+  };
+
+  const message =
+    message1 + detail + 'por un valor de ' + formatNumberToCurrency(amount);
+  console.log(message);
+
   return (
     <section className='pagePurchase'>
       <div className='succesfulPurchase'>
@@ -22,7 +68,7 @@ const SuccesfulPurchase = () => {
           familias y para la comunidad.
         </h3>
         <h4 className='succesfulPurchase__message2'>
-          Resumen de la compra: {detail} y se pago un total de ${amount}.
+          Resumen de la compra: {message}.
         </h4>
         <h6 className='succesfulPurchase__message3'>
           Tu compra será entregada en las próximas dos o tres semanas, nos
