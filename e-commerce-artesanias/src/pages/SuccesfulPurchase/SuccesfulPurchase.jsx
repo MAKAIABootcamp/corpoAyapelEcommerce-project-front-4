@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { actionGetCartAsync } from '../../redux/actions/cartActions';
 import './succesfulPurchase.scss';
-import StarIcon from '@mui/icons-material/Star';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
@@ -56,20 +55,17 @@ const SuccesfulPurchase = () => {
       <div className='succesfulPurchase'>
         <h1 className='succesfulPurchase__title'>¡GRACIAS POR TU COMPRA!</h1>
         <div className='succesfulPurchase__stars'>
-          <StarIcon className='succesfulPurchase__stars--star' />
-          <StarIcon className='succesfulPurchase__stars--star' />
-          <StarIcon className='succesfulPurchase__stars--star' />
-          <StarIcon className='succesfulPurchase__stars--star' />
-          <StarIcon className='succesfulPurchase__stars--star' />
+          <span className='material-symbols-outlined'>recycling</span>
+          <span className='material-symbols-outlined'>recycling</span>
+          <span className='material-symbols-outlined'>recycling</span>
+          <span className='material-symbols-outlined'>recycling</span>
+          <span className='material-symbols-outlined'>recycling</span>
         </div>
         <h3 className='succesfulPurchase__message1'>
           Con ella estas aportando al trabajo de los artesanos de Ayapel,
           quienes con sus manos construyen un futuro prometedor para sus
           familias y para la comunidad.
         </h3>
-        <h4 className='succesfulPurchase__message2'>
-          Resumen de la compra: {message}.
-        </h4>
         <h6 className='succesfulPurchase__message3'>
           Tu compra será entregada en las próximas dos o tres semanas, nos
           pondremos en contacto contigo.

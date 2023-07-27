@@ -50,3 +50,28 @@ export const getBannerById = async (id) => {
 };
 
 //CREAR FUNCIONES DE ID DE SER NECESARIO
+
+export const obtenerProductosRecientes = async () => {
+  // Realiza una consulta a Sanity para obtener los productos ordenados por fecha de creación (ejemplo)
+  // const newProducts = [];
+  // client.fetch('*[_type == "products"] | order(_createdAt desc) [0..4]')
+  //   .then(data => {
+  //     // Hacer algo con los productos recientes obtenidos, por ejemplo, mostrarlos en la consola
+  //     newProducts = [...data];
+  //     console.log('Productos recientes:', data);
+
+  //   })
+  //   .catch(error => {
+  //     console.error('Error al obtener los productos:', error);
+  //   });
+  // return newProducts;
+
+  try {
+    const response = await client.fetch('*[_type == "products"] | order(_createdAt desc) [0..4]');
+    return response;
+    
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getAllProducts } from '../../Services/servicesSanity';
 import { urlFor } from '../../sanityClient';
 import Button from 'react-bootstrap/Button';
@@ -7,10 +7,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import "./TestSanitySearch.scss"
 import Swal from "sweetalert2";
+import ProductCards from '../Cards/ProductCards/ProductCards';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSearchProductSync } from '../../redux/actions/ProductActions';
 const TestSanitySearch = () => {
-  const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-
+  const [showCards, setShowCards] = useState(false);
+  const dispatch = useDispatch();
+  const { products, productsFiltered } = useSelector(
+    state => state.productStore
+  );
+  // useEffect(() => {
+  //   updateTotal(); 
+  // }, []); 
+  // useEffect(() => {
+  //   setShowCards(productsFiltered && productsFiltered.length > 0);
+  // }, []);
+  // useEffect(() => {
+  //   showCards();
+  // }, []);
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -24,14 +39,19 @@ const TestSanitySearch = () => {
     }
 
     try {
-      const productsData = await getAllProducts();
+      // const productsData = await getAllProducts();
       // Filter products based on the search term
-      const filteredProducts = productsData.filter((product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setProducts(filteredProducts);
+      // const filteredProducts = productsData.filter((product) =>
+      //   product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      // );
+
+      dispatch(getSearchProductSync(searchTerm));
+      console.log(productsFiltered);
+      setShowCards(true);
     } catch (error) {
       console.error('Error fetching products:', error);
+      setShowCards(false);
+      Swal.fire("Error", "Producto no encontrado", "error");
     }
 
   };
@@ -51,7 +71,10 @@ const TestSanitySearch = () => {
           <button type="submit" className="searchButton" >Buscar</button>
         </form>
       </div>
-      <div className='container'>
+      {/* {showCards && productsFiltered.length > && <ProductCards isFiltered={true} />} */}
+      {showCards && <ProductCards isFiltered={true} />}
+      {/* <ProductCards isFiltered={true}/> */}
+      {/* <div className='container'>
           {products.length > 0 ? (
             <div className="productContainer">
               {products.map((product) => (
@@ -75,10 +98,10 @@ const TestSanitySearch = () => {
           ) : (
             <div className="errorMessage">Lo sentimos, no hay productos disponibles.</div>
           )}
-        </div>
+        </div> */}
     </div>
   );
-  
+
 };
 
 export default TestSanitySearch;
