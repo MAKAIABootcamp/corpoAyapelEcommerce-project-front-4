@@ -1,0 +1,32 @@
+/* WebpageViewer.scss */
+
+.webpage-viewer-container {
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+  
+    h1 {
+      text-align: center;
+    }
+  
+    p {
+      text-align: center;
+    }
+  
+    .button-container {
+      display: flex;
+      justify-content: center;
+  
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+    }
+  }
+  

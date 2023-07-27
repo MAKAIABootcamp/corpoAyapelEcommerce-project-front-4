@@ -1,18 +1,19 @@
 import React from 'react';
+import './WebpageViewer.scss'; // Import the SCSS file
 
 const WebpageViewer = () => {
   const externalUrl = 'https://ayapelartesanias.sanity.studio/';
 
   return (
-    <div style={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="webpage-viewer-container">
       <div>
-        <h1 style={{ textAlign: 'center' }}>Visor de Páginas Web</h1>
-        <p style={{ textAlign: 'center' }}>
-          Haz clic en el botón de abajo para visitar el sitio web externo.
+        <h1>Editor de contendio de la pagina</h1>
+        <p>
+          Haz clic en el botón de abajo para visitar el sitio web externo para editar el contendio de la pagina. Recuerda usar las mismas credenciales que usaste para acceder al administrador
         </p>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="button-container">
           <a href={externalUrl} target="_blank" rel="noopener noreferrer">
-            <button style={{ padding: '10px 20px', fontSize: '16px' }}>Visitar Sitio Web Externo</button>
+            <button>Visitar Sitio Web Externo</button>
           </a>
         </div>
       </div>
@@ -21,5 +22,3 @@ const WebpageViewer = () => {
 };
 
 export default WebpageViewer;
-
-

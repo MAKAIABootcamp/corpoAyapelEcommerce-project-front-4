@@ -1,5 +1,4 @@
-import './OrderViewer.scss'; // Import the SCSS file
-
+import React from 'react';
 
 // Fake data for orders mockup in Spanish
 const fakeOrders = [
@@ -25,35 +24,64 @@ const fakeOrders = [
   },
   // Add more fake orders as needed...
 ];
-
 const OrderViewer = () => {
-  // Replace this with the actual function to fetch orders from Firebase
   const fetchOrdersFromFirebase = () => {
-    // Simulate API call or Firebase query here
     return Promise.resolve(fakeOrders);
   };
 
   const [orders, setOrders] = React.useState([]);
 
   React.useEffect(() => {
-    // Fetch orders when the component mounts
     fetchOrdersFromFirebase().then((data) => setOrders(data));
   }, []);
 
+  const handleStatusChange = (orderId, newStatus) => {
+    // Update the status of the selected order
+    const updatedOrders = orders.map((order) => {
+      if (order.id === orderId) {
+        return { ...order, status: newStatus };
+      }
+      return order;
+    });
+
+    // Update the state with the modified orders
+    setOrders(updatedOrders);
+  };
+
   return (
-    <div>
-      <h2>Órdenes</h2> {/* Orders in Spanish */}
+    <div className="order-viewer-container">
+      <h2 className="order-heading">Órdenes</h2>
+      <p>En este visor de ordenes podras ver las ordenes de todos los usuarios y marcar si esta fue enviada o no, recuerda revisar el estado del pago antes de generar cualquier guia de envio</p>
       {orders.length === 0 ? (
-        <p>No hay órdenes disponibles.</p> 
+        <p className="no-orders">No hay órdenes disponibles.</p>
       ) : (
-        <ul>
+        <ul className="order-list">
           {orders.map((order) => (
-            <li key={order.id}>
-              <strong>Usuario:</strong> {order.user} | <strong>Producto:</strong> {order.product} |{' '}
-              <strong>Cantidad:</strong> {order.quantity} | <strong>Precio Total:</strong>{' '}
-              {order.totalPrice} | <strong>Estado:</strong> {order.status} |{' '}
-              <strong>Dirección de Envío:</strong> {order.shippingAddress} |{' '}
-              <strong>Dirección de Facturación:</strong> {order.billingAddress}
+            <li key={order.id} className="order-item">
+              <strong className="order-label">Usuario:</strong> {order.user} | {' '}
+              <strong className="order-label">Producto:</strong> {order.product} | {' '}
+              <strong className="order-label">Cantidad:</strong> {order.quantity} | {' '}
+              <strong className="order-label">Precio Total:</strong> {order.totalPrice} | {' '}
+              <strong className="order-label">Estado:</strong> {order.status} | {' '}
+              <span className="shipping-address">{order.shippingAddress}</span> | {' '}
+              <span className="billing-address">{order.billingAddress}</span>
+              <div className="status-buttons">
+                {order.status === 'Pendiente' ? (
+                  <button
+                    className="status-button"
+                    onClick={() => handleStatusChange(order.id, 'Enviado')}
+                  >
+                    Marcar como Enviado
+                  </button>
+                ) : (
+                  <button
+                    className="status-button"
+                    onClick={() => handleStatusChange(order.id, 'Pendiente')}
+                  >
+                    Marcar como Pendiente de Envío
+                  </button>
+                )}
+              </div>
             </li>
           ))}
         </ul>
