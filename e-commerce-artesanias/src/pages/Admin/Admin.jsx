@@ -1,7 +1,11 @@
-import React from "react";
+import WebpageViewer from "../../components/WebPageViewer/WebpageViewer";
 
 const Admin = () => {
-  return <h1>Admin</h1>;
+  return(
+    <div>
+      <WebpageViewer/>
+    </div>
+  );
 };
 
 export default Admin;
