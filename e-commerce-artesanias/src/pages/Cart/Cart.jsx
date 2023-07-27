@@ -1,37 +1,46 @@
-import { useNavigate } from 'react-router-dom';
-import CartCards from '../../components/Cards/CartCards/CartCards';
-import './Cart.scss';
+import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+import CartCards from "../../components/Cards/CartCards/CartCards";
+import "./Cart.scss"
 import Table from 'react-bootstrap/Table';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  actionDeletCartAsync,
-  actionGetCartAsync,
-  actionPutCartAsync,
-  actionUpdateCart,
-} from '../../redux/actions/cartActions';
-import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { actionPostCartAsync } from "../../redux/actions/cartActions";
 import Button from 'react-bootstrap/Button';
 import { numberToMoney } from '../../Services/utilities';
 import Swal from 'sweetalert2';
 import { urlFor } from '../../../src/sanityClient';
 const Cart = () => {
   const navigate = useNavigate();
-  const cart = useSelector(store => store.cartStore.cart);
-  const isLogged = useSelector(store => store.login.isLogged);
-  console.log(isLogged);
-  const user = useSelector(store => store.login.user);
-  console.log(user);
+  const  [cart, setCart] = useState([])
+  const isLogged = useSelector((store) => store.login.isLogged);  
+  console.log(isLogged)
+  const user = useSelector((store) => store.login.user);  
+  const { products } = useSelector((store) => store.productStore);  
+  console.log(user)
   const dispatch = useDispatch();
   const [total, setTotal] = useState(0);
+  const [getCartProdcuts, setGetCartProducts] = useState({});
+  /*
   const [getCartProdcuts, setGetCartProducts] = useState(() => {
     const cartFromLocalStorage = JSON.parse(
       localStorage.getItem('productsInCart')
     );
     return cartFromLocalStorage || {};
-  });
+  }); */
   // const getCartProdcuts = JSON.parse(localStorage.getItem("productsInCart"));
   // console.log(getCartProdcuts)
 
+  useEffect(() => {
+    if(user){
+      setCart([...user.car_products])
+      let productsSaveCar={}
+      user.car_products.map(productCar=>{
+        const getProduct = products.find(item => item._id == productCar.productId);
+        productsSaveCar[productCar.productId] = {...productCar,...getProduct}
+      })
+      setGetCartProducts(productsSaveCar)
+    }
+  }, [user]);
   const cartArray = Object.values(getCartProdcuts);
   console.log('ProductsInCart', cartArray);
 
@@ -51,10 +60,16 @@ const Cart = () => {
     // Eliminar el producto del carrito en el almacenamiento local
     const updatedCart = { ...getCartProdcuts };
     delete updatedCart[productId];
-    localStorage.setItem('productsInCart', JSON.stringify(updatedCart));
+    // localStorage.setItem('productsInCart', JSON.stringify(updatedCart));
 
     // Actualizar el estado para que el componente se re-renderice y muestre los cambios
     setGetCartProducts(updatedCart);
+
+    const selectedProductCar = user.car_products.find(
+      product => product.productId === productId
+    );
+    dispatch(actionPostCartAsync(selectedProductCar, user, true))
+
   };
 
   const incrementQuantity = productId => {
@@ -68,10 +83,17 @@ const Cart = () => {
     // dispatch(actionPutCartAsync(updatedProduct))
     // dispatch(actionGetCartAsync());
     // Actualizar el producto en el estado local del carrito
-    const updatedCart = { ...getCartProdcuts, [productId]: updatedProduct };
-    localStorage.setItem('productsInCart', JSON.stringify(updatedCart));
-    // return updatedCart;
-    setGetCartProducts(updatedCart);
+     const updatedCart = { ...getCartProdcuts, [productId]: updatedProduct };
+     setGetCartProducts(updatedCart);
+    /*localStorage.setItem('productsInCart', JSON.stringify(updatedCart));*/
+     const selectedProductCar = user.car_products.find(
+      product => product.productId === productId
+    );
+    const updatedProductCar = { ...selectedProductCar };
+    updatedProductCar.quantity= Number(updatedProductCar.quantity) +  1;
+    dispatch(actionPostCartAsync(updatedProductCar, user))
+
+  
   };
 
   const decrementQuantity = productId => {
@@ -83,9 +105,17 @@ const Cart = () => {
     // dispatch(actionPutCartAsync(updatedProduct))
     // dispatch(actionGetCartAsync());
     const updatedCart = { ...getCartProdcuts, [productId]: updatedProduct };
-    localStorage.setItem('productsInCart', JSON.stringify(updatedCart));
+    // localStorage.setItem('productsInCart', JSON.stringify(updatedCart));
     // return updatedCart;
     setGetCartProducts(updatedCart);
+
+    const selectedProductCar = user.car_products.find(
+      product => product.productId === productId
+    );
+    const updatedProductCar = { ...selectedProductCar };
+    updatedProductCar.quantity= Number(updatedProductCar.quantity) -  1;
+    dispatch(actionPostCartAsync(updatedProductCar, user))
+
   };
   // Función para calcular el total de cada producto
   const calculateProductTotal = product => {

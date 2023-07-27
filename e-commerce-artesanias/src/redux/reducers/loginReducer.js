@@ -3,7 +3,11 @@ const initialState = {
     user: {
         name: '',
         email: '',
-        password: '',
+        uid: '',
+        car_products: [],
+        billing_address: {},
+        shipping_address: {},
+        isAdmin: false,
     },
     error: {
         status: undefined,
@@ -22,7 +26,11 @@ export const loginReducer = (state = initialState, action ) =>{
                 user: {
                     name: action.payload.user.name,
                     email: action.payload.user.email,
-                    password: action.payload.user.password,
+                    uid: action.payload.user.uid,
+                    car_products: action.payload.user.car_products,
+                    billing_address: action.payload.user.billing_address ,
+                    shipping_address: action.payload.user.shipping_address,
+                    isAdmin: action.payload.user.isAdmin,
                 },
                 error: {
                     status: action.payload.error.status,
@@ -38,7 +46,6 @@ export const loginReducer = (state = initialState, action ) =>{
             return {
                 ...state,
                 ...action.payload,
-                
             };
         case loginTypes.LOGOUT_USER:
             return{

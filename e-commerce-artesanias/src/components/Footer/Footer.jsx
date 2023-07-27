@@ -112,9 +112,9 @@ const Footer = () => {
                       <p>Cerrar Sesión</p>
                     </a>
                   :
-                   <NavLink to='/Login' activeClassname='active'>
+                    <NavLink to='/Login' activeClassname='active'>
                       <p>Iniciar Sesión</p>
-                   </NavLink>
+                    </NavLink>
                 }
                 <NavLink to='/AboutUs' activeClassname='active'>
                   <p>¿Quiénes Somos?</p>

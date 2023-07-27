@@ -1,4 +1,0 @@
-export const billingAddressTypes = {
-    BILLING_ADDRESS_CREATE: 'BILLING_ADDRESS_CREATE',
-    BILLING_ADDRESS_GET: 'BILLING_ADDRESS_GET'
-}
