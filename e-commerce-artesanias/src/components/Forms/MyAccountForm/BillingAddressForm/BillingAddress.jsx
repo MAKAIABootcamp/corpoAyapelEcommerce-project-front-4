@@ -20,7 +20,7 @@ const BillingAddress = () => {
   const dispatch = useDispatch();
   const [addresses, setAddresses] = useState([]);
   const { user } = useSelector((store) => store.login);
-  const [formData, setFormData] = useState(initialValue);
+  const [formData, setFormData] = useState(user.billing_address || initialValue);
 
   const handleAddAddress = (event) => {
     event.preventDefault();
@@ -32,7 +32,7 @@ const BillingAddress = () => {
         }
       }
       dispatch(createBillingAddressActionsAsync(dataBilling,user)).then(data=>{
-        setFormData(initialValue)
+
         Swal.fire({
             icon: 'success',
             title: 'Genial',
