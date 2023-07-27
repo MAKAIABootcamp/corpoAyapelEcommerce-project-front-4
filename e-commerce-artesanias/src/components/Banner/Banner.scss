@@ -6,7 +6,7 @@
   position: absolute;
   bottom: 20px;
   width: 100%;
-  overflow-x: scroll; /* Enable horizontal scrolling when needed */
+  overflow-x: hidden; /* Enable horizontal scrolling when needed */
   padding: 0 5px; /* Add some padding to keep space between images and scroll bar */
   padding-left: 100px;
 }
