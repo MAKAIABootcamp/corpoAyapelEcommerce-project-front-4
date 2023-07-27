@@ -1,46 +1,3 @@
-.banner-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: 600px;
-}
-
-.banner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.slide {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.3s ease-in-out; /* Add transition for smooth fade effect */
-  opacity: 1; /* Ensure initial opacity is set to 1 */
-}
-
-.prev-button,
-.next-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 10px;
-  font-size: 18px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  cursor: pointer;
-}
-
-.prev-button {
-  left: 10px;
-}
-
-.next-button {
-  right: 10px;
-}
-
 /* New styles for navigation images */
 .navigation-images {
   display: flex;
@@ -49,6 +6,9 @@
   position: absolute;
   bottom: 20px;
   width: 100%;
+  overflow-x: scroll; /* Enable horizontal scrolling when needed */
+  padding: 0 5px; /* Add some padding to keep space between images and scroll bar */
+  padding-left: 100px;
 }
 
 .mobile-image {
@@ -67,4 +27,26 @@
 
 .banner-fade-out {
   opacity: 0; /* Set opacity to 0 to create the fade-out effect */
+}
+
+/* Infinite scroll using pseudo-element */
+.mobile-image-container {
+  display: flex;
+  animation: scrollImages 15s linear infinite;
+  width: fit-content;
+}
+
+.mobile-image-container:after {
+  content: "";
+  display: block;
+  width: calc(150px * 3); /* Adjust the width based on the number of images you want to scroll */
+}
+
+@keyframes scrollImages {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-150px * 3)); /* Adjust the translateX value based on the number of images you have */
+  }
 }
