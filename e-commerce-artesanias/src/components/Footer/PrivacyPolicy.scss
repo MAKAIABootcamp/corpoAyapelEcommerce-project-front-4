@@ -1,11 +1,11 @@
 .content {
   font-family: 'Dosis' !important;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   padding: 20px;
   align-items: flex-start;
   flex: 1;
-  .image{
-    object-fit:cover;
+  .image {
+    object-fit: cover;
     float: right;
     margin-left: 20px;
     margin-bottom: 20px;
@@ -25,8 +25,8 @@
     margin-bottom: 20px;
     padding: 40px 0;
   }
-  a{
-    color: darkgreen;
+  a {
+    color: var(--color__primary);
     text-decoration: underline;
   }
   .buton-inicial {
@@ -53,11 +53,10 @@
     box-sizing: border-box;
     padding-top: 30px;
   }
-  ul{
+  ul {
     width: unset;
   }
-  .paragraph{
+  .paragraph {
     margin: 0 0 2em 0;
   }
 }
-

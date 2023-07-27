@@ -47,7 +47,22 @@
   right: 10px;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 900px) {
+  .banner-container {
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .banner-container {
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .banner-container {
+    height: 300px;
+  }
   .bannerTestimonies {
     width: 180px;
     height: 300px;
