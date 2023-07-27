@@ -51,6 +51,14 @@ export const productReducers = (state = productState, action) => {
         // productsFiltered: filteredProducts
         productsFiltered: [...filteredProducts]
       };
+    case productTypes.PRODUCTS_FILTERED_BY_SEARCH:
+      const filteredProductsSearch = state.products.filter((product) =>
+      product.name.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      return {
+        ...state,
+        productsFiltered: [...filteredProductsSearch]
+      };
     case productTypes.NEW_PRODUCTS:
       return {
         ...state,

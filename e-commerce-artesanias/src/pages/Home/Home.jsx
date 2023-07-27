@@ -6,7 +6,7 @@ import Filter from '../../components/Filter/Filter';
 import { useState, useEffect } from 'react';
 import Banner from '../../components/Banner/Banner';
 import { useDispatch } from 'react-redux';
-import { actionGetCartAsync } from '../../redux/actions/cartActions';
+// import { actionGetCartAsync } from '../../redux/actions/cartActions';
 import TestSanity from '../../components/Sanity/TestNotUsed/TestSanity';
 import TestSanityBanners from '../../components/Sanity/TestNotUsed/TestSanityBanners';
 import TestSanitySearch from '../../components/Search/TestSanitySearch';
@@ -14,9 +14,9 @@ import TestSanitySearch from '../../components/Search/TestSanitySearch';
 const Home = () => {
   const [isFiltered, setisFiltered] = useState(false);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(actionGetCartAsync());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(actionGetCartAsync());
+  // }, []);
 
   return (
     <div>

@@ -38,6 +38,9 @@ export const getBannerById = async (id) => {
 
 
 
+
+
+
 export const obtenerProductosRecientes = async () => {
   // Realiza una consulta a Sanity para obtener los productos ordenados por fecha de creación (ejemplo)
   // const newProducts = [];

@@ -1,22 +1,23 @@
 import { useNavigate } from 'react-router-dom';
-import CartCards from '../../components/Cards/CartCards/CartCards';
+// import CartCards from '../../components/Cards/CartCards/CartCards';
 import './Cart.scss';
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  actionDeletCartAsync,
-  actionGetCartAsync,
-  actionPutCartAsync,
-  actionUpdateCart,
-} from '../../redux/actions/cartActions';
+// import {
+//   actionDeletCartAsync,
+//   actionGetCartAsync,
+//   actionPutCartAsync,
+//   actionUpdateCart,
+// } from '../../redux/actions/cartActions';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { numberToMoney } from '../../Services/utilities';
 import Swal from 'sweetalert2';
 import { urlFor } from '../../../src/sanityClient';
+
 const Cart = () => {
   const navigate = useNavigate();
-  const cart = useSelector(store => store.cartStore.cart);
+  // const cart = useSelector(store => store.cartStore.cart);
   const isLogged = useSelector(store => store.login.isLogged);
   console.log(isLogged);
   const user = useSelector(store => store.login.user);
@@ -35,13 +36,13 @@ const Cart = () => {
   const cartArray = Object.values(getCartProdcuts);
   console.log('ProductsInCart', cartArray);
 
-  // useEffect(() => {
-  //   dispatch(actionGetCartAsync());
-  // }, [dispatch]);
 
   useEffect(() => {
-    setTotal(calculateTotal());
-  }, [cart]);
+    updateTotal(); 
+  }, [cartArray]); 
+
+  
+
 
   const onRemovingToCart = productId => {
     // const selectedProduct = cart.find((product) => product.id === productId);
@@ -72,6 +73,7 @@ const Cart = () => {
     localStorage.setItem('productsInCart', JSON.stringify(updatedCart));
     // return updatedCart;
     setGetCartProducts(updatedCart);
+    updateTotal()
   };
 
   const decrementQuantity = productId => {
@@ -86,6 +88,7 @@ const Cart = () => {
     localStorage.setItem('productsInCart', JSON.stringify(updatedCart));
     // return updatedCart;
     setGetCartProducts(updatedCart);
+    updateTotal()
   };
   // Función para calcular el total de cada producto
   const calculateProductTotal = product => {
@@ -105,6 +108,11 @@ const Cart = () => {
     return total;
   };
 
+  // Función para actualizar el subtotal 
+  const updateTotal = () => {
+    const newTotal = calculateTotal();
+    setTotal(newTotal);
+  };
   // Validar logIn
   const finishPurchase = () => {
     if (isLogged) {
@@ -174,15 +182,13 @@ const Cart = () => {
                   </Button>
                 </div>
               </td>
-              {/* <td> ${product.price * quantities[product.id] || product.price }</td> */}
-              <td>${calculateProductTotal(product) || product.Precio}</td>
-              {/* <td>{{numberToMoney(calculateProductTotal(product))}  || {numberToMoney(product.price)}}</td> */}
+              <td>{numberToMoney(calculateProductTotal(product) || product.Precio)} </td>
               <td>
                 <Button
                   onClick={() => {
                     onRemovingToCart(product._id);
                   }}
-                  className='button'
+                  className='eliminarButton'
                 >
                   {' '}
                   Eliminar producto
@@ -192,7 +198,6 @@ const Cart = () => {
           ))}
         </tbody>
       </Table>
-      <CartCards />
       <div className='buttonsContainer'>
         <div className='subtotalInfo'>
           <span className='subtotalTittle'> Subtotal: </span>

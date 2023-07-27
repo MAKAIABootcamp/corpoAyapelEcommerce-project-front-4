@@ -59,6 +59,17 @@
                 border-radius: 10px;
             }
         }
+        .eliminarButton{
+            padding: 2%;
+            background-color: var(--color__secundary);
+            color: var(--color__primary);
+            width: 7vw;
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: center;
+        }
+
     }
 
     .carritoTittle {
@@ -132,6 +143,17 @@
     }
 }
 
+@media only screen and (max-width: 1400px) {
+    .cartContainer {
+        .table {
+            .eliminarButton{
+                flex-direction: column;
+            }
+        }
+    }
+
+} 
+
 @media only screen and (max-width: 1100px) {
     .cartContainer{
         .counter{
@@ -142,6 +164,7 @@
         }
     }
   }
+
 
 @media only screen and (max-width: 700px) {
     .cartContainer{
