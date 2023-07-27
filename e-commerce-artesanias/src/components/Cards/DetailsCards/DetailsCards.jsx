@@ -2,21 +2,35 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import "../DetailsCards/DetailsCards.scss";
-// import { actionPostCartAsync, actionPutCartAsync, actionGetCartAsync } from "../../../redux/actions/cartActions";
+import { actionPostCartAsync } from "../../../redux/actions/cartActions";
 import Button from 'react-bootstrap/Button';
 import Toast from 'react-bootstrap/Toast';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { numberToMoney } from "../../../Services/utilities";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { urlFor } from '../../../sanityClient';
 import { getProductById } from '../../../Services/servicesSanity';
 const DetailsCards = () => {
   // const cart = useSelector((store) => store.cartStore.cart);
   const [productInfo, setProductInfo] = useState();
+  const [showToastLogin, setShowToastLogin] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [showToast, setShowToast] = useState(false);
   const product = useSelector((store) => store.productStore);
-  // const dispatch = useDispatch();
+  const { user } = useSelector((store) => store.login);
+  const dispatch = useDispatch();
   const { id } = useParams();
+
+  
+  const toggleToastLogin = () => setShowToastLogin(!showToastLogin)
+
+  useEffect(() => {
+    if(product.products.length>0 && id){
+      infoProduct();
+    }
+  }, [id, product]);
+  // const dispatch = useDispatch();
+
 
 
   // const infoProduct = async () => {
@@ -53,28 +67,33 @@ const DetailsCards = () => {
 
   // encuentra el producto que se esta mostrando para enviarlo al carrito 
 
-  // const onAddingToCart = (productId) => {
-  //   console.log("productId", productId)
-  //   const productInCart = cart.find(item => item.id == productId);
-  //   console.log("productInCart", productInCart)
-  //   if (productInCart) {
-  //     const newProduct = { ...productInCart }
-  //     newProduct.quantity = newProduct.quantity + 1;
-  //     dispatch(actionPutCartAsync(newProduct))
-  //   } else {
-  //     const selectedProduct = product.products.find((product) => product.id === productId);
-  //     const productToAddToCart = { ...selectedProduct }
-  //     productToAddToCart['quantity'] = 1
-  //     dispatch(actionPostCartAsync(productToAddToCart))
-  //   }
-  //   dispatch(actionGetCartAsync())
-  // }
+  const onAddingToCart = () => {
+    if(productInfo) {
+      const productInCart = user.car_products.find(item => item.productId == productInfo._id);
+      let newProduct;
+      if (productInCart) {
+        newProduct = { ...productInCart }
+        newProduct.quantity = newProduct.quantity + 1;
+        dispatch(actionPostCartAsync(newProduct, user))
+      } else {
+        newProduct = { 
+          productId: productInfo._id
+        }
+        newProduct['quantity'] = 1;
+        dispatch(actionPostCartAsync(newProduct, user))
+      }
+      setShowToast(true);
+    }
+
+  }
+
 
   const toggleToast = () => {
     setShowToast(!showToast);
   };
-
+/*
   const onAddingToCart = (productId) => {
+    console.log(productId)
     // Aquí añadimos la lógica para agregar el producto al carrito con su cantidad
     if (productInfo) {
       // Comprobamos si el carrito ya existe en el local storage
@@ -91,14 +110,15 @@ const DetailsCards = () => {
           quantity: 1,
         };
       }
-
+      console.log(cartItems)
       // Guardamos el carrito actualizado en el local storage
       localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 
       // Mostramos un mensaje de éxito usando el estado setShowToast
       setShowToast(true);
-    }
-  };
+    } 
+  }; */
+
   return (
     <div>
       {productInfo ? (
@@ -151,7 +171,7 @@ const DetailsCards = () => {
               <h3 className="subtittleProductPrice"> Valor por unidad: {numberToMoney(productInfo?.Precio)} </h3>
 
               <Button className="button" onClick={() => {
-                onAddingToCart(product._id);
+                onAddingToCart();
                 toggleToast();
               }}>
                 Agregar al carrito
