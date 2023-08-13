@@ -1,4 +1,4 @@
-# MarketPlace corpoAyapel 
+# MarketPlace CorpoAyapel 
 ![logo](https://images.jumpseller.com/store/corpoayapel-artesanias/store/logo/LogoArt.png?1620736148)
 ## Autores:
 -  [Natalia Maldonado](https://github.com/NataliaMR26)  
@@ -16,6 +16,10 @@ permitiendo al usuario crear un perfil en el que puede cargar su información pe
 Tomando un enfoque orientado a los artesanos que fabrican estos productos, se ha creado una sección en la cual se comparten testimonios y el "quiénes somos" para conocer más acerca de los mismos.
 Se pueden visualizar las redes sociales y una sección de Contacto para que sea posible contactarse con el personal de CorpoAyapel. 
 Adicionalmente, la pagina cuenta con un diseño responsivo y maquetado dinámico.
+
+## Despliegue
+
+[Artesanías CorpoAyapel](https://fir-day-artesanias.web.app)
 
 ### Las herramientas empleadas fueron: 
 - Para la creación y funcionalidad del proyecto: Vite + React js y redux.
